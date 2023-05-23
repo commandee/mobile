@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:teste/homepage_comandas.dart';
+import 'package:teste/page_login.dart';
 import 'package:teste/perfil.dart';
 
 class Home extends StatefulWidget {
@@ -22,6 +23,7 @@ class _HomeState extends State<Home> {
   int _indice = 0;
 
   List<Widget> _telas = [
+    LoginPage(),
     ComandasPage(),
     Perfil(),
   ];
@@ -41,6 +43,10 @@ class _HomeState extends State<Home> {
         currentIndex: _indice,
         onTap: _itemClicado,
         items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.login),
+            label: "Login"
+            ),
           BottomNavigationBarItem(
             icon: Icon(Icons.aod_rounded),
             label: "Comandas"
