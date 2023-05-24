@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:teste/widgets/comanda.dart';
+import 'package:teste/page_comanda.dart';
 import 'package:teste/widgets/widget_card_comanda.dart';
 
 class ComandasPage extends StatefulWidget {
@@ -18,16 +20,18 @@ class _ComandasPageState extends State<ComandasPage> {
       body: Center(
         child: ListView(
           children: [
-            CardComanda(),
-            CardComanda(),
-            CardComanda(),
-            CardComanda(),
-            CardComanda(),
-            CardComanda(),
-            CardComanda(),
-            CardComanda(),
-            CardComanda(),
-            
+            Commanda(
+              nome: "Mesa 12",
+              descricao: "Informação extra",
+            ),
+            Commanda(
+              nome: "Mesa 09",
+              descricao: "Informação extra",
+            ),
+            Commanda(
+              nome: "Mesa 08",
+              descricao: "Informação extra",
+            ),
           ]
           ),
       ),

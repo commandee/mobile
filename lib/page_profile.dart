@@ -15,14 +15,22 @@ class _PerfilState extends State<Perfil> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true, 
       appBar: AppBar(
-        title: Text('Perfil'),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        title: Text("Nome do Usuário", style: TextStyle(color: Colors.black),), 
+        centerTitle: true, 
       ),
       body: Center(
         child: Column( 
           children: [
+            //fazer essa porção separada depois
+            SizedBox(height: 50,),
             ProfilePic(),
-             Text('Texto'),
+            //fazer essa porção separada depois
+             Text('Username', style: TextStyle(fontSize: 20),),
+            
           ],
         ),
       )
