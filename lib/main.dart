@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:teste/perfil.dart';
+import 'package:teste/page_profile.dart';
 
 import 'home.dart';
 
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Commandee',
       theme: ThemeData(
-        primarySwatch: Colors.deepPurple
+        primarySwatch: Colors.deepPurple,
       ),
       routes: {
         '/': (context) => const Home('Nome do Usuário'),

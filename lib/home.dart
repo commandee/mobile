@@ -1,9 +1,9 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:teste/homepage_comandas.dart';
+import 'package:teste/page_home_comandas.dart';
 import 'package:teste/page_login.dart';
-import 'package:teste/perfil.dart';
+import 'package:teste/page_profile.dart';
 
 class Home extends StatefulWidget {
   const Home(this.usuario, {super.key});

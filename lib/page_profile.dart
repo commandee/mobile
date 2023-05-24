@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 
-import 'assets/fotoPerfil.dart';
+import 'widgets/widget-foto_perfil.dart';
 
 class Perfil extends StatefulWidget {
   const Perfil({super.key});
