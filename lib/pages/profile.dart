@@ -1,17 +1,18 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import '/constants.dart';
 
-import 'widgets/widget-foto_perfil.dart';
+import '../components/widget-foto_perfil.dart';
 
-class Perfil extends StatefulWidget {
-  const Perfil({super.key});
+class ProfilePage extends StatefulWidget {
+  const ProfilePage({super.key});
 
   @override
-  State<Perfil> createState() => _PerfilState();
+  State<ProfilePage> createState() => _ProfilePage();
 }
 
-class _PerfilState extends State<Perfil> {
+class _ProfilePage extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,7 +20,7 @@ class _PerfilState extends State<Perfil> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        title: Text("Nome do Usuário", style: TextStyle(color: Colors.black),), 
+        title: Text(userName, style: TextStyle(color: Colors.black),), 
         centerTitle: true, 
       ),
       body: Center(
@@ -29,7 +30,7 @@ class _PerfilState extends State<Perfil> {
             SizedBox(height: 50,),
             ProfilePic(),
             //fazer essa porção separada depois
-             Text('Username', style: TextStyle(fontSize: 20),),
+             Text(userName, style: TextStyle(fontSize: 20),),
             
           ],
         ),

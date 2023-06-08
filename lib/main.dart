@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:teste/page_profile.dart';
+import 'package:teste/pages/profile.dart';
 
-import 'home.dart';
+import 'pages/home.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,11 +19,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.deepPurple,
       ),
-      routes: {
-        '/': (context) => const Home('Nome do Usuário'),
-        '/perfil': (context) => const Perfil(), 
-        '/comanda': (context) => const Home('Comanda'),
-      },
+      home: HomePage(),
       
     );
   }
