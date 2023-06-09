@@ -30,7 +30,16 @@ class _ComandasPageState extends State<ComandasPage> {
             ),
           ]
           ),
+
+          
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.pushNamed(context, '/comanda');
+        },
+        child: const Icon(Icons.add, color: Colors.white,),
+        backgroundColor: Colors.deepPurple,
+      )
     );
   }
 }

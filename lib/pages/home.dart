@@ -3,6 +3,7 @@ import 'package:teste/pages/profile.dart';
 import 'package:teste/pages/settings.dart';
 
 import '../components/header_drawer.dart';
+import 'cardapio.dart';
 import 'comandas.dart';
 import 'logout.dart';
 
@@ -25,6 +26,9 @@ class _HomePageState extends State<HomePage> {
       case DrawerSections.comandas:
         container = ComandasPage();
         break;
+      case DrawerSections.cardapio:
+        container = CardapioPage();
+        break;
       case DrawerSections.profile:
         container = ProfilePage();
         break;
@@ -37,7 +41,8 @@ class _HomePageState extends State<HomePage> {
     }
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.deepPurple,
+        backgroundColor: Colors.white,
+        elevation: 0,
       ),
       body: container,
       drawer: Drawer(
@@ -61,14 +66,15 @@ class _HomePageState extends State<HomePage> {
       child: Column(
         //mostra os itens do menu
         children: [
-          menuItem(1, "Comandas", Icons.dashboard_outlined,
+          menuItem(1, "Comandas", Icons.list_alt_outlined,
               paginaAtual == DrawerSections.comandas ? true : false),
-          menuItem(2, "Profile", Icons.people_alt_outlined,
+          menuItem(2, "Cardápio", Icons.dashboard_outlined, paginaAtual == DrawerSections.cardapio ? true : false),
+          menuItem(3, "Profile", Icons.people_alt_outlined,
               paginaAtual == DrawerSections.profile ? true : false),
           Divider(),
-          menuItem(3, "Settings", Icons.settings_outlined,
+          menuItem(4, "Settings", Icons.settings_outlined,
               paginaAtual == DrawerSections.settings ? true : false),
-          menuItem(4, "Logout", Icons.logout_outlined,
+          menuItem(5, "Logout", Icons.logout_outlined,
               paginaAtual == DrawerSections.logout ? true : false),
         ],
       ),
@@ -86,13 +92,16 @@ class _HomePageState extends State<HomePage> {
             case 1:
               paginaAtual = DrawerSections.comandas;
               break;
-            case 2:
-              paginaAtual = DrawerSections.profile;
+            case 2: 
+              paginaAtual = DrawerSections.cardapio;
               break;
             case 3:
-              paginaAtual = DrawerSections.settings;
+              paginaAtual = DrawerSections.profile;
               break;
             case 4:
+              paginaAtual = DrawerSections.settings;
+              break;
+            case 5:
               paginaAtual = DrawerSections.logout;
               break;
           }  
@@ -128,4 +137,4 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
-enum DrawerSections { comandas, profile, settings, logout }
+enum DrawerSections { comandas, cardapio, profile, settings, logout }
