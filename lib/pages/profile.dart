@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import '/constants.dart';
 
-import '../components/widget-foto_perfil.dart';
+import '../components/foto_perfil.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});

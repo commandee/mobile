@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:teste/pages/profile.dart';
 
 import 'pages/home.dart';
 
