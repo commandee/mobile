@@ -11,14 +11,17 @@ class _CardapioPageState extends State<CardapioPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Cardápio'),
+      ),
       body: Padding(
         padding: EdgeInsets.all(20),
         child: GridView.count(
           crossAxisCount: 2,
           mainAxisSpacing: 10,
           children: [
-            itemFood("Comida nham nham","https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80",
- )
+            itemFood("Comida nham nham","https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80",),
+            itemFood("Comidinha lecal lecal", "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80"),
           ],
         ),
       ),
@@ -29,6 +32,7 @@ class _CardapioPageState extends State<CardapioPage> {
         margin: EdgeInsets.all(5),
         padding: EdgeInsets.all(8),
         decoration: BoxDecoration(
+          
           color: Colors.white,
           borderRadius: BorderRadius.circular(10),
           boxShadow: [

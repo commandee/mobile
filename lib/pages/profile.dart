@@ -16,12 +16,8 @@ class _ProfilePage extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      extendBodyBehindAppBar: true, 
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        title: Text(userName, style: TextStyle(color: Colors.black),), 
-        centerTitle: true, 
+        title: const Text('Perfil'),
       ),
       body: Center(
         child: Column( 

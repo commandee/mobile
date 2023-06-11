@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'pages/home.dart';
+import 'package:teste/pages/login.dart';
 
 void main() {
   runApp(const MyApp());
@@ -9,16 +8,15 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Commandee',
       theme: ThemeData(
-        primarySwatch: Colors.grey,
+        primarySwatch: Colors.deepPurple,
       ),
-      home: HomePage(),
+      home: LoginPage(),//HomePage(),
       
     );
   }
