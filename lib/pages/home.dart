@@ -2,7 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:teste/pages/cardapio.dart';
+import 'package:teste/pages/login.dart';
 import 'package:teste/pages/profile.dart';
+import 'package:teste/pages/settings.dart';
 
 import '../components/comanda.dart';
 import '../constants.dart';
@@ -20,6 +22,7 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text('Comandas'),
       ),
+      backgroundColor: fundoClaro,
       drawer: const NavigationDrawer(),
       body: Center(
         child: Padding(
@@ -62,13 +65,13 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          
+          print("Criando nova comanda");
         },
-        child: const Icon(
+        backgroundColor: accent,
+        child: Icon(
           Icons.add,
           color: Colors.white,
         ),
-        backgroundColor: accent,
       ));
 }
 
@@ -109,20 +112,19 @@ class NavigationDrawer extends StatelessWidget {
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              
               children: [
                 CircleAvatar(
                   radius: 52,
-                  backgroundImage: NetworkImage(img),
+                  backgroundImage: NetworkImage(profilePic),
                 ),
                 const SizedBox(height: 12),
                 Text(
-                  "Nome do usuário",
+                  userName,
                   style: TextStyle(color: texto, fontSize: 18),
                 ),
                 const SizedBox(height: 4),
                 Text(
-                  "Email do usuário",
+                  email,
                   style: TextStyle(color: texto, fontSize: 14),
                 ),
               ],
@@ -169,15 +171,30 @@ class NavigationDrawer extends StatelessWidget {
               );
             },
           ),
+          Divider(
+            color: Colors.grey,
+            height: 0.4,
+          ),
           ListTile(
             leading: const Icon(Icons.settings_outlined),
             title: const Text("Configurações"),
-            onTap: () {},
+            onTap: () {
+              Navigator.pop(context);
+
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const SettingsPage(),
+                ),
+              );
+            },
           ),
           ListTile(
             leading: const Icon(Icons.logout_outlined),
             title: const Text("Sair"),
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => LoginPage()));
+            },
           ),
         ]),
       );

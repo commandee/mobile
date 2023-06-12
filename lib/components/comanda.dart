@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:teste/constants.dart';
 
 class Commanda extends StatelessWidget {
   Commanda({super.key, required this.nome, required this.descricao});
@@ -17,11 +18,17 @@ class Commanda extends StatelessWidget {
           ),
           child: ListTile(
             title: Text(nome,
-                style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-            subtitle: Text(descricao,
+                style:
+                    const TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: texto)),
+            subtitle: Text(
+              descricao,
               style: const TextStyle(fontSize: 15),
             ),
-            trailing: const Icon(Icons.arrow_forward),
+            trailing: InkWell(
+                child: const Icon(Icons.arrow_forward),
+                onTap: () {
+                  print('Redirecionando para a comanda');
+                }),
           )),
     );
   }

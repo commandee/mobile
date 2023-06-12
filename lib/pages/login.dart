@@ -1,10 +1,12 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
-import 'package:teste/components/login_button.dart';
+import 'package:teste/components/button.dart';
 import 'package:teste/components/my_textfield.dart';
 import 'package:teste/components/square_tile_login.dart';
 import 'package:teste/constants.dart';
+import 'package:teste/pages/forgot_password.dart';
+import 'package:teste/pages/register.dart';
 
 //import 'home.dart';
 import 'home.dart';
@@ -41,7 +43,8 @@ class LoginPage extends StatelessWidget {
     //funcionalidade do botão
     void logarUsuario() {
       if (emailcontroller.text == "" && passwordcontroller.text == "") {
-        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
+        Navigator.pushReplacement(context,
+            MaterialPageRoute(builder: (context) {
           return MyHomePage();
         }));
       } else {
@@ -51,15 +54,19 @@ class LoginPage extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: fundoClaro,
-      body: SingleChildScrollView(
-        child: SafeArea(
-          child: Center(
+      body: Center(
+        child: SingleChildScrollView(
+          child: SafeArea(
             child: Column(
               children: [
-                const SizedBox(
-                  height: 150,
+                Image.asset(
+                  "assets/images/illustration.png",
+                  height: 210,
+                  width: 210,
                 ),
-
+                const SizedBox(
+                  height: 20,
+                ),
                 Text(
                   "Bem-Vindo de volta!",
                   style: TextStyle(
@@ -71,7 +78,7 @@ class LoginPage extends StatelessWidget {
                 Align(
                   alignment: Alignment.center,
                   child: Text(
-                    "nós do Commandee sentimos falta!",
+                    "nós do Commandee sentimos sua falta!",
                     style: TextStyle(
                       color: texto,
                       fontSize: 18,
@@ -79,7 +86,7 @@ class LoginPage extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(
-                  height: 60,
+                  height: 30,
                 ),
                 MyTextfield(
                   controller: emailcontroller,
@@ -102,13 +109,21 @@ class LoginPage extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      Text(
-                        "Esqueceu a senha?",
-                        style: TextStyle(
-                          color: primary,
-                          fontSize: 12,
+                      GestureDetector(
+                        child: Text(
+                          "Esqueceu a senha?",
+                          style: TextStyle(
+                            color: primary,
+                            fontSize: 12,
+                          ),
                         ),
-                      ),
+                        onTap: () {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) {
+                            return ForgotPasswordPage();
+                          }));
+                        },
+                      )
                     ],
                   ),
                 ),
@@ -117,11 +132,15 @@ class LoginPage extends StatelessWidget {
                 ),
 
                 //botão de login
-                LoginButton(
+                Button(
+                  text: "Entrar",
+                  cortexto: Colors.white,
+                  corFundo: accent,
+                  margin: 25,
                   onTap: logarUsuario,
                 ),
                 const SizedBox(
-                  height: 45,
+                  height: 35,
                 ),
 
                 Row(
@@ -151,11 +170,11 @@ class LoginPage extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    SquareTile(ImagePath: "assets/images/google.png"),
+                    SquareTile(imagePath: "assets/images/google.png"),
                     const SizedBox(
                       width: 20,
                     ),
-                    SquareTile(ImagePath: "assets/images/linkedin.png")
+                    SquareTile(imagePath: "assets/images/twitter.png")
                   ],
                 ),
 
@@ -169,9 +188,14 @@ class LoginPage extends StatelessWidget {
                   const SizedBox(
                     width: 5,
                   ),
-                  const Text("Registre-se aqui!",
-                      style: TextStyle(
-                          color: primary, fontWeight: FontWeight.bold)),
+                  GestureDetector(
+                      child: const Text("Registre-se aqui!",
+                          style: TextStyle(
+                              color: primary, fontWeight: FontWeight.bold)),
+                      onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const RegisterPage()));
+                      })
                 ]),
               ],
             ),

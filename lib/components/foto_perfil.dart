@@ -25,7 +25,7 @@ class _ProfilePicState extends State<ProfilePic> {
       ),
       child: CircleAvatar(
         radius: 25,
-        backgroundImage: NetworkImage(img),
+        backgroundImage: NetworkImage(profilePic),
       ),
     );
   }
