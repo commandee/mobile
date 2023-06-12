@@ -41,7 +41,7 @@ class LoginPage extends StatelessWidget {
     //funcionalidade do botão
     void logarUsuario() {
       if (emailcontroller.text == "" && passwordcontroller.text == "") {
-        Navigator.push(context, MaterialPageRoute(builder: (context) {
+        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
           return MyHomePage();
         }));
       } else {

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../constants.dart';
+
 class ProfilePic extends StatefulWidget {
   ProfilePic({super.key});
 
@@ -23,8 +25,7 @@ class _ProfilePicState extends State<ProfilePic> {
       ),
       child: CircleAvatar(
         radius: 25,
-        backgroundImage: NetworkImage(
-            'https://static.vecteezy.com/system/resources/previews/021/548/095/original/default-profile-picture-avatar-user-avatar-icon-person-icon-head-icon-profile-picture-icons-default-anonymous-user-male-and-female-businessman-photo-placeholder-social-network-avatar-portrait-free-vector.jpg'),
+        backgroundImage: NetworkImage(img),
       ),
     );
   }

@@ -1,8 +1,11 @@
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+
 import 'package:flutter/material.dart';
 import 'package:teste/pages/cardapio.dart';
 import 'package:teste/pages/profile.dart';
 
 import '../components/comanda.dart';
+import '../constants.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -16,7 +19,6 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) => Scaffold(
       appBar: AppBar(
         title: Text('Comandas'),
-        backgroundColor: Colors.grey,
       ),
       drawer: const NavigationDrawer(),
       body: Center(
@@ -51,18 +53,22 @@ class _MyHomePageState extends State<MyHomePage> {
               nome: "Mesa 12",
               descricao: "Informação extra",
             ),
+            Commanda(
+              nome: "Mesa 12",
+              descricao: "Informação extra",
+            ),
           ]),
         ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.pushNamed(context, '/comanda');
+          
         },
         child: const Icon(
           Icons.add,
           color: Colors.white,
         ),
-        backgroundColor: Colors.deepPurple,
+        backgroundColor: accent,
       ));
 }
 
@@ -71,6 +77,7 @@ class NavigationDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Drawer(
+        backgroundColor: fundoClaro,
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -82,14 +89,50 @@ class NavigationDrawer extends StatelessWidget {
         ),
       );
 
-  Widget buildHeader(BuildContext context) => Container(
-        padding: EdgeInsets.only(
-          top: MediaQuery.of(context).padding.top,
+  Widget buildHeader(BuildContext context) => Material(
+        color: secondary,
+        child: InkWell(
+          onTap: () {
+            Navigator.pop(context);
+
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => const ProfilePage(),
+              ),
+            );
+          },
+          child: Container(
+            padding: EdgeInsets.only(
+              top: 24 + MediaQuery.of(context).padding.top,
+              bottom: 24,
+              left: 24,
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              
+              children: [
+                CircleAvatar(
+                  radius: 52,
+                  backgroundImage: NetworkImage(img),
+                ),
+                const SizedBox(height: 12),
+                Text(
+                  "Nome do usuário",
+                  style: TextStyle(color: texto, fontSize: 18),
+                ),
+                const SizedBox(height: 4),
+                Text(
+                  "Email do usuário",
+                  style: TextStyle(color: texto, fontSize: 14),
+                ),
+              ],
+            ),
+          ),
         ),
       );
 
   Widget buildMenuItems(BuildContext context) => Container(
-        padding: const EdgeInsets.all(24.0),
+        padding: const EdgeInsets.all(1.0),
         child: Wrap(runSpacing: 16, children: [
           ListTile(
             leading: const Icon(Icons.receipt_outlined),
@@ -103,24 +146,28 @@ class NavigationDrawer extends StatelessWidget {
           ListTile(
             leading: const Icon(Icons.person_outline),
             title: const Text("Profile"),
-            onTap: () => Navigator.of(context).push(
-              MaterialPageRoute(
-                builder: (context) => const ProfilePage(),
-              ),
-            )
+            onTap: () {
+              Navigator.pop(context);
+
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const ProfilePage(),
+                ),
+              );
+            },
           ),
           ListTile(
             leading: const Icon(Icons.menu_book_outlined),
             title: const Text("Cardápio"),
-            onTap: () => Navigator.of(context).push(
-              MaterialPageRoute(
-                builder: (context) => const CardapioPage(),
-              ),
-            )
-          ),
-          const Divider(
-            height: 1,
-            thickness: 1,
+            onTap: () {
+              Navigator.pop(context);
+
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const CardapioPage(),
+                ),
+              );
+            },
           ),
           ListTile(
             leading: const Icon(Icons.settings_outlined),
