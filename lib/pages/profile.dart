@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:teste/components/info_textfield.dart';
 import '/constants.dart';
 
 import '../components/foto_perfil.dart';
@@ -21,6 +22,7 @@ class _ProfilePage extends State<ProfilePage> {
         backgroundColor: Colors.transparent,
         elevation: 0,
       ),
+      backgroundColor: fundoClaro,
       body: ListView(
         padding: EdgeInsets.zero,
         children: [
@@ -39,11 +41,11 @@ class _ProfilePage extends State<ProfilePage> {
           Column(
             children: [
               const SizedBox(height: 20),
-              Text(userName,
+              Text(name,
                   style: TextStyle(
                       fontSize: 20, fontWeight: FontWeight.bold, color: texto)),
               const SizedBox(height: 5),
-              Text(email,
+              Text(userName,
                   style: TextStyle(fontSize: 16, color: Colors.grey[600])),
               const SizedBox(height: 20),
               Divider(
@@ -52,6 +54,19 @@ class _ProfilePage extends State<ProfilePage> {
               ),
             ],
           ),
+
+          const SizedBox(
+            height: 50,
+          ),
+
+          Padding(
+            padding: const EdgeInsets.only(left: 25),
+            child: Text("Minhas informações",
+                style: TextStyle(fontSize: 16, color: Colors.deepPurple, fontWeight: FontWeight.bold)),
+          ),
+          InfoTextField(text: userName, sectionName: "Nome de usuário",),
+          InfoTextField(text: name, sectionName: "Nome completo",),
+          InfoTextField(text: email, sectionName: "E-mail",),
         ],
       ),
     );
@@ -61,4 +76,5 @@ class _ProfilePage extends State<ProfilePage> {
         color: secondary,
         height: 200,
       );
+
 }

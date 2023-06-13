@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 const String email = "commandee@gmail.com";
-const String name = "Garçom da Silva";
-const String userName = "Garçom";
+const String name = "Garçonete da Silva";
+const String userName = "@Garçonete";
 const String senha = "12345678";
 const String profilePic = "assets/images/profile.jpg";
 

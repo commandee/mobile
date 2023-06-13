@@ -118,7 +118,7 @@ class NavigationDrawer extends StatelessWidget {
                 ProfilePic(),
                 const SizedBox(height: 12),
                 Text(
-                  userName,
+                  name,
                   style: TextStyle(color: texto, fontSize: 18),
                 ),
                 const SizedBox(height: 4),

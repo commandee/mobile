@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:teste/components/button.dart';
-import 'package:teste/components/my_textfield.dart';
+import 'package:teste/components/form_textfield.dart';
 import 'package:teste/components/square_tile_login.dart';
 import 'package:teste/constants.dart';
 import 'package:teste/pages/forgot_password.dart';
@@ -42,7 +42,7 @@ class LoginPage extends StatelessWidget {
 
     //funcionalidade do botão
     void logarUsuario() {
-      if (emailcontroller.text == "" && passwordcontroller.text == "") {
+      if (emailcontroller.text == email && passwordcontroller.text == senha) {
         Navigator.pushReplacement(context,
             MaterialPageRoute(builder: (context) {
           return MyHomePage();
