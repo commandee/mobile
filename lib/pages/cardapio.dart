@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:teste/constants.dart';
 
 class CardapioPage extends StatefulWidget {
   const CardapioPage({super.key});
@@ -12,27 +13,74 @@ class _CardapioPageState extends State<CardapioPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Cardápio'),
-        
+        title: const Text('Cardápio'),
       ),
-      body: Padding(
-        padding: EdgeInsets.all(20),
-        child: GridView.count(
-          crossAxisCount: 2,
-          mainAxisSpacing: 10,
+      body: SingleChildScrollView(
+        child: Column(
           children: [
-            itemFood(
-                "Salada César",
-                "https://img.cybercook.com.br/receitas/441/salada-caesar-2.jpeg",
-                "R\$ 15,00"),
-            itemFood(
-                "Hambúrguer",
-                "https://classic.exame.com/wp-content/uploads/2020/05/mafe-studio-LV2p9Utbkbw-unsplash-1.jpg?quality=70&strip=info&w=1024",
-                "R\$ 20,00"),
-            itemFood(
-                "Onion Rings",
-                "https://cdn.casaeculinaria.com/wp-content/uploads/2023/01/18141914/onion-rings-1.jpg",
-                "R\$ 10,00"),
+            //filtros
+
+
+            //cardapio
+
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: GridView.count(
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  crossAxisCount: 2,
+                  mainAxisSpacing: 10,
+                  children: [
+                    itemFood(
+                        "Salada César",
+                        "https://img.cybercook.com.br/receitas/441/salada-caesar-2.jpeg",
+                        "R\$ 15,00"),
+                    itemFood(
+                        "Hambúrguer",
+                        "https://classic.exame.com/wp-content/uploads/2020/05/mafe-studio-LV2p9Utbkbw-unsplash-1.jpg?quality=70&strip=info&w=1024",
+                        "R\$ 20,00"),
+                    itemFood(
+                        "Onion Rings",
+                        "https://cdn.casaeculinaria.com/wp-content/uploads/2023/01/18141914/onion-rings-1.jpg",
+                        "R\$ 10,00"),
+                    itemFood(
+                        "Salada César",
+                        "https://img.cybercook.com.br/receitas/441/salada-caesar-2.jpeg",
+                        "R\$ 15,00"),
+                    itemFood(
+                        "Hambúrguer",
+                        "https://classic.exame.com/wp-content/uploads/2020/05/mafe-studio-LV2p9Utbkbw-unsplash-1.jpg?quality=70&strip=info&w=1024",
+                        "R\$ 20,00"),
+                    itemFood(
+                        "Onion Rings",
+                        "https://cdn.casaeculinaria.com/wp-content/uploads/2023/01/18141914/onion-rings-1.jpg",
+                        "R\$ 10,00"),
+                    itemFood(
+                        "Salada César",
+                        "https://img.cybercook.com.br/receitas/441/salada-caesar-2.jpeg",
+                        "R\$ 15,00"),
+                    itemFood(
+                        "Hambúrguer",
+                        "https://classic.exame.com/wp-content/uploads/2020/05/mafe-studio-LV2p9Utbkbw-unsplash-1.jpg?quality=70&strip=info&w=1024",
+                        "R\$ 20,00"),
+                    itemFood(
+                        "Onion Rings",
+                        "https://cdn.casaeculinaria.com/wp-content/uploads/2023/01/18141914/onion-rings-1.jpg",
+                        "R\$ 10,00"),
+                    itemFood(
+                        "Salada César",
+                        "https://img.cybercook.com.br/receitas/441/salada-caesar-2.jpeg",
+                        "R\$ 15,00"),
+                    itemFood(
+                        "Hambúrguer",
+                        "https://classic.exame.com/wp-content/uploads/2020/05/mafe-studio-LV2p9Utbkbw-unsplash-1.jpg?quality=70&strip=info&w=1024",
+                        "R\$ 20,00"),
+                    itemFood(
+                        "Onion Rings",
+                        "https://cdn.casaeculinaria.com/wp-content/uploads/2023/01/18141914/onion-rings-1.jpg",
+                        "R\$ 10,00"),
+                  ]),
+            ),
           ],
         ),
       ),

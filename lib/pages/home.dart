@@ -135,7 +135,8 @@ class NavigationDrawer extends StatelessWidget {
 
   Widget buildMenuItems(BuildContext context) => Container(
         padding: const EdgeInsets.all(1.0),
-        child: Wrap(runSpacing: 16, children: [
+        child: Wrap(runSpacing: 16, 
+        children: [
           ListTile(
             leading: const Icon(Icons.receipt_outlined),
             title: const Text("Comandas"),
@@ -166,7 +167,7 @@ class NavigationDrawer extends StatelessWidget {
 
               Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (context) => const CardapioPage(),
+                  builder: (context) => CardapioPage(),
                 ),
               );
             },
@@ -193,7 +194,7 @@ class NavigationDrawer extends StatelessWidget {
             title: const Text("Sair"),
             onTap: () {
               Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (context) => LoginPage()));
+                  .pushReplacement(MaterialPageRoute(builder: (context) => LoginPage()));
             },
           ),
         ]),

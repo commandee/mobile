@@ -89,6 +89,7 @@ class LoginPage extends StatelessWidget {
                   height: 30,
                 ),
                 MyTextfield(
+                  icone: Icons.email_outlined,
                   controller: emailcontroller,
                   hintText: "Email",
                   obscureText: false,
@@ -97,6 +98,7 @@ class LoginPage extends StatelessWidget {
                   height: 10,
                 ),
                 MyTextfield(
+                  icone: Icons.fingerprint_outlined,
                   controller: passwordcontroller,
                   hintText: "Senha",
                   obscureText: true,
@@ -179,7 +181,7 @@ class LoginPage extends StatelessWidget {
                 ),
 
                 const SizedBox(
-                  height: 30,
+                  height: 20,
                 ),
 
                 Row(mainAxisAlignment: MainAxisAlignment.center, children: [
@@ -194,7 +196,7 @@ class LoginPage extends StatelessWidget {
                               color: primary, fontWeight: FontWeight.bold)),
                       onTap: () {
                         Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => const RegisterPage()));
+                            builder: (context) => RegisterPage()));
                       })
                 ]),
               ],
