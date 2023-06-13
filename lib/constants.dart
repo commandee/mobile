@@ -4,8 +4,7 @@ const String email = "commandee@gmail.com";
 const String name = "Garçom da Silva";
 const String userName = "Garçom";
 const String senha = "12345678";
-const String profilePic =
-    "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80";
+const String profilePic = "assets/images/profile.jpg";
 
 //Paleta de Cores
 const Color fundoClaro = Color(0xFFEFEEF3);

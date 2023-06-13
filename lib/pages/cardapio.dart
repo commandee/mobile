@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:teste/constants.dart';
 
 class CardapioPage extends StatefulWidget {
   const CardapioPage({super.key});

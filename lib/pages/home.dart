@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:teste/components/foto_perfil.dart';
 import 'package:teste/pages/cardapio.dart';
 import 'package:teste/pages/login.dart';
 import 'package:teste/pages/profile.dart';
@@ -113,10 +114,7 @@ class NavigationDrawer extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                CircleAvatar(
-                  radius: 52,
-                  backgroundImage: NetworkImage(profilePic),
-                ),
+                ProfilePic(),
                 const SizedBox(height: 12),
                 Text(
                   userName,

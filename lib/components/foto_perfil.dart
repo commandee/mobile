@@ -4,12 +4,15 @@ import '../constants.dart';
 
 class ProfilePic extends StatefulWidget {
   ProfilePic({super.key});
+  
+  
 
   @override
   State<ProfilePic> createState() => _ProfilePicState();
 }
 
 class _ProfilePicState extends State<ProfilePic> {
+  
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -25,7 +28,7 @@ class _ProfilePicState extends State<ProfilePic> {
       ),
       child: CircleAvatar(
         radius: 25,
-        backgroundImage: NetworkImage(profilePic),
+        backgroundImage: AssetImage(profilePic),
       ),
     );
   }
