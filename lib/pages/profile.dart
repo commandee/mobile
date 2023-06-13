@@ -18,7 +18,6 @@ class _ProfilePage extends State<ProfilePage> {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        title: const Text('Perfil'),
         backgroundColor: Colors.transparent,
         elevation: 0,
       ),
@@ -36,6 +35,7 @@ class _ProfilePage extends State<ProfilePage> {
             ],
           ),
 
+          //textinho
           Column(
             children: [
               const SizedBox(height: 20),

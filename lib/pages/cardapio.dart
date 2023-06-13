@@ -32,51 +32,51 @@ class _CardapioPageState extends State<CardapioPage> {
                   children: [
                     itemFood(
                         "Salada César",
-                        "https://img.cybercook.com.br/receitas/441/salada-caesar-2.jpeg",
+                        "assets/images/salada.jpeg",
                         "R\$ 15,00"),
                     itemFood(
                         "Hambúrguer",
-                        "https://classic.exame.com/wp-content/uploads/2020/05/mafe-studio-LV2p9Utbkbw-unsplash-1.jpg?quality=70&strip=info&w=1024",
+                        "assets/images/hamburguer.png",
                         "R\$ 20,00"),
                     itemFood(
                         "Onion Rings",
-                        "https://cdn.casaeculinaria.com/wp-content/uploads/2023/01/18141914/onion-rings-1.jpg",
+                        "assets/images/cebolafrita.jpg",
                         "R\$ 10,00"),
-                    itemFood(
+                   itemFood(
                         "Salada César",
-                        "https://img.cybercook.com.br/receitas/441/salada-caesar-2.jpeg",
+                        "assets/images/salada.jpeg",
                         "R\$ 15,00"),
                     itemFood(
                         "Hambúrguer",
-                        "https://classic.exame.com/wp-content/uploads/2020/05/mafe-studio-LV2p9Utbkbw-unsplash-1.jpg?quality=70&strip=info&w=1024",
+                        "assets/images/hamburguer.png",
                         "R\$ 20,00"),
                     itemFood(
                         "Onion Rings",
-                        "https://cdn.casaeculinaria.com/wp-content/uploads/2023/01/18141914/onion-rings-1.jpg",
+                        "assets/images/cebolafrita.jpg",
                         "R\$ 10,00"),
-                    itemFood(
+                   itemFood(
                         "Salada César",
-                        "https://img.cybercook.com.br/receitas/441/salada-caesar-2.jpeg",
+                        "assets/images/salada.jpeg",
                         "R\$ 15,00"),
                     itemFood(
                         "Hambúrguer",
-                        "https://classic.exame.com/wp-content/uploads/2020/05/mafe-studio-LV2p9Utbkbw-unsplash-1.jpg?quality=70&strip=info&w=1024",
+                        "assets/images/hamburguer.png",
                         "R\$ 20,00"),
                     itemFood(
                         "Onion Rings",
-                        "https://cdn.casaeculinaria.com/wp-content/uploads/2023/01/18141914/onion-rings-1.jpg",
+                        "assets/images/cebolafrita.jpg",
                         "R\$ 10,00"),
-                    itemFood(
+                   itemFood(
                         "Salada César",
-                        "https://img.cybercook.com.br/receitas/441/salada-caesar-2.jpeg",
+                        "assets/images/salada.jpeg",
                         "R\$ 15,00"),
                     itemFood(
                         "Hambúrguer",
-                        "https://classic.exame.com/wp-content/uploads/2020/05/mafe-studio-LV2p9Utbkbw-unsplash-1.jpg?quality=70&strip=info&w=1024",
+                        "assets/images/hamburguer.png",
                         "R\$ 20,00"),
                     itemFood(
                         "Onion Rings",
-                        "https://cdn.casaeculinaria.com/wp-content/uploads/2023/01/18141914/onion-rings-1.jpg",
+                        "assets/images/cebolafrita.jpg",
                         "R\$ 10,00"),
                   ]),
             ),
@@ -106,7 +106,7 @@ class _CardapioPageState extends State<CardapioPage> {
             children: [
               ClipRRect(
                 borderRadius: BorderRadius.circular(10),
-                child: Image.network(
+                child: Image.asset(
                   img,
                   height: 100,
                   width: double.infinity,

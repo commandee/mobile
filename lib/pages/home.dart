@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:teste/components/dropdown_resturantes.dart';
 import 'package:teste/components/foto_perfil.dart';
 import 'package:teste/pages/cardapio.dart';
 import 'package:teste/pages/login.dart';
@@ -133,10 +134,14 @@ class NavigationDrawer extends StatelessWidget {
 
   Widget buildMenuItems(BuildContext context) => Container(
         padding: const EdgeInsets.all(1.0),
-        child: Wrap(runSpacing: 16, 
-        children: [
+        child: Wrap(runSpacing: 16, children: [
+          DropdownRestaurante(),
+          Divider(
+            color: Colors.grey,
+            height: 0.4,
+          ),
           ListTile(
-            leading: const Icon(Icons.receipt_outlined),
+            leading: const Icon(Icons.receipt_outlined,),
             title: const Text("Comandas"),
             onTap: () => Navigator.of(context).pushReplacement(
               MaterialPageRoute(
@@ -174,6 +179,7 @@ class NavigationDrawer extends StatelessWidget {
             color: Colors.grey,
             height: 0.4,
           ),
+          
           ListTile(
             leading: const Icon(Icons.settings_outlined),
             title: const Text("Configurações"),
@@ -191,10 +197,16 @@ class NavigationDrawer extends StatelessWidget {
             leading: const Icon(Icons.logout_outlined),
             title: const Text("Sair"),
             onTap: () {
-              Navigator.of(context)
-                  .pushReplacement(MaterialPageRoute(builder: (context) => LoginPage()));
+              Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(builder: (context) => LoginPage()));
             },
           ),
+          
+          
         ]),
       );
+
+  
+
+
 }
