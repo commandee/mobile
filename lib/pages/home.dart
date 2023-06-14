@@ -31,36 +31,36 @@ class _MyHomePageState extends State<MyHomePage> {
           padding: const EdgeInsets.all(10.0),
           child: ListView(children: [
             Commanda(
-              nome: "Mesa 12",
-              descricao: "Informação extra",
+              nome: "Mesa 01",
+              descricao: "Salada César x2, Hambúrguer, Onion Rings",
             ),
             Commanda(
               nome: "Mesa 09",
-              descricao: "Informação extra",
+              descricao: "Hambúrguer x2, Batata Frita",
             ),
             Commanda(
               nome: "Mesa 08",
-              descricao: "Informação extra",
+              descricao: "Suco de Maracujá, Hambúrguer",
+            ),
+            Commanda(
+              nome: "Mesa 04",
+              descricao: "Refrigerante 500ml x2, Hambúrguer, Onion Rings",
+            ),
+            Commanda(
+              nome: "Mesa 15",
+              descricao: "Sundae de Chocolate, Hambúrguer, Onion Rings",
             ),
             Commanda(
               nome: "Mesa 12",
-              descricao: "Informação extra",
+              descricao: "Suco de laranja, Onion Rings",
             ),
             Commanda(
-              nome: "Mesa 12",
-              descricao: "Informação extra",
+              nome: "Mesa 11",
+              descricao: "Hambúrguer, Onion Rings, Batata Frita",
             ),
             Commanda(
-              nome: "Mesa 12",
-              descricao: "Informação extra",
-            ),
-            Commanda(
-              nome: "Mesa 12",
-              descricao: "Informação extra",
-            ),
-            Commanda(
-              nome: "Mesa 12",
-              descricao: "Informação extra",
+              nome: "Mesa 19",
+              descricao: "Hambúrguer, Onion Rings, Batata Frita",
             ),
           ]),
         ),
@@ -188,7 +188,7 @@ class NavigationDrawer extends StatelessWidget {
 
               Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (context) => const SettingsPage(),
+                  builder: (context) => SettingsPage(),
                 ),
               );
             },
