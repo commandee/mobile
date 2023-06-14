@@ -68,7 +68,7 @@ class LoginPage extends StatelessWidget {
                   height: 20,
                 ),
                 Text(
-                  "Bem-Vindo de volta!",
+                  "Bem-Vinde de volta!",
                   style: TextStyle(
                     color: texto,
                     fontSize: 30,

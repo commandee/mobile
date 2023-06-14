@@ -21,6 +21,12 @@ class _ProfilePage extends State<ProfilePage> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
+        leading: BackButton(
+          color: primary,
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        )
       ),
       backgroundColor: fundoClaro,
       body: ListView(
@@ -62,7 +68,7 @@ class _ProfilePage extends State<ProfilePage> {
           Padding(
             padding: const EdgeInsets.only(left: 25),
             child: Text("Minhas informações",
-                style: TextStyle(fontSize: 16, color: Colors.deepPurple, fontWeight: FontWeight.bold)),
+                style: TextStyle(fontSize: 16, color: texto, fontWeight: FontWeight.bold)),
           ),
           InfoTextField(text: userName, sectionName: "Nome de usuário",),
           InfoTextField(text: name, sectionName: "Nome completo",),
