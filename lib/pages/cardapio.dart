@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:teste/components/filtros.dart';
 
 class CardapioPage extends StatefulWidget {
   const CardapioPage({super.key});
@@ -18,7 +19,7 @@ class _CardapioPageState extends State<CardapioPage> {
         child: Column(
           children: [
             //filtros
-
+            Filtros(),
 
             //cardapio
 
