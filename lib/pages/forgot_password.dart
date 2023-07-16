@@ -14,13 +14,13 @@ class ForgotPasswordPage extends StatelessWidget {
         backgroundColor: Colors.transparent,
         elevation: 0,
         leading: BackButton(
-          color: primary,
+          color: primaryLight,
           onPressed: () {
             Navigator.pop(context);
           },
         ),
       ),
-      backgroundColor: fundoClaro,
+      backgroundColor: fundoLight,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -28,17 +28,16 @@ class ForgotPasswordPage extends StatelessWidget {
             const Text(
               "Esqueceu a senha?",
               style: TextStyle(
-                  fontSize: 20, fontWeight: FontWeight.bold, color: texto),
+                  fontSize: 20, fontWeight: FontWeight.bold, color: textoLight),
             ),
             const Text("Não se preocupe, vamos te ajudar!",
                 style: TextStyle(
                   fontSize: 16,
-                  color: primary,
+                  color: primaryLight,
                 )),
             const SizedBox(
               height: 20,
             ),
-
             MyTextfield(
               icone: Icons.email_outlined,
               controller: emailcontroller,
@@ -54,12 +53,11 @@ class ForgotPasswordPage extends StatelessWidget {
                 "Insira seu e-mail cadastrado para receber um link de recuperação.",
                 style: TextStyle(
                   fontSize: 16,
-                  color: texto,
+                  color: textoLight,
                 ),
                 textAlign: TextAlign.center,
               ),
             ),
-
             const SizedBox(
               height: 20,
             ),
@@ -67,7 +65,7 @@ class ForgotPasswordPage extends StatelessWidget {
               onPressed: () {},
               child: const Text("Enviar"),
               style: ElevatedButton.styleFrom(
-                backgroundColor: accent,
+                backgroundColor: accentLight,
                 shape: const RoundedRectangleBorder(
                   borderRadius: BorderRadius.all(
                     Radius.circular(10),

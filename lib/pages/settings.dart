@@ -15,7 +15,7 @@ class _SettingsPageState extends State<SettingsPage> {
 
   bool valNotif3 = false;
 
-  onChangeFunction1(bool newValue1) {
+  trocarTema(bool newValue1) {
     setState(() {
       valNotif1 = newValue1;
     });
@@ -45,11 +45,11 @@ class _SettingsPageState extends State<SettingsPage> {
               const SizedBox(
                 height: 40,
               ),
-              Row(
+              const Row(
                 children: [
                   Icon(
                     Icons.person_outlined,
-                    color: primary,
+                    color: primaryLight,
                   ),
                   SizedBox(
                     width: 10,
@@ -59,29 +59,29 @@ class _SettingsPageState extends State<SettingsPage> {
                     style: TextStyle(
                         fontSize: 22,
                         fontWeight: FontWeight.bold,
-                        color: texto),
+                        color: textoLight),
                   )
                 ],
               ),
-              Divider(
+             const Divider(
                 height: 20,
                 thickness: 1,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               buildAccountOption(context, "Mudar senha"),
               buildAccountOption(context, "Privacidade"),
               buildAccountOption(context, "Notificações"),
               buildAccountOption(context, "Idioma"),
-              SizedBox(
+              const SizedBox(
                 height: 40,
               ),
-              Row(
+              const Row(
                 children: [
                   Icon(
                     Icons.settings,
-                    color: primary,
+                    color: primaryLight,
                   ),
                   SizedBox(
                     width: 10,
@@ -91,15 +91,15 @@ class _SettingsPageState extends State<SettingsPage> {
                     style: TextStyle(
                         fontSize: 22,
                         fontWeight: FontWeight.bold,
-                        color: texto),
+                        color: textoLight),
                   )
                 ],
               ),
-              Divider(
+              const Divider(
                 height: 20,
                 thickness: 1,
               ),
-              buildNotifOption("Dark Mode", valNotif1, onChangeFunction1),
+              buildNotifOption("Dark Mode", valNotif1, trocarTema),
               buildNotifOption("Notificações", valNotif2, onChangeFunction2),
               buildNotifOption("Opção 3", valNotif3, onChangeFunction3),
             ])));
@@ -112,9 +112,7 @@ Padding buildNotifOption(String title, bool value, Function onChangeMethod) {
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text(title,
-            style: TextStyle(
-                fontSize: 18, color: texto)),
+        Text(title, style: TextStyle(fontSize: 18, color: textoLight)),
         Transform.scale(
           scale: 0.7,
           child: Switch(
@@ -122,10 +120,10 @@ Padding buildNotifOption(String title, bool value, Function onChangeMethod) {
             onChanged: (bool newValue) {
               onChangeMethod(newValue);
             },
-            activeColor: primary,
-            activeTrackColor: primary,
-            inactiveThumbColor: secondary,
-            inactiveTrackColor: secondary,
+            activeColor: primaryLight,
+            activeTrackColor: primaryLight,
+            inactiveThumbColor: secondaryLight,
+            inactiveTrackColor: secondaryLight,
           ),
         )
       ],
@@ -166,12 +164,11 @@ GestureDetector buildAccountOption(BuildContext context, String title) {
           children: [
             Text(
               title,
-              style: TextStyle(
-                  fontSize: 18, color: texto),
+              style: TextStyle(fontSize: 18, color: textoLight),
             ),
             Icon(
               Icons.arrow_forward_ios,
-              color: texto,
+              color: textoLight,
             )
           ],
         ),

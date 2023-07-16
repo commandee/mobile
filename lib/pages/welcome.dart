@@ -22,7 +22,7 @@ class WelcomePage extends StatelessWidget {
     }
 
     return Scaffold(
-      backgroundColor: secondary,
+      backgroundColor: secondaryLight,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -41,7 +41,7 @@ class WelcomePage extends StatelessWidget {
             const Text(
               "Junte-se a nós!",
               style: TextStyle(
-                color: texto,
+                color: textoLight,
                 fontSize: 26,
                 fontWeight: FontWeight.bold,
               ),
@@ -51,12 +51,11 @@ class WelcomePage extends StatelessWidget {
               child: Text(
                 "Trabalhe junto com a gente!",
                 style: TextStyle(
-                  color: texto,
+                  color: textoLight,
                   fontSize: 16,
                 ),
               ),
             ),
-
             const SizedBox(
               height: 30,
             ),
@@ -66,15 +65,15 @@ class WelcomePage extends StatelessWidget {
                 Button(
                   onTap: entrarLogin,
                   text: "Login",
-                  cortexto: primary,
-                  corFundo: fundoClaro,
+                  cortexto: primaryLight,
+                  corFundo: fundoLight,
                   margin: 10,
                 ),
                 Button(
                   onTap: entrarCadastro,
                   text: "Cadastro",
                   cortexto: Colors.white,
-                  corFundo: accent,
+                  corFundo: accentLight,
                   margin: 10,
                 )
               ],

@@ -24,7 +24,7 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text('Comandas'),
       ),
-      backgroundColor: fundoClaro,
+      backgroundColor: fundoLight,
       drawer: const NavigationDrawer(),
       body: Center(
         child: Padding(
@@ -69,7 +69,7 @@ class _MyHomePageState extends State<MyHomePage> {
         onPressed: () {
           print("Criando nova comanda");
         },
-        backgroundColor: accent,
+        backgroundColor: accentLight,
         child: Icon(
           Icons.add,
           color: Colors.white,
@@ -82,7 +82,7 @@ class NavigationDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Drawer(
-        backgroundColor: fundoClaro,
+        backgroundColor: fundoLight,
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -95,7 +95,7 @@ class NavigationDrawer extends StatelessWidget {
       );
 
   Widget buildHeader(BuildContext context) => Material(
-        color: secondary,
+        color: secondaryLight,
         child: InkWell(
           onTap: () {
             Navigator.pop(context);
@@ -119,12 +119,12 @@ class NavigationDrawer extends StatelessWidget {
                 const SizedBox(height: 12),
                 Text(
                   name,
-                  style: TextStyle(color: texto, fontSize: 18),
+                  style: TextStyle(color: textoLight, fontSize: 18),
                 ),
                 const SizedBox(height: 4),
                 Text(
                   email,
-                  style: TextStyle(color: texto, fontSize: 14),
+                  style: TextStyle(color: textoLight, fontSize: 14),
                 ),
               ],
             ),
@@ -141,7 +141,9 @@ class NavigationDrawer extends StatelessWidget {
             height: 0.4,
           ),
           ListTile(
-            leading: const Icon(Icons.receipt_outlined,),
+            leading: const Icon(
+              Icons.receipt_outlined,
+            ),
             title: const Text("Comandas"),
             onTap: () => Navigator.of(context).pushReplacement(
               MaterialPageRoute(
@@ -179,7 +181,6 @@ class NavigationDrawer extends StatelessWidget {
             color: Colors.grey,
             height: 0.4,
           ),
-          
           ListTile(
             leading: const Icon(Icons.settings_outlined),
             title: const Text("Configurações"),
@@ -201,12 +202,6 @@ class NavigationDrawer extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => LoginPage()));
             },
           ),
-          
-          
         ]),
       );
-
-  
-
-
 }

@@ -25,13 +25,16 @@ class MyTextfield extends StatelessWidget {
         controller: controller,
         obscureText: obscureText,
         decoration: InputDecoration(
-            prefixIcon: Icon(icone, color: Colors.deepPurple[300],),
+            prefixIcon: Icon(
+              icone,
+              color: Colors.deepPurple[300],
+            ),
             enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: secondary),
+              borderSide: BorderSide(color: secondaryLight),
               borderRadius: BorderRadius.circular(12.0),
             ),
             focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: primary),
+                borderSide: BorderSide(color: primaryLight),
                 borderRadius: BorderRadius.circular(16.0)),
             fillColor: Colors.white70,
             filled: true,

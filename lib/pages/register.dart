@@ -22,7 +22,7 @@ class RegisterPage extends StatelessWidget {
     }
 
     return Scaffold(
-      backgroundColor: fundoClaro,
+      backgroundColor: fundoLight,
       body: Center(
         child: SingleChildScrollView(
           child: SafeArea(
@@ -39,7 +39,7 @@ class RegisterPage extends StatelessWidget {
                 const Text(
                   "Trabalhe com o Commandee",
                   style: TextStyle(
-                    color: texto,
+                    color: textoLight,
                     fontSize: 26,
                     fontWeight: FontWeight.bold,
                   ),
@@ -47,7 +47,7 @@ class RegisterPage extends StatelessWidget {
                 const Text(
                   "para começar, insira seus dados abaixo:",
                   style: TextStyle(
-                    color: texto,
+                    color: textoLight,
                     fontSize: 18,
                   ),
                 ),
@@ -90,21 +90,22 @@ class RegisterPage extends StatelessWidget {
                     onTap: cadastrarUsuario,
                     text: "Cadastrar",
                     cortexto: Colors.white,
-                    corFundo: accent,
+                    corFundo: accentLight,
                     margin: 25),
-
-                const SizedBox(height: 30,),
-
+                const SizedBox(
+                  height: 30,
+                ),
                 Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                   const Text("Já tem uma conta?",
-                      style: TextStyle(color: texto)),
+                      style: TextStyle(color: textoLight)),
                   const SizedBox(
                     width: 5,
                   ),
                   GestureDetector(
                       child: const Text("Login",
                           style: TextStyle(
-                              color: primary, fontWeight: FontWeight.bold)),
+                              color: primaryLight,
+                              fontWeight: FontWeight.bold)),
                       onTap: () {
                         Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) => LoginPage()));

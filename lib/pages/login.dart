@@ -27,13 +27,13 @@ class LoginPage extends StatelessWidget {
             title: Text(
               "Email ou senha inválidos!",
               style: TextStyle(
-                color: texto,
+                color: textoLight,
               ),
             ),
             content: TextButton(
               child: Text(
                 "Voltar",
-                style: TextStyle(color: primary, fontSize: 16),
+                style: TextStyle(color: primaryLight, fontSize: 16),
               ),
               onPressed: () => Navigator.pop(context),
             ),
@@ -53,7 +53,7 @@ class LoginPage extends StatelessWidget {
     }
 
     return Scaffold(
-      backgroundColor: fundoClaro,
+      backgroundColor: fundoLight,
       body: Center(
         child: SingleChildScrollView(
           child: SafeArea(
@@ -70,7 +70,7 @@ class LoginPage extends StatelessWidget {
                 Text(
                   "Bem-Vinde de volta!",
                   style: TextStyle(
-                    color: texto,
+                    color: textoLight,
                     fontSize: 30,
                     fontWeight: FontWeight.bold,
                   ),
@@ -80,7 +80,7 @@ class LoginPage extends StatelessWidget {
                   child: Text(
                     "nós do Commandee sentimos sua falta!",
                     style: TextStyle(
-                      color: texto,
+                      color: textoLight,
                       fontSize: 18,
                     ),
                   ),
@@ -115,7 +115,7 @@ class LoginPage extends StatelessWidget {
                         child: Text(
                           "Esqueceu a senha?",
                           style: TextStyle(
-                            color: primary,
+                            color: primaryLight,
                             fontSize: 12,
                           ),
                         ),
@@ -137,7 +137,7 @@ class LoginPage extends StatelessWidget {
                 Button(
                   text: "Entrar",
                   cortexto: Colors.white,
-                  corFundo: accent,
+                  corFundo: accentLight,
                   margin: 25,
                   onTap: logarUsuario,
                 ),
@@ -149,16 +149,16 @@ class LoginPage extends StatelessWidget {
                   children: [
                     Expanded(
                       child: Divider(
-                        color: texto,
+                        color: textoLight,
                         thickness: 0.3,
                         indent: 40,
                         endIndent: 5,
                       ),
                     ),
-                    Text("Ou entre com", style: TextStyle(color: texto)),
+                    Text("Ou entre com", style: TextStyle(color: textoLight)),
                     Expanded(
                       child: Divider(
-                        color: texto,
+                        color: textoLight,
                         thickness: 0.3,
                         indent: 5,
                         endIndent: 40,
@@ -186,14 +186,15 @@ class LoginPage extends StatelessWidget {
 
                 Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                   const Text("Não tem uma conta?",
-                      style: TextStyle(color: texto)),
+                      style: TextStyle(color: textoLight)),
                   const SizedBox(
                     width: 5,
                   ),
                   GestureDetector(
                       child: const Text("Registre-se aqui!",
                           style: TextStyle(
-                              color: primary, fontWeight: FontWeight.bold)),
+                              color: primaryLight,
+                              fontWeight: FontWeight.bold)),
                       onTap: () {
                         Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) => RegisterPage()));

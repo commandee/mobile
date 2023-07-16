@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:teste/constants.dart';
 
 class InfoTextField extends StatelessWidget {
-  const InfoTextField({super.key, required this.text, required this.sectionName});
+  const InfoTextField(
+      {super.key, required this.text, required this.sectionName});
 
   final String text;
   final String sectionName;
@@ -11,7 +12,7 @@ class InfoTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: secondary,
+        color: secondaryLight,
         borderRadius: BorderRadius.circular(12),
       ),
       padding: const EdgeInsets.only(left: 15, bottom: 15),
@@ -22,8 +23,14 @@ class InfoTextField extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(sectionName, style: TextStyle(color: primary, fontSize: 16)),
-              IconButton(onPressed: (){}, icon: Icon(Icons.edit, color: primary,))
+              Text(sectionName,
+                  style: TextStyle(color: primaryLight, fontSize: 16)),
+              IconButton(
+                  onPressed: () {},
+                  icon: Icon(
+                    Icons.edit,
+                    color: primaryLight,
+                  ))
             ],
           ),
           Text(text),

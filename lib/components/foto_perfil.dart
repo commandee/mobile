@@ -4,15 +4,12 @@ import '../constants.dart';
 
 class ProfilePic extends StatefulWidget {
   ProfilePic({super.key});
-  
-  
 
   @override
   State<ProfilePic> createState() => _ProfilePicState();
 }
 
 class _ProfilePicState extends State<ProfilePic> {
-  
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -21,7 +18,7 @@ class _ProfilePicState extends State<ProfilePic> {
       decoration: BoxDecoration(
         color: Colors.white,
         border: Border.all(
-          color: accent,
+          color: accentLight,
           width: 1.0,
         ),
         borderRadius: BorderRadius.circular(50),

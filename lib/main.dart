@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:teste/classes/temas.dart';
 import 'package:teste/pages/profile.dart';
 import 'package:teste/pages/welcome.dart';
 
@@ -11,14 +12,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Commandee',
-      theme: ThemeData(
-        primarySwatch: Colors.deepPurple,
-      ),
-      home: WelcomePage(),//HomePage(),
-      
+      home: WelcomePage(),//HomePage(), 
     );
   }
 }

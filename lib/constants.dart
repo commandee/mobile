@@ -7,8 +7,17 @@ const String senha = "12345678";
 const String profilePic = "assets/images/profile.jpg";
 
 //Paleta de Cores
-const Color fundoClaro = Color(0xFFEFEEF3);
-const Color texto = Color(0xFF123240);
-const primary = Color(0XFF7149c6);
-const secondary = Color(0XFFE3DBF5);
-const accent = Color(0XFFFC314F);
+
+//Modo Claro
+const Color fundoLight = Color(0xFFFAFAFA);
+const Color textoLight = Color(0xFF050505);
+const primaryLight = Color(0XFF8FB3FF);
+const secondaryLight = Color(0XFFCCDBFF);
+const accentLight = Color(0XFFE11E72);
+
+//Modo Escuro
+const Color fundoDark = Color(0xFF050505);
+const Color textoDark = Color(0xFFFAFAFA);
+const primaryDark = Color(0XFF8FB3FF);
+const secondaryDark = Color(0XFF000F33);
+const accentDark = Color(0XFFED78AB);

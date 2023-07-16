@@ -9,7 +9,7 @@ class Filtros extends StatefulWidget {
 }
 
 class _FiltrosState extends State<Filtros> {
-    int selectedChip = 0; 
+  int selectedChip = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -24,13 +24,14 @@ class _FiltrosState extends State<Filtros> {
                 padding: const EdgeInsets.all(4.0),
                 child: ChoiceChip(
                   label: Text(_getChoiceChipText(index)),
-                  selected: selectedChip == index, // acontecerá que o chip selecionado será o que tiver o mesmo index
+                  selected: selectedChip ==
+                      index, // acontecerá que o chip selecionado será o que tiver o mesmo index
                   onSelected: (selected) {
                     setState(() {
                       selectedChip = selected ? index : 0;
                     });
                   },
-                  selectedColor: accent,
+                  selectedColor: accentLight,
                   labelStyle: TextStyle(
                     color: Colors.white,
                   ),
@@ -68,4 +69,3 @@ class _FiltrosState extends State<Filtros> {
     }
   }
 }
-  

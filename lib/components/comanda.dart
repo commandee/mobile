@@ -18,8 +18,10 @@ class Commanda extends StatelessWidget {
           ),
           child: ListTile(
             title: Text(nome,
-                style:
-                    const TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: texto)),
+                style: const TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: textoLight)),
             subtitle: Text(
               descricao,
               style: const TextStyle(fontSize: 15),
