@@ -9,19 +9,20 @@ class MyTextfield extends StatelessWidget {
   final String hintText;
   final bool obscureText;
   final IconData icone;
+  final TextInputType tipoDoTeclado;
 
   const MyTextfield(
       {super.key,
       required this.controller,
       required this.hintText,
       required this.obscureText,
-      required this.icone});
+      required this.icone, required this.tipoDoTeclado});
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 25.0),
-      child: TextField(
+    return TextField(
+        keyboardType: tipoDoTeclado ,
+        textInputAction: TextInputAction.done,
         controller: controller,
         obscureText: obscureText,
         decoration: InputDecoration(
@@ -30,17 +31,16 @@ class MyTextfield extends StatelessWidget {
               color: Colors.deepPurple[300],
             ),
             enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: secondaryLight),
+              borderSide: BorderSide(color: Colors.deepPurple.shade200),
               borderRadius: BorderRadius.circular(12.0),
             ),
             focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: primaryLight),
+                borderSide: BorderSide(color: primary),
                 borderRadius: BorderRadius.circular(16.0)),
             fillColor: Colors.white70,
             filled: true,
             hintText: hintText,
             hintStyle: TextStyle(color: Colors.deepPurple[300])),
-      ),
     );
   }
 }

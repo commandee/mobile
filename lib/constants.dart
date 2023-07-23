@@ -11,13 +11,13 @@ const String profilePic = "assets/images/profile.jpg";
 //Modo Claro
 const Color fundoLight = Color(0xFFFAFAFA);
 const Color textoLight = Color(0xFF050505);
-const primaryLight = Color(0XFF8FB3FF);
-const secondaryLight = Color(0XFFCCDBFF);
-const accentLight = Color(0XFFE11E72);
+const Color textoComplementar = Color(0xFF606060);
+const Color primary = Color(0XFF6A27C2);
+const Color secondaryLight = Color(0XFFECF5FA);
+const Color accentLight = Color(0XFFFC0329);
 
 //Modo Escuro
 const Color fundoDark = Color(0xFF050505);
 const Color textoDark = Color(0xFFFAFAFA);
-const primaryDark = Color(0XFF8FB3FF);
-const secondaryDark = Color(0XFF000F33);
-const accentDark = Color(0XFFED78AB);
+const Color secondaryDark = Color(0XFF0A1F29);
+const Color accentDark = Color(0XFFFD687E);

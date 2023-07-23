@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart ';
+import 'package:teste/constants.dart';
 
 class SquareTile extends StatelessWidget {
   final String imagePath;
@@ -9,9 +10,9 @@ class SquareTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        border: Border.all(color: Colors.white),
+       
         borderRadius: const BorderRadius.all(Radius.circular(12)),
-        color: Colors.white38,
+        color: secondaryLight,
       ),
       child: Image.asset(
         imagePath, height: 72,

@@ -22,7 +22,7 @@ class _ProfilePage extends State<ProfilePage> {
           backgroundColor: Colors.transparent,
           elevation: 0,
           leading: BackButton(
-            color: primaryLight,
+            color: primary,
             onPressed: () {
               Navigator.pop(context);
             },

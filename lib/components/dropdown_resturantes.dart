@@ -35,7 +35,7 @@ class _DropdownRestauranteState extends State<DropdownRestaurante> {
             selectedValue = value.toString();
           });
         },
-        icon: const Icon(Icons.arrow_drop_down_circle, color: primaryLight),
+        icon: const Icon(Icons.arrow_drop_down_circle, color: primary),
         decoration: const InputDecoration(
           labelText: "Seus restaurantes",
           prefixIcon: Icon(Icons.restaurant),

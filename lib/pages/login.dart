@@ -24,6 +24,7 @@ class LoginPage extends StatelessWidget {
     Future openDialog() => showDialog(
           context: context,
           builder: (context) => AlertDialog(
+            
             title: Text(
               "Email ou senha inválidos!",
               style: TextStyle(
@@ -33,7 +34,7 @@ class LoginPage extends StatelessWidget {
             content: TextButton(
               child: Text(
                 "Voltar",
-                style: TextStyle(color: primaryLight, fontSize: 16),
+                style: TextStyle(color: primary, fontSize: 16),
               ),
               onPressed: () => Navigator.pop(context),
             ),
@@ -53,25 +54,28 @@ class LoginPage extends StatelessWidget {
     }
 
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        leading: BackButton(
+          color: textoLight,
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+      ),
       backgroundColor: fundoLight,
-      body: Center(
+      body: Container(
+        margin: const EdgeInsets.all(16),
         child: SingleChildScrollView(
           child: SafeArea(
             child: Column(
               children: [
-                Image.asset(
-                  "assets/images/illustration.png",
-                  height: 210,
-                  width: 210,
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
                 Text(
-                  "Bem-Vinde de volta!",
+                  "Entrar com uma conta",
                   style: TextStyle(
                     color: textoLight,
-                    fontSize: 30,
+                    fontSize: 20,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -80,82 +84,100 @@ class LoginPage extends StatelessWidget {
                   child: Text(
                     "nós do Commandee sentimos sua falta!",
                     style: TextStyle(
-                      color: textoLight,
-                      fontSize: 18,
+                      color: textoComplementar,
+                      fontSize: 12,
                     ),
                   ),
                 ),
                 const SizedBox(
-                  height: 30,
+                  height: 112,
                 ),
                 MyTextfield(
                   icone: Icons.email_outlined,
                   controller: emailcontroller,
                   hintText: "Email",
                   obscureText: false,
+                  tipoDoTeclado: TextInputType.emailAddress,
                 ),
                 const SizedBox(
-                  height: 10,
+                  height: 16,
                 ),
                 MyTextfield(
                   icone: Icons.fingerprint_outlined,
                   controller: passwordcontroller,
                   hintText: "Senha",
                   obscureText: true,
+                  tipoDoTeclado: TextInputType.visiblePassword,
                 ),
                 const SizedBox(
                   height: 8,
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      GestureDetector(
-                        child: Text(
-                          "Esqueceu a senha?",
-                          style: TextStyle(
-                            color: primaryLight,
-                            fontSize: 12,
-                          ),
+
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    GestureDetector(
+                      child: Text(
+                        "Esqueceu a senha?",
+                        style: TextStyle(
+                          color: primary,
+                          fontSize: 12,
                         ),
-                        onTap: () {
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: (context) {
-                            return ForgotPasswordPage();
-                          }));
-                        },
-                      )
-                    ],
-                  ),
+                      ),
+                      onTap: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) {
+                          return ForgotPasswordPage();
+                        }));
+                      },
+                    )
+                  ],
                 ),
                 const SizedBox(
-                  height: 25,
+                  height: 40,
                 ),
 
                 //botão de login
-                Button(
+                SubmitButton(
                   text: "Entrar",
                   cortexto: Colors.white,
                   corFundo: accentLight,
-                  margin: 25,
                   onTap: logarUsuario,
+                  fontWeight: FontWeight.bold,
                 ),
                 const SizedBox(
-                  height: 35,
+                  height: 8,
+                ),
+                Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                  const Text("Não tem uma conta?",
+                      style: TextStyle(color: textoComplementar, fontSize: 12)),
+                  const SizedBox(
+                    width: 4,
+                  ),
+                  GestureDetector(
+                      child: const Text("Crie aqui!",
+                          style: TextStyle(
+                              color: primary, fontWeight: FontWeight.bold, fontSize: 12)),
+                      onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => RegisterPage()));
+                      })
+                ]),
+                const SizedBox(
+                  height: 120,
                 ),
 
                 Row(
                   children: [
                     Expanded(
                       child: Divider(
-                        color: textoLight,
+                        color: textoComplementar,
                         thickness: 0.3,
                         indent: 40,
                         endIndent: 5,
                       ),
                     ),
-                    Text("Ou entre com", style: TextStyle(color: textoLight)),
+                    Text("Ou entre com", style: TextStyle(color: textoComplementar, fontSize: 12) ),
                     Expanded(
                       child: Divider(
                         color: textoLight,
@@ -167,14 +189,14 @@ class LoginPage extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(
-                  height: 30,
+                  height: 24,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     SquareTile(imagePath: "assets/images/google.png"),
                     const SizedBox(
-                      width: 20,
+                      width: 16,
                     ),
                     SquareTile(imagePath: "assets/images/twitter.png")
                   ],
@@ -184,22 +206,7 @@ class LoginPage extends StatelessWidget {
                   height: 20,
                 ),
 
-                Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                  const Text("Não tem uma conta?",
-                      style: TextStyle(color: textoLight)),
-                  const SizedBox(
-                    width: 5,
-                  ),
-                  GestureDetector(
-                      child: const Text("Registre-se aqui!",
-                          style: TextStyle(
-                              color: primaryLight,
-                              fontWeight: FontWeight.bold)),
-                      onTap: () {
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => RegisterPage()));
-                      })
-                ]),
+                
               ],
             ),
           ),

@@ -23,13 +23,12 @@ class InfoTextField extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(sectionName,
-                  style: TextStyle(color: primaryLight, fontSize: 16)),
+              Text(sectionName, style: TextStyle(color: primary, fontSize: 16)),
               IconButton(
                   onPressed: () {},
                   icon: Icon(
                     Icons.edit,
-                    color: primaryLight,
+                    color: primary,
                   ))
             ],
           ),

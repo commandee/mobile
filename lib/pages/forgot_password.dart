@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:teste/components/button.dart';
 import 'package:teste/components/form_textfield.dart';
 import 'package:teste/constants.dart';
 
@@ -9,72 +10,71 @@ class ForgotPasswordPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
         leading: BackButton(
-          color: primaryLight,
+          color: primary,
           onPressed: () {
             Navigator.pop(context);
           },
         ),
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(
+              Icons.help_outline_outlined,
+              color: textoLight,
+            ),
+          ),
+        ],
       ),
       backgroundColor: fundoLight,
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Text(
-              "Esqueceu a senha?",
-              style: TextStyle(
-                  fontSize: 20, fontWeight: FontWeight.bold, color: textoLight),
-            ),
-            const Text("Não se preocupe, vamos te ajudar!",
-                style: TextStyle(
-                  fontSize: 16,
-                  color: primaryLight,
-                )),
-            const SizedBox(
-              height: 20,
-            ),
-            MyTextfield(
-              icone: Icons.email_outlined,
-              controller: emailcontroller,
-              hintText: "Email",
-              obscureText: false,
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            const Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                "Insira seu e-mail cadastrado para receber um link de recuperação.",
-                style: TextStyle(
-                  fontSize: 16,
-                  color: textoLight,
+      body: Container(
+        margin: const EdgeInsets.all(16),
+        child: SingleChildScrollView(
+          child: SafeArea(
+            child: Column(
+              children: [
+                const Text(
+                  "Esqueceu a senha?",
+                  style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: textoLight),
                 ),
-                textAlign: TextAlign.center,
-              ),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            ElevatedButton(
-              onPressed: () {},
-              child: const Text("Enviar"),
-              style: ElevatedButton.styleFrom(
-                backgroundColor: accentLight,
-                shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(10),
+                const Text(
+                  'Coloque o email vinculado a sua conta e mandaremos as instruções para recuperar sua senha',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: textoComplementar, // Substitua "textoComplementar" pela cor desejada ou defina a variável.
                   ),
                 ),
-                minimumSize: const Size(200, 50),
-              ),
+                const SizedBox(
+                  height: 104,
+                ),
+                MyTextfield(
+                  icone: Icons.email_outlined,
+                  controller: emailcontroller,
+                  hintText: "Email",
+                  obscureText: false,
+                  tipoDoTeclado: TextInputType.emailAddress,
+                ),
+                const SizedBox(
+                  height: 40,
+                ),
+               
+               SubmitButton(onTap: () {}, text: "Enviar Instruções", cortexto: textoDark, corFundo: primary, fontWeight: FontWeight.bold),
+               const SizedBox(
+                height: 340,
+               ),
+               Text("Progressão")
+              ],
             ),
-          ],
+          ),
         ),
       ),
     );

@@ -49,7 +49,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 children: [
                   Icon(
                     Icons.person_outlined,
-                    color: primaryLight,
+                    color: primary,
                   ),
                   SizedBox(
                     width: 10,
@@ -63,7 +63,7 @@ class _SettingsPageState extends State<SettingsPage> {
                   )
                 ],
               ),
-             const Divider(
+              const Divider(
                 height: 20,
                 thickness: 1,
               ),
@@ -81,7 +81,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 children: [
                   Icon(
                     Icons.settings,
-                    color: primaryLight,
+                    color: primary,
                   ),
                   SizedBox(
                     width: 10,
@@ -120,8 +120,8 @@ Padding buildNotifOption(String title, bool value, Function onChangeMethod) {
             onChanged: (bool newValue) {
               onChangeMethod(newValue);
             },
-            activeColor: primaryLight,
-            activeTrackColor: primaryLight,
+            activeColor: primary,
+            activeTrackColor: primary,
             inactiveThumbColor: secondaryLight,
             inactiveTrackColor: secondaryLight,
           ),
