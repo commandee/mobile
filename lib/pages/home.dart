@@ -24,59 +24,58 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text('Comandas'),
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: AddButton(),
+      bottomNavigationBar: const BAB(),
       backgroundColor: fundoLight,
       drawer: const NavigationDrawer(),
       body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(10.0),
           child: ListView(children: [
             Commanda(
-              nome: "Mesa 01",
+              nome: "Comanda #157",
               descricao: "Salada César x2, Hambúrguer, Onion Rings",
             ),
-            Commanda(
-              nome: "Mesa 09",
-              descricao: "Hambúrguer x2, Batata Frita",
-            ),
-            Commanda(
-              nome: "Mesa 08",
-              descricao: "Suco de Maracujá, Hambúrguer",
-            ),
-            Commanda(
-              nome: "Mesa 04",
-              descricao: "Refrigerante 500ml x2, Hambúrguer, Onion Rings",
-            ),
-            Commanda(
-              nome: "Mesa 15",
-              descricao: "Sundae de Chocolate, Hambúrguer, Onion Rings",
-            ),
-            Commanda(
-              nome: "Mesa 12",
-              descricao: "Suco de laranja, Onion Rings",
-            ),
-            Commanda(
-              nome: "Mesa 11",
-              descricao: "Hambúrguer, Onion Rings, Batata Frita",
-            ),
-            Commanda(
-              nome: "Mesa 19",
-              descricao: "Hambúrguer, Onion Rings, Batata Frita",
-            ),
+            
           ]),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          print("Criando nova comanda");
-        },
-        backgroundColor: accentLight,
-        child: Icon(
-          Icons.add,
-          color: Colors.white,
-        ),
-      ));
+      );
 }
 
+class AddButton extends StatelessWidget {
+  const AddButton({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return FloatingActionButton(
+      onPressed: () {},
+      backgroundColor: accentLight,
+      child: Icon(
+        Icons.add,
+        color: Colors.white,
+      ),
+    );
+  }
+}
+class BAB extends StatelessWidget {
+  const BAB({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BottomAppBar(
+      color: primary,
+      shape: CircularNotchedRectangle(),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          IconButton(onPressed: (){}, icon: Icon(Icons.person_outline, color: textoDark,), iconSize: 20,),
+          IconButton(onPressed: (){}, icon: Icon(Icons.receipt_outlined, color: textoDark,)),
+          IconButton(onPressed: (){}, icon: Icon(Icons.menu_book_outlined, color: textoDark,)),
+          IconButton(onPressed: (){}, icon: Icon(Icons.logout_outlined, color: textoDark,)),
+        ],
+      ),
+    );
+  }
+}
 class NavigationDrawer extends StatelessWidget {
   const NavigationDrawer({Key? key}) : super(key: key);
 
