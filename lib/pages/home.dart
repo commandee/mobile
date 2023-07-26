@@ -8,7 +8,7 @@ import 'package:teste/pages/login.dart';
 import 'package:teste/pages/profile.dart';
 import 'package:teste/pages/settings.dart';
 
-import '../components/comanda.dart';
+import '../components/card_comanda.dart';
 import '../constants.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -23,20 +23,31 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
           title: Text('Comandas'),
+          centerTitle: true,
+          backgroundColor: fundoDM,
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         floatingActionButton: AddButton(),
         bottomNavigationBar: const BAB(),
         backgroundColor: fundoLM,
         drawer: const NavigationDrawer(),
-        body: Center(
-          child: ListView(children: [
-            Commanda(
-              nome: "Comanda #157",
-              descricao: "Salada César x2, Hambúrguer, Onion Rings",
-            ),
-          ]),
+        body: SafeArea(
+          child: Column(
+            children: [
+              Expanded(
+                child: ListView(
+                  children: [
+                    CardComanda(
+                      nome: "Comanda #157",
+                      descricao: "Comanda do dia 15/07/2021",
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
+        extendBody: true,
       );
 }
 
@@ -46,7 +57,9 @@ class AddButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FloatingActionButton(
-      onPressed: () {},
+      onPressed: () {
+        print('Adicionar comanda');
+      },
       backgroundColor: accentLM,
       child: Icon(
         Icons.add,
@@ -62,40 +75,48 @@ class BAB extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BottomAppBar(
-      color: primary,
-      shape: CircularNotchedRectangle(),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          IconButton(
-            onPressed: () {},
-            icon: Icon(
-              Icons.person_outline,
-              color: textoDM,
+        elevation: 10,
+        color: fundoLM, //Theme.of(context).primaryColor,
+        shape: const CircularNotchedRectangle(),
+        child: IconTheme(
+          data: IconThemeData(color: Theme.of(context).colorScheme.onPrimary),
+          child: Padding(
+            padding: const EdgeInsets.all(4.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                IconButton(
+                    onPressed: () {},
+                    icon: Icon(
+                      Icons.receipt_rounded,
+                      color: textoLM,
+                    )),
+                IconButton(
+                    onPressed: () {},
+                    icon: Icon(
+                      Icons.book_rounded,
+                      color: textoLM,
+                    )),
+                SizedBox(
+                  width: 24,
+                ),
+                IconButton(
+                    onPressed: () {},
+                    icon: Icon(
+                      Icons.receipt_rounded,
+                      color: textoLM,
+                    )),
+                IconButton(
+                  onPressed: () {},
+                  icon: Icon(
+                    Icons.person_rounded,
+                    color: textoLM,
+                  ),
+                ),
+              ],
             ),
-            iconSize: 20,
           ),
-          IconButton(
-              onPressed: () {},
-              icon: Icon(
-                Icons.receipt_outlined,
-                color: textoDM,
-              )),
-          IconButton(
-              onPressed: () {},
-              icon: Icon(
-                Icons.menu_book_outlined,
-                color: textoDM,
-              )),
-          IconButton(
-              onPressed: () {},
-              icon: Icon(
-                Icons.logout_outlined,
-                color: textoDM,
-              )),
-        ],
-      ),
-    );
+        ));
   }
 }
 

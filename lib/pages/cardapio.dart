@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:teste/components/filtros.dart';
+import 'package:teste/constants.dart';
 
 class CardapioPage extends StatefulWidget {
   const CardapioPage({super.key});
@@ -16,48 +17,54 @@ class _CardapioPageState extends State<CardapioPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Cardápio'),
+        centerTitle: true,
+        backgroundColor: fundoDM,
       ),
-      body: Container(
-        margin: const EdgeInsets.all(16),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              //filtros
-              Filtros(),
-              //cardapio
-              GridView.count(
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  crossAxisCount: 2,
-                  mainAxisSpacing: 10,
-                  children: [
-                    itemFood("Salada César", "assets/images/salada.jpeg",
-                        "R\$ 15,00"),
-                    itemFood("Hambúrguer", "assets/images/hamburguer.png",
-                        "R\$ 20,00"),
-                    itemFood("Onion Rings", "assets/images/cebolafrita.jpg",
-                        "R\$ 10,00"),
-                    itemFood("Salada César", "assets/images/salada.jpeg",
-                        "R\$ 15,00"),
-                    itemFood("Hambúrguer", "assets/images/hamburguer.png",
-                        "R\$ 20,00"),
-                    itemFood("Onion Rings", "assets/images/cebolafrita.jpg",
-                        "R\$ 10,00"),
-                    itemFood("Salada César", "assets/images/salada.jpeg",
-                        "R\$ 15,00"),
-                    itemFood("Hambúrguer", "assets/images/hamburguer.png",
-                        "R\$ 20,00"),
-                    itemFood("Onion Rings", "assets/images/cebolafrita.jpg",
-                        "R\$ 10,00"),
-                    itemFood("Salada César", "assets/images/salada.jpeg",
-                        "R\$ 15,00"),
-                    itemFood("Hambúrguer", "assets/images/hamburguer.png",
-                        "R\$ 20,00"),
-                    itemFood("Onion Rings", "assets/images/cebolafrita.jpg",
-                        "R\$ 10,00"),
-                  ]),
-            ],
-          ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Filtros(),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                children: [
+                  //filtros
+                  //cardapio
+                  GridView.count(
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      crossAxisCount: 2,
+                      mainAxisSpacing: 10,
+                      children: [
+                        itemFood("Salada César", "assets/images/salada.jpeg",
+                            "R\$ 15,00"),
+                        itemFood("Hambúrguer", "assets/images/hamburguer.png",
+                            "R\$ 20,00"),
+                        itemFood("Onion Rings", "assets/images/cebolafrita.jpg",
+                            "R\$ 10,00"),
+                        itemFood("Salada César", "assets/images/salada.jpeg",
+                            "R\$ 15,00"),
+                        itemFood("Hambúrguer", "assets/images/hamburguer.png",
+                            "R\$ 20,00"),
+                        itemFood("Onion Rings", "assets/images/cebolafrita.jpg",
+                            "R\$ 10,00"),
+                        itemFood("Salada César", "assets/images/salada.jpeg",
+                            "R\$ 15,00"),
+                        itemFood("Hambúrguer", "assets/images/hamburguer.png",
+                            "R\$ 20,00"),
+                        itemFood("Onion Rings", "assets/images/cebolafrita.jpg",
+                            "R\$ 10,00"),
+                        itemFood("Salada César", "assets/images/salada.jpeg",
+                            "R\$ 15,00"),
+                        itemFood("Hambúrguer", "assets/images/hamburguer.png",
+                            "R\$ 20,00"),
+                        itemFood("Onion Rings", "assets/images/cebolafrita.jpg",
+                            "R\$ 10,00"),
+                      ]),
+                ],
+              ),
+            ),
+          ],
         ),
       ),
     );

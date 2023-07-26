@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:teste/classes/temas.dart';
+import 'package:teste/constants.dart';
 import 'package:teste/pages/profile.dart';
 import 'package:teste/pages/welcome.dart';
 
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
       title: 'Commandee',
       theme: ThemeData(
         fontFamily: 'Poppins',
-        primarySwatch: Colors.deepPurple,
+        primaryColor: primary,
       ),
       home: WelcomePage(),//HomePage(), 
     );
