@@ -12,9 +12,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Commandee',
+      theme: ThemeData(
+        fontFamily: 'Poppins',
+        primarySwatch: Colors.deepPurple,
+      ),
       home: WelcomePage(),//HomePage(), 
     );
   }
