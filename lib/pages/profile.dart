@@ -27,7 +27,7 @@ class _ProfilePage extends State<ProfilePage> {
               Navigator.pop(context);
             },
           )),
-      backgroundColor: fundoLight,
+      backgroundColor: fundoLM,
       body: ListView(
         padding: EdgeInsets.zero,
         children: [
@@ -50,7 +50,7 @@ class _ProfilePage extends State<ProfilePage> {
                   style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
-                      color: textoLight)),
+                      color: textoLM)),
               const SizedBox(height: 5),
               Text(userName,
                   style: TextStyle(fontSize: 16, color: Colors.grey[600])),
@@ -70,9 +70,7 @@ class _ProfilePage extends State<ProfilePage> {
             padding: const EdgeInsets.only(left: 25),
             child: Text("Minhas informações",
                 style: TextStyle(
-                    fontSize: 16,
-                    color: textoLight,
-                    fontWeight: FontWeight.bold)),
+                    fontSize: 16, color: textoLM, fontWeight: FontWeight.bold)),
           ),
           InfoTextField(
             text: userName,
@@ -92,7 +90,7 @@ class _ProfilePage extends State<ProfilePage> {
   }
 
   Widget imageBanner() => Container(
-        color: secondaryLight,
+        color: secondaryLM,
         height: 200,
       );
 }

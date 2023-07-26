@@ -18,7 +18,7 @@ class _ProfilePicState extends State<ProfilePic> {
       decoration: BoxDecoration(
         color: Colors.white,
         border: Border.all(
-          color: accentLight,
+          color: accentLM,
           width: 1.0,
         ),
         borderRadius: BorderRadius.circular(50),

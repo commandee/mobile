@@ -31,7 +31,7 @@ class _FiltrosState extends State<Filtros> {
                       selectedChip = selected ? index : 0;
                     });
                   },
-                  selectedColor: accentLight,
+                  selectedColor: accentLM,
                   labelStyle: TextStyle(
                     color: Colors.white,
                   ),

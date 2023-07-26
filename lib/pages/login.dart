@@ -24,11 +24,10 @@ class LoginPage extends StatelessWidget {
     Future openDialog() => showDialog(
           context: context,
           builder: (context) => AlertDialog(
-            
             title: Text(
               "Email ou senha inválidos!",
               style: TextStyle(
-                color: textoLight,
+                color: textoLM,
               ),
             ),
             content: TextButton(
@@ -58,23 +57,23 @@ class LoginPage extends StatelessWidget {
         backgroundColor: Colors.transparent,
         elevation: 0,
         leading: BackButton(
-          color: textoLight,
+          color: textoLM,
           onPressed: () {
             Navigator.pop(context);
           },
         ),
       ),
-      backgroundColor: fundoLight,
-      body: Container(
-        margin: const EdgeInsets.all(16),
-        child: SingleChildScrollView(
-          child: SafeArea(
+      backgroundColor: fundoLM,
+      body: SingleChildScrollView(
+        child: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
             child: Column(
               children: [
                 Text(
                   "Entrar com uma conta",
                   style: TextStyle(
-                    color: textoLight,
+                    color: textoLM,
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
                   ),
@@ -84,7 +83,7 @@ class LoginPage extends StatelessWidget {
                   child: Text(
                     "nós do Commandee sentimos sua falta!",
                     style: TextStyle(
-                      color: textoComplementar,
+                      color: cinzaLM,
                       fontSize: 12,
                     ),
                   ),
@@ -95,7 +94,7 @@ class LoginPage extends StatelessWidget {
                 MyTextfield(
                   icone: Icons.email_outlined,
                   controller: emailcontroller,
-                  hintText: "Email",
+                  labelText: "Email",
                   obscureText: false,
                   tipoDoTeclado: TextInputType.emailAddress,
                 ),
@@ -105,7 +104,7 @@ class LoginPage extends StatelessWidget {
                 MyTextfield(
                   icone: Icons.fingerprint_outlined,
                   controller: passwordcontroller,
-                  hintText: "Senha",
+                  labelText: "Senha",
                   obscureText: true,
                   tipoDoTeclado: TextInputType.visiblePassword,
                 ),
@@ -120,7 +119,7 @@ class LoginPage extends StatelessWidget {
                       child: Text(
                         "Esqueceu a senha?",
                         style: TextStyle(
-                          color: primary,
+                          color: accentLM,
                           fontSize: 12,
                         ),
                       ),
@@ -141,7 +140,7 @@ class LoginPage extends StatelessWidget {
                 SubmitButton(
                   text: "Entrar",
                   cortexto: Colors.white,
-                  corFundo: accentLight,
+                  corFundo: primary,
                   onTap: logarUsuario,
                   fontWeight: FontWeight.bold,
                 ),
@@ -150,14 +149,16 @@ class LoginPage extends StatelessWidget {
                 ),
                 Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                   const Text("Não tem uma conta?",
-                      style: TextStyle(color: textoComplementar, fontSize: 12)),
+                      style: TextStyle(color: cinzaLM, fontSize: 12)),
                   const SizedBox(
                     width: 4,
                   ),
                   GestureDetector(
                       child: const Text("Crie aqui!",
                           style: TextStyle(
-                              color: primary, fontWeight: FontWeight.bold, fontSize: 12)),
+                              color: accentLM,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 12)),
                       onTap: () {
                         Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) => RegisterPage()));
@@ -171,16 +172,17 @@ class LoginPage extends StatelessWidget {
                   children: [
                     Expanded(
                       child: Divider(
-                        color: textoComplementar,
+                        color: cinzaLM,
                         thickness: 0.3,
                         indent: 40,
                         endIndent: 5,
                       ),
                     ),
-                    Text("Ou entre com", style: TextStyle(color: textoComplementar, fontSize: 12) ),
+                    Text("Ou entre com",
+                        style: TextStyle(color: cinzaLM, fontSize: 12)),
                     Expanded(
                       child: Divider(
-                        color: textoLight,
+                        color: textoLM,
                         thickness: 0.3,
                         indent: 5,
                         endIndent: 40,
@@ -201,12 +203,6 @@ class LoginPage extends StatelessWidget {
                     SquareTile(imagePath: "assets/images/twitter.png")
                   ],
                 ),
-
-                const SizedBox(
-                  height: 20,
-                ),
-
-                
               ],
             ),
           ),

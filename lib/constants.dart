@@ -8,16 +8,20 @@ const String profilePic = "assets/images/profile.jpg";
 
 //Paleta de Cores
 
+const Color primary = Color(0XFF3A046E);
+const Color primary300 = Color(0XFF9575CD);
+const Color primary100 = Color(0XFFECE5F4);
+
 //Modo Claro
-const Color fundoLight = Color(0xFFFAFAFA);
-const Color textoLight = Color(0xFF050505);
-const Color textoComplementar = Color(0xFF606060);
-const Color primary = Color(0XFF6A27C2);
-const Color secondaryLight = Color(0XFFECF5FA);
-const Color accentLight = Color(0XFFFC0329);
+const Color fundoLM = Color(0xFFFAFAFA);
+const Color textoLM = Color(0xFF050505);
+const Color cinzaLM = Color(0xFF606060);
+const Color secondaryLM = Color(0XFFEBE0E0);
+const Color accentLM = Color(0XFFD72828);
+const Color accent100LM = Color.fromARGB(255, 254, 203, 203);
 
 //Modo Escuro
-const Color fundoDark = Color(0xFF050505);
-const Color textoDark = Color(0xFFFAFAFA);
-const Color secondaryDark = Color(0XFF0A1F29);
-const Color accentDark = Color(0XFFFD687E);
+const Color fundoDM = Color(0xFF141414);
+const Color textoDM = Color(0xFFFAFAFA);
+const Color secondaryDM = Color(0XFF1F1414);
+const Color accentDM = Color(0XFFE77E7E);

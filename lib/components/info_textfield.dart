@@ -12,7 +12,7 @@ class InfoTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: secondaryLight,
+        color: secondaryLM,
         borderRadius: BorderRadius.circular(12),
       ),
       padding: const EdgeInsets.only(left: 15, bottom: 15),

@@ -10,7 +10,6 @@ class ForgotPasswordPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -26,57 +25,62 @@ class ForgotPasswordPage extends StatelessWidget {
             onPressed: () {},
             icon: const Icon(
               Icons.help_outline_outlined,
-              color: textoLight,
+              color: textoLM,
             ),
           ),
         ],
       ),
-      backgroundColor: fundoLight,
-      body: Container(
-        margin: const EdgeInsets.all(16),
-        child: SingleChildScrollView(
+      backgroundColor: fundoLM,
+      body: SingleChildScrollView(
           child: SafeArea(
-            child: Column(
-              children: [
-                const Text(
-                  "Esqueceu a senha?",
-                  style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      color: textoLight),
-                ),
-                const Text(
-                  'Coloque o email vinculado a sua conta e mandaremos as instruções para recuperar sua senha',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 16,
-                    color: textoComplementar, // Substitua "textoComplementar" pela cor desejada ou defina a variável.
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                children: [
+                  const Text(
+                    "Esqueceu a senha?",
+                    style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: textoLM),
                   ),
-                ),
-                const SizedBox(
-                  height: 104,
-                ),
-                MyTextfield(
-                  icone: Icons.email_outlined,
-                  controller: emailcontroller,
-                  hintText: "Email",
-                  obscureText: false,
-                  tipoDoTeclado: TextInputType.emailAddress,
-                ),
-                const SizedBox(
-                  height: 40,
-                ),
-               
-               SubmitButton(onTap: () {}, text: "Enviar Instruções", cortexto: textoDark, corFundo: primary, fontWeight: FontWeight.bold),
-               const SizedBox(
-                height: 340,
-               ),
-               Text("Progressão")
-              ],
+                  const Text(
+                    'Coloque o email vinculado a sua conta e mandaremos as instruções para recuperar sua senha',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 16,
+                      color:
+                          cinzaLM, // Substitua "textoComplementar" pela cor desejada ou defina a variável.
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 104,
+                  ),
+                  MyTextfield(
+                    icone: Icons.email_outlined,
+                    controller: emailcontroller,
+                    labelText: "Email",
+                    obscureText: false,
+                    tipoDoTeclado: TextInputType.emailAddress,
+                  ),
+                  const SizedBox(
+                    height: 40,
+                  ),
+                  SubmitButton(
+                      onTap: () {},
+                      text: "Enviar Instruções",
+                      cortexto: textoDM,
+                      corFundo: primary,
+                      fontWeight: FontWeight.bold),
+                  const SizedBox(
+                    height: 300,
+                  ),
+                  Text("Progressão")
+                ],
+              ),
             ),
           ),
         ),
-      ),
     );
   }
 }

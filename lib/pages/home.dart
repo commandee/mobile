@@ -21,21 +21,20 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) => Scaffold(
-      appBar: AppBar(
-        title: Text('Comandas'),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: AddButton(),
-      bottomNavigationBar: const BAB(),
-      backgroundColor: fundoLight,
-      drawer: const NavigationDrawer(),
-      body: Center(
+        appBar: AppBar(
+          title: Text('Comandas'),
+        ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        floatingActionButton: AddButton(),
+        bottomNavigationBar: const BAB(),
+        backgroundColor: fundoLM,
+        drawer: const NavigationDrawer(),
+        body: Center(
           child: ListView(children: [
             Commanda(
               nome: "Comanda #157",
               descricao: "Salada César x2, Hambúrguer, Onion Rings",
             ),
-            
           ]),
         ),
       );
@@ -48,7 +47,7 @@ class AddButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return FloatingActionButton(
       onPressed: () {},
-      backgroundColor: accentLight,
+      backgroundColor: accentLM,
       child: Icon(
         Icons.add,
         color: Colors.white,
@@ -56,6 +55,7 @@ class AddButton extends StatelessWidget {
     );
   }
 }
+
 class BAB extends StatelessWidget {
   const BAB({Key? key}) : super(key: key);
 
@@ -67,21 +67,44 @@ class BAB extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          IconButton(onPressed: (){}, icon: Icon(Icons.person_outline, color: textoDark,), iconSize: 20,),
-          IconButton(onPressed: (){}, icon: Icon(Icons.receipt_outlined, color: textoDark,)),
-          IconButton(onPressed: (){}, icon: Icon(Icons.menu_book_outlined, color: textoDark,)),
-          IconButton(onPressed: (){}, icon: Icon(Icons.logout_outlined, color: textoDark,)),
+          IconButton(
+            onPressed: () {},
+            icon: Icon(
+              Icons.person_outline,
+              color: textoDM,
+            ),
+            iconSize: 20,
+          ),
+          IconButton(
+              onPressed: () {},
+              icon: Icon(
+                Icons.receipt_outlined,
+                color: textoDM,
+              )),
+          IconButton(
+              onPressed: () {},
+              icon: Icon(
+                Icons.menu_book_outlined,
+                color: textoDM,
+              )),
+          IconButton(
+              onPressed: () {},
+              icon: Icon(
+                Icons.logout_outlined,
+                color: textoDM,
+              )),
         ],
       ),
     );
   }
 }
+
 class NavigationDrawer extends StatelessWidget {
   const NavigationDrawer({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) => Drawer(
-        backgroundColor: fundoLight,
+        backgroundColor: fundoLM,
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -94,7 +117,7 @@ class NavigationDrawer extends StatelessWidget {
       );
 
   Widget buildHeader(BuildContext context) => Material(
-        color: secondaryLight,
+        color: secondaryLM,
         child: InkWell(
           onTap: () {
             Navigator.pop(context);
@@ -118,12 +141,12 @@ class NavigationDrawer extends StatelessWidget {
                 const SizedBox(height: 12),
                 Text(
                   name,
-                  style: TextStyle(color: textoLight, fontSize: 18),
+                  style: TextStyle(color: textoLM, fontSize: 18),
                 ),
                 const SizedBox(height: 4),
                 Text(
                   email,
-                  style: TextStyle(color: textoLight, fontSize: 14),
+                  style: TextStyle(color: textoLM, fontSize: 14),
                 ),
               ],
             ),

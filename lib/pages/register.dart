@@ -27,24 +27,23 @@ class RegisterPage extends StatelessWidget {
         backgroundColor: Colors.transparent,
         elevation: 0,
         leading: BackButton(
-          color: textoLight,
+          color: textoLM,
           onPressed: () {
             Navigator.pop(context);
           },
         ),
       ),
-      backgroundColor: fundoLight,
-      body: Container(
-        margin: const EdgeInsets.all(16),
-        child: SingleChildScrollView(
-          child: SafeArea(
+      backgroundColor: fundoLM,
+      body: SingleChildScrollView(
+        child: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
             child: Column(
               children: [
-               
                 const Text(
                   "Criar uma conta",
                   style: TextStyle(
-                    color: textoLight,
+                    color: textoLM,
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
                   ),
@@ -52,7 +51,7 @@ class RegisterPage extends StatelessWidget {
                 const Text(
                   "para começar, insira seus dados abaixo:",
                   style: TextStyle(
-                    color: textoComplementar,
+                    color: cinzaLM,
                     fontSize: 12,
                   ),
                 ),
@@ -62,40 +61,38 @@ class RegisterPage extends StatelessWidget {
                 MyTextfield(
                     icone: Icons.person,
                     controller: namecontroller,
-                    hintText: "Nome",
+                    labelText: "Nome",
                     obscureText: false,
-                    tipoDoTeclado : TextInputType.name
-                    ),
+                    tipoDoTeclado: TextInputType.name),
                 const SizedBox(
                   height: 16,
                 ),
                 MyTextfield(
                     icone: Icons.person_outline_outlined,
                     controller: usernamecontroller,
-                    hintText: "Nome de Usuário",
+                    labelText: "Nome de Usuário",
                     obscureText: false,
                     tipoDoTeclado: TextInputType.name),
-                   
                 const SizedBox(
                   height: 16,
                 ),
                 MyTextfield(
-                    icone: Icons.email_outlined,
-                    controller: emailcontroller,
-                    hintText: "Email",
-                    obscureText: false,
-                    tipoDoTeclado: TextInputType.emailAddress,
-                    ),
+                  icone: Icons.email_outlined,
+                  controller: emailcontroller,
+                  labelText: "Email",
+                  obscureText: false,
+                  tipoDoTeclado: TextInputType.emailAddress,
+                ),
                 const SizedBox(
                   height: 16,
                 ),
                 MyTextfield(
-                    icone: Icons.fingerprint_outlined,
-                    controller: passwordcontroller,
-                    hintText: "Senha",
-                    obscureText: true,
-                    tipoDoTeclado: TextInputType.visiblePassword,
-                    ),
+                  icone: Icons.fingerprint_outlined,
+                  controller: passwordcontroller,
+                  labelText: "Senha",
+                  obscureText: true,
+                  tipoDoTeclado: TextInputType.visiblePassword,
+                ),
                 const SizedBox(
                   height: 112,
                 ),
@@ -103,22 +100,23 @@ class RegisterPage extends StatelessWidget {
                     onTap: cadastrarUsuario,
                     text: "Cadastrar",
                     cortexto: Colors.white,
-                    corFundo: accentLight,
-                    fontWeight: FontWeight.bold
-                    ),
+                    corFundo: primary,
+                    fontWeight: FontWeight.bold),
                 const SizedBox(
                   height: 8,
                 ),
                 Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                   const Text("Já tem uma conta?",
-                      style: TextStyle(color: textoComplementar, fontSize: 12)),
+                      style: TextStyle(color: cinzaLM, fontSize: 12)),
                   const SizedBox(
                     width: 4,
                   ),
                   GestureDetector(
                       child: const Text("Faça login aqui",
                           style: TextStyle(
-                              color: primary, fontWeight: FontWeight.bold, fontSize: 12)),
+                              color: accentLM,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 12)),
                       onTap: () {
                         Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) => LoginPage()));

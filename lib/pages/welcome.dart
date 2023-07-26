@@ -22,76 +22,76 @@ class WelcomePage extends StatelessWidget {
     }
 
     return Scaffold(
-      backgroundColor: fundoLight,
-      body: Container(
-        margin: const EdgeInsets.all(16),
-        child: Center(
-          child: SafeArea(
-            child: Column(
-              children: [
-                Image.asset(
-                  "assets/images/illustration.png",
-                  height: 358,
-                  width: 358,
-                ),
-                const SizedBox(
-                  height: 8,
-                ),
-                const Text(
-                  "Bem-vinde ao Commandee!",
-                  style: TextStyle(
-                    color: textoLight,
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                const Align(
-                  alignment: Alignment.center,
-                  child: Text(
-                    "Transformando seu trabalho em uma experiência incrível",
-                    style: TextStyle(
-                      color: textoComplementar,
-                      fontSize: 12,
+      backgroundColor: fundoLM,
+      body: SingleChildScrollView(
+        child: SafeArea(
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  children: [
+                    Image.asset(
+                      "assets/images/illustration.png",
+                      height: 358,
+                      width: 358,
                     ),
-                  ),
-                ),
-                const SizedBox(
-                  height: 128,
-                ),
-                const Align(
-                  alignment: Alignment.center,
-                  child: Text(
-                    "Entre com",
-                    style: TextStyle(
-                      color: textoComplementar,
-                      fontSize: 12,
+                    const SizedBox(
+                      height: 8,
                     ),
-                  ),
+                    const Text(
+                      "Bem-vinde ao Commandee!",
+                      style: TextStyle(
+                        color: textoLM,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                    const Text(
+                        "Transformando seu trabalho em uma experiência incrível",
+                        style: TextStyle(
+                          color: cinzaLM,
+                          fontSize: 12,
+                        ),
+                        textAlign: TextAlign.center
+                    ),
+                    const SizedBox(
+                      height: 128,
+                    ),
+                    const Align(
+                      alignment: Alignment.center,
+                      child: Text(
+                        "Entre com",
+                        style: TextStyle(
+                          color: cinzaLM,
+                          fontSize: 12,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 8,
+                    ),
+                    SubmitButton(
+                        onTap: entrarLogin,
+                        text: "Login",
+                        cortexto: textoDM,
+                        corFundo: primary,
+                        fontWeight: FontWeight.bold),
+                    const SizedBox(
+                      height: 16,
+                    ),
+                    SubmitButton(
+                      onTap: entrarCadastro,
+                      text: "Cadastro",
+                      cortexto: textoLM,
+                      corFundo: secondaryLM,
+                      fontWeight: FontWeight.normal,
+                    )
+                  ],
                 ),
-                const SizedBox(
-                  height: 8,
-                ),
-                SubmitButton(
-                    onTap: entrarLogin,
-                    text: "Login",
-                    cortexto: textoDark,
-                    corFundo: primary,
-                    fontWeight: FontWeight.bold),
-                const SizedBox(
-                  height: 16,
-                ),
-                SubmitButton(
-                  onTap: entrarCadastro,
-                  text: "Cadastro",
-                  cortexto: textoLight,
-                  corFundo: secondaryLight,
-                  fontWeight: FontWeight.normal,
-                )
-              ],
+              ),
             ),
           ),
-        ),
-      ),
     );
   }
 }

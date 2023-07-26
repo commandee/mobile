@@ -59,7 +59,7 @@ class _SettingsPageState extends State<SettingsPage> {
                     style: TextStyle(
                         fontSize: 22,
                         fontWeight: FontWeight.bold,
-                        color: textoLight),
+                        color: textoLM),
                   )
                 ],
               ),
@@ -91,7 +91,7 @@ class _SettingsPageState extends State<SettingsPage> {
                     style: TextStyle(
                         fontSize: 22,
                         fontWeight: FontWeight.bold,
-                        color: textoLight),
+                        color: textoLM),
                   )
                 ],
               ),
@@ -112,7 +112,7 @@ Padding buildNotifOption(String title, bool value, Function onChangeMethod) {
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text(title, style: TextStyle(fontSize: 18, color: textoLight)),
+        Text(title, style: TextStyle(fontSize: 18, color: textoLM)),
         Transform.scale(
           scale: 0.7,
           child: Switch(
@@ -122,8 +122,8 @@ Padding buildNotifOption(String title, bool value, Function onChangeMethod) {
             },
             activeColor: primary,
             activeTrackColor: primary,
-            inactiveThumbColor: secondaryLight,
-            inactiveTrackColor: secondaryLight,
+            inactiveThumbColor: secondaryLM,
+            inactiveTrackColor: secondaryLM,
           ),
         )
       ],
@@ -164,11 +164,11 @@ GestureDetector buildAccountOption(BuildContext context, String title) {
           children: [
             Text(
               title,
-              style: TextStyle(fontSize: 18, color: textoLight),
+              style: TextStyle(fontSize: 18, color: textoLM),
             ),
             Icon(
               Icons.arrow_forward_ios,
-              color: textoLight,
+              color: textoLM,
             )
           ],
         ),

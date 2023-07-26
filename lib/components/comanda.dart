@@ -21,7 +21,7 @@ class Commanda extends StatelessWidget {
                 style: const TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.normal,
-                    color: textoLight)),
+                    color: textoLM)),
             subtitle: Text(
               descricao,
               style: const TextStyle(fontSize: 15),
