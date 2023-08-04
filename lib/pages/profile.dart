@@ -21,12 +21,7 @@ class _ProfilePage extends State<ProfilePage> {
       appBar: AppBar(
           backgroundColor: Colors.transparent,
           elevation: 0,
-          leading: BackButton(
-            color: primary,
-            onPressed: () {
-              Navigator.pop(context);
-            },
-          )),
+          automaticallyImplyLeading: false,),
       backgroundColor: fundoLM,
       body: ListView(
         padding: EdgeInsets.zero,

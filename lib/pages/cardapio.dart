@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:teste/components/filtros.dart';
+import 'package:teste/components/chip_filters.dart';
 import 'package:teste/constants.dart';
 
 class CardapioPage extends StatefulWidget {
@@ -19,6 +19,7 @@ class _CardapioPageState extends State<CardapioPage> {
         title: const Text('Cardápio'),
         centerTitle: true,
         backgroundColor: fundoDM,
+        automaticallyImplyLeading: false,
       ),
       body: SingleChildScrollView(
         child: Column(

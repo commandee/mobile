@@ -43,7 +43,7 @@ class _MyTextfieldState extends State<MyTextfield> {
         suffixIcon: widget.controller.text.isEmpty
             ? IconButton(
                 onPressed: () => widget.controller.clear(),
-                icon: Icon(Icons.close),
+                icon: Icon(Icons.close, color: Colors.deepPurple[300]),
               )
             : null,
         enabledBorder: OutlineInputBorder(

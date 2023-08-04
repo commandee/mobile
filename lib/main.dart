@@ -18,9 +18,10 @@ class MyApp extends StatelessWidget {
       title: 'Commandee',
       theme: ThemeData(
         fontFamily: 'Poppins',
-        primaryColor: primary,
+        primarySwatch: Colors.red,
       ),
-      home: WelcomePage(),//HomePage(), 
+      home: WelcomePage(),
+      //HomePage(), 
     );
   }
 }
