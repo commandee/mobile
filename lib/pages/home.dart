@@ -1,14 +1,11 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
-import 'package:teste/components/dropdown_resturantes.dart';
-import 'package:teste/components/foto_perfil.dart';
+import 'package:teste/components/add_button.dart';
 import 'package:teste/pages/cardapio.dart';
-import 'package:teste/pages/login.dart';
+import 'package:teste/pages/comandas.dart';
 import 'package:teste/pages/profile.dart';
-import 'package:teste/pages/settings.dart';
 
-import '../components/card_comanda.dart';
 import '../constants.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -19,107 +16,78 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  int _index = 0;
+
+  final List<Widget> _telas = [
+    ComandasPage(),
+    ProfilePage(),
+    CardapioPage(),
+  ];
+  void _itemClicado(int index) {
+    setState(() {
+      _index = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) => Scaffold(
-        appBar: AppBar(
-          title: Text('Comandas'),
-          centerTitle: true,
-          backgroundColor: fundoDM,
-        ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         floatingActionButton: AddButton(),
-        bottomNavigationBar: const BAB(),
         backgroundColor: fundoLM,
-        drawer: const NavigationDrawer(),
-        body: SafeArea(
-          child: Column(
-            children: [
-              Expanded(
-                child: ListView(
-                  children: [
-                    CardComanda(
-                      nome: "Comanda #157",
-                      descricao: "Comanda do dia 15/07/2021",
-                    ),
-                  ],
-                ),
-              ),
+        body: _telas[_index],
+        extendBody: true,
+        bottomNavigationBar: BottomAppBar(
+          shape: const CircularNotchedRectangle(),
+          child: BottomNavigationBar(
+            elevation: 0,
+            backgroundColor: Colors.transparent,
+            currentIndex: _index,
+            onTap: _itemClicado,
+            items: [
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.receipt_outlined), label: 'Comandas'),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.person), label: 'Perfil'),
+              //BottomNavigationBarItem(icon: Icon(Icons.menu_book), label: 'Cardápio')
             ],
           ),
         ),
-        extendBody: true,
       );
 }
 
-class AddButton extends StatelessWidget {
-  const AddButton({Key? key}) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return FloatingActionButton(
-      onPressed: () {
-        print('Adicionar comanda');
-      },
-      backgroundColor: accentLM,
-      child: Icon(
-        Icons.add,
-        color: Colors.white,
-      ),
-    );
-  }
-}
-
-class BAB extends StatelessWidget {
+/*
+class BAB extends StatefulWidget {
   const BAB({Key? key}) : super(key: key);
 
+  @override
+  State<BAB> createState() => _BABState();
+}
+
+class _BABState extends State<BAB> {
   @override
   Widget build(BuildContext context) {
     return BottomAppBar(
         elevation: 10,
         color: fundoLM, //Theme.of(context).primaryColor,
         shape: const CircularNotchedRectangle(),
-        child: IconTheme(
-          data: IconThemeData(color: Theme.of(context).colorScheme.onPrimary),
-          child: Padding(
-            padding: const EdgeInsets.all(4.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                IconButton(
-                    onPressed: () {},
-                    icon: Icon(
-                      Icons.receipt_rounded,
-                      color: textoLM,
-                    )),
-                IconButton(
-                    onPressed: () {},
-                    icon: Icon(
-                      Icons.book_rounded,
-                      color: textoLM,
-                    )),
-                SizedBox(
-                  width: 24,
-                ),
-                IconButton(
-                    onPressed: () {},
-                    icon: Icon(
-                      Icons.receipt_rounded,
-                      color: textoLM,
-                    )),
-                IconButton(
-                  onPressed: () {},
-                  icon: Icon(
-                    Icons.person_rounded,
-                    color: textoLM,
-                  ),
-                ),
-              ],
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            IconButton(
+              icon: Icon(Icons.receipt_outlined),
+              tooltip: 'Comandas',
+              onPressed: () => _onItemTapped(0),
             ),
-          ),
+            IconButton(
+              icon: Icon(Icons.person),
+              tooltip: 'Perfil',
+              onPressed: () => _onItemTapped(1),
+            ),
+          ],
         ));
   }
 }
-
 class NavigationDrawer extends StatelessWidget {
   const NavigationDrawer({Key? key}) : super(key: key);
 
@@ -247,4 +215,4 @@ class NavigationDrawer extends StatelessWidget {
           ),
         ]),
       );
-}
+}*/
