@@ -1,4 +1,3 @@
-import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:teste/components/chip_filters.dart';
@@ -37,30 +36,10 @@ class _CardapioPageState extends State<CardapioPage> {
                       crossAxisCount: 2,
                       mainAxisSpacing: 10,
                       children: [
+                        for(int i = 0; i < 10; i++)
                         itemFood("Salada César", "assets/images/salada.jpeg",
                             "R\$ 15,00"),
-                        itemFood("Hambúrguer", "assets/images/hamburguer.png",
-                            "R\$ 20,00"),
-                        itemFood("Onion Rings", "assets/images/cebolafrita.jpg",
-                            "R\$ 10,00"),
-                        itemFood("Salada César", "assets/images/salada.jpeg",
-                            "R\$ 15,00"),
-                        itemFood("Hambúrguer", "assets/images/hamburguer.png",
-                            "R\$ 20,00"),
-                        itemFood("Onion Rings", "assets/images/cebolafrita.jpg",
-                            "R\$ 10,00"),
-                        itemFood("Salada César", "assets/images/salada.jpeg",
-                            "R\$ 15,00"),
-                        itemFood("Hambúrguer", "assets/images/hamburguer.png",
-                            "R\$ 20,00"),
-                        itemFood("Onion Rings", "assets/images/cebolafrita.jpg",
-                            "R\$ 10,00"),
-                        itemFood("Salada César", "assets/images/salada.jpeg",
-                            "R\$ 15,00"),
-                        itemFood("Hambúrguer", "assets/images/hamburguer.png",
-                            "R\$ 20,00"),
-                        itemFood("Onion Rings", "assets/images/cebolafrita.jpg",
-                            "R\$ 10,00"),
+                        
                       ]),
                 ],
               ),
@@ -82,9 +61,9 @@ class _CardapioPageState extends State<CardapioPage> {
             boxShadow: [
               BoxShadow(
                   offset: const Offset(0, 5),
-                  color: Theme.of(context).primaryColor.withOpacity(0.2),
+                  color: Colors.grey.withOpacity(0.5),
                   spreadRadius: 2,
-                  blurRadius: 5),
+                  blurRadius: 4),
             ],
           ),
           child: Column(

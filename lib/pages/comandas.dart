@@ -23,14 +23,18 @@ class _ComandasPageState extends State<ComandasPage> {
         child: Column(
           children: [
             Expanded(
-              child: ListView(
-                children: [
-                  for (int i = 0; i < 10; i++)
-                    CardComanda(
-                      nome: "Comanda #157",
-                      descricao: "Comanda do dia 15/07/2021",
-                    ),
-                ],
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 8.0),
+                child: ListView(
+                  children: [
+                    for (int i = 0; i < 15; i++)
+                      CardComanda(
+                        nome: "Comanda #157",
+                        descricao: "Comanda do dia 15/07/2021",
+                        price: 15.00,
+                      ),
+                  ],
+                ),
               ),
             ),
           ],
