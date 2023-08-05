@@ -3,7 +3,6 @@
 import 'package:flutter/material.dart';
 import 'package:teste/components/button.dart';
 import 'package:teste/components/form_textfield.dart';
-import 'package:teste/components/square_tile_login.dart';
 import 'package:teste/constants.dart';
 import 'package:teste/pages/forgot_password.dart';
 import 'package:teste/pages/register.dart';
@@ -29,6 +28,7 @@ class LoginPage extends StatelessWidget {
               style: TextStyle(
                 color: textoLM,
               ),
+              textAlign: TextAlign.center,
             ),
             content: TextButton(
               child: Text(
@@ -196,11 +196,17 @@ class LoginPage extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    SquareTile(imagePath: "assets/images/google.png"),
-                    const SizedBox(
-                      width: 16,
-                    ),
-                    SquareTile(imagePath: "assets/images/twitter.png")
+                    Container(
+                      decoration: BoxDecoration(
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(12)),
+                        color: Colors.grey[300],
+                      ),
+                      child: Image.asset(
+                        "assets/images/google.png",
+                        height: 72,
+                      ),
+                    )
                   ],
                 ),
               ],
