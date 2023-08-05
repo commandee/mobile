@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       title: 'Commandee',
       theme: ThemeData(
         fontFamily: 'Poppins',
-        primarySwatch: Colors.red,
+        primarySwatch: Colors.deepPurple,
       ),
       home: WelcomePage(),
       //HomePage(), 
