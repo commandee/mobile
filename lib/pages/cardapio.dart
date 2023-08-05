@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:teste/components/chip_filters.dart';
 import 'package:teste/constants.dart';
@@ -14,40 +13,30 @@ class _CardapioPageState extends State<CardapioPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Cardápio'),
-        centerTitle: true,
-        backgroundColor: fundoDM,
-        automaticallyImplyLeading: false,
-      ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Filtros(),
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Column(
-                children: [
-                  //filtros
-                  //cardapio
-                  GridView.count(
-                      shrinkWrap: true,
-                      physics: const NeverScrollableScrollPhysics(),
-                      crossAxisCount: 2,
-                      mainAxisSpacing: 10,
-                      children: [
-                        for(int i = 0; i < 10; i++)
-                        itemFood("Salada César", "assets/images/salada.jpeg",
-                            "R\$ 15,00"),
-                        
-                      ]),
-                ],
-              ),
-            ),
-          ],
+        appBar: AppBar(
+          title: const Text('Cardápio'),
+          centerTitle: true,
+          backgroundColor: fundoDM,
+          automaticallyImplyLeading: false,
         ),
-      ),
-    );
+        body: Column(
+            children: [
+              Filtros(),
+              Expanded(
+                child: GridView.count(
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    crossAxisCount: 2,
+                    mainAxisSpacing: 10,
+                    children: [
+                      for (int i = 0; i < 10; i++)
+                        itemFood("Suco de Laranja", "assets/images/suco.jpg",
+                            "R\$ 13,99"),
+                    ]),
+              ),
+              
+            ],
+        ));
   }
 
   itemFood(String title, String img, String price) => InkWell(

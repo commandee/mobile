@@ -35,8 +35,7 @@ class RegisterPage extends StatelessWidget {
       ),
       backgroundColor: fundoLM,
       body: SingleChildScrollView(
-        child: SafeArea(
-          child: Padding(
+        child:  Padding(
             padding: const EdgeInsets.all(16.0),
             child: Column(
               children: [
@@ -125,7 +124,6 @@ class RegisterPage extends StatelessWidget {
               ],
             ),
           ),
-        ),
       ),
     );
   }

@@ -19,13 +19,11 @@ class _ComandasPageState extends State<ComandasPage> {
           backgroundColor: fundoDM,
           automaticallyImplyLeading: false
         ),
-      body: SafeArea(
-        child: Column(
+      body: Column(
           children: [
+            SearchBar(),
             Expanded(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 8.0),
-                child: ListView(
+              child:  ListView(
                   children: [
                     for (int i = 0; i < 15; i++)
                       CardComanda(
@@ -36,10 +34,8 @@ class _ComandasPageState extends State<ComandasPage> {
                   ],
                 ),
               ),
-            ),
           ],
         ),
-      ),
     );
   }
 }
