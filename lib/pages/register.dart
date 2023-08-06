@@ -34,8 +34,7 @@ class RegisterPage extends StatelessWidget {
         ),
       ),
       backgroundColor: fundoLM,
-      body: SingleChildScrollView(
-        child:  Padding(
+      body: Padding(
             padding: const EdgeInsets.all(16.0),
             child: Column(
               children: [
@@ -54,9 +53,7 @@ class RegisterPage extends StatelessWidget {
                     fontSize: 12,
                   ),
                 ),
-                const SizedBox(
-                  height: 72,
-                ),
+                Spacer(),
                 MyTextfield(
                     icone: Icons.person,
                     controller: namecontroller,
@@ -92,9 +89,7 @@ class RegisterPage extends StatelessWidget {
                   obscureText: true,
                   tipoDoTeclado: TextInputType.visiblePassword,
                 ),
-                const SizedBox(
-                  height: 112,
-                ),
+                Spacer(flex: 2,),
                 SubmitButton(
                     onTap: cadastrarUsuario,
                     text: "Cadastrar",
@@ -121,10 +116,11 @@ class RegisterPage extends StatelessWidget {
                             builder: (context) => LoginPage()));
                       })
                 ]),
+                Spacer(),
               ],
             ),
           ),
-      ),
+      
     );
   }
 }

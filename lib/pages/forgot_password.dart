@@ -52,8 +52,7 @@ class ForgotPasswordPage extends StatelessWidget {
         ],
       ),
       backgroundColor: fundoLM,
-      body: SingleChildScrollView(
-        child:  Padding(
+      body: Padding(
             padding: const EdgeInsets.all(16.0),
             child: Column(
               children: [
@@ -73,9 +72,7 @@ class ForgotPasswordPage extends StatelessWidget {
                         cinzaLM, // Substitua "textoComplementar" pela cor desejada ou defina a variável.
                   ),
                 ),
-                const SizedBox(
-                  height: 104,
-                ),
+                Spacer(),
                 MyTextfield(
                   icone: Icons.email_outlined,
                   controller: emailcontroller,
@@ -94,14 +91,12 @@ class ForgotPasswordPage extends StatelessWidget {
                     cortexto: textoDM,
                     corFundo: primary,
                     fontWeight: FontWeight.bold),
-                const SizedBox(
-                  height: 300,
-                ),
+                Spacer(flex:  3),
                 Text("Progressão")
               ],
             ),
           ),
-        ),
+        
     );
   }
 }

@@ -64,8 +64,7 @@ class LoginPage extends StatelessWidget {
         ),
       ),
       backgroundColor: fundoLM,
-      body: SingleChildScrollView(
-        child:  Padding(
+      body: Padding(
             padding: const EdgeInsets.all(16.0),
             child: Column(
               children: [
@@ -87,9 +86,7 @@ class LoginPage extends StatelessWidget {
                     ),
                   ),
                 ),
-                const SizedBox(
-                  height: 112,
-                ),
+               Spacer(flex: 2,),
                 MyTextfield(
                   icone: Icons.email_outlined,
                   controller: emailcontroller,
@@ -131,9 +128,7 @@ class LoginPage extends StatelessWidget {
                     )
                   ],
                 ),
-                const SizedBox(
-                  height: 40,
-                ),
+                Spacer(),
 
                 //botão de login
                 SubmitButton(
@@ -163,10 +158,9 @@ class LoginPage extends StatelessWidget {
                             builder: (context) => RegisterPage()));
                       })
                 ]),
-                const SizedBox(
-                  height: 120,
-                ),
+                Spacer(flex: 3,),
 
+                //divisor
                 Row(
                   children: [
                     Expanded(
@@ -189,9 +183,13 @@ class LoginPage extends StatelessWidget {
                     ),
                   ],
                 ),
+
+
                 const SizedBox(
                   height: 24,
                 ),
+
+                //botão de login com google
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -211,7 +209,7 @@ class LoginPage extends StatelessWidget {
               ],
             ),
           ),
-        ),
+        
       
     );
   }
