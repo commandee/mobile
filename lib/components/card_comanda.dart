@@ -11,7 +11,7 @@ class CardComanda extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 8.0),
+      padding: const EdgeInsets.only(bottom: 4.0, top: 4.0, left: 16.0, right: 16.0),
       child: SizedBox(
         height: 104,
         child: GestureDetector(

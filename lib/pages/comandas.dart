@@ -19,23 +19,26 @@ class _ComandasPageState extends State<ComandasPage> {
           backgroundColor: fundoDM,
           automaticallyImplyLeading: false
         ),
-      body: Column(
-          children: [
-            SearchBar(),
-            Expanded(
-              child:  ListView(
-                  children: [
-                    for (int i = 0; i < 15; i++)
-                      CardComanda(
-                        nome: "Comanda #157",
-                        descricao: "Comanda do dia 15/07/2021",
-                        price: 15.00,
-                      ),
-                  ],
+      body: Padding(
+        padding: const EdgeInsets.all(1.0),
+        child: Column(
+            children: [
+              SearchBar(),
+              Expanded(
+                child:  ListView(
+                    children: [
+                      for (int i = 0; i < 8; i++)
+                        CardComanda(
+                          nome: "Comanda #157",
+                          descricao: "Comanda do dia 15/07/2021",
+                          price: 15.00,
+                        ),
+                    ],
+                  ),
                 ),
-              ),
-          ],
-        ),
+            ],
+          ),
+      ),
     );
   }
 }

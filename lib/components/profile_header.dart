@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:teste/components/foto_perfil.dart';
+import 'package:teste/constants.dart';
 
 class ProfileHeader extends StatelessWidget {
   const ProfileHeader({super.key});
@@ -30,6 +31,7 @@ class ProfileHeader extends StatelessWidget {
                             alignment: Alignment.centerLeft,
                             child: Text('@nomedeusuario',
                                 style: TextStyle(
+                                  color: primary,
                                     fontWeight: FontWeight.w300,
                                     fontSize: 14)),
                           )

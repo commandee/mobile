@@ -4,7 +4,6 @@ import 'package:teste/components/form_textfield.dart';
 import 'package:teste/constants.dart';
 import 'package:teste/pages/home.dart';
 import 'package:teste/pages/login.dart';
-import 'package:teste/pages/welcome.dart';
 
 class RegisterPage extends StatelessWidget {
   RegisterPage({super.key});
