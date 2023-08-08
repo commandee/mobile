@@ -13,15 +13,15 @@ class _ProfilePicState extends State<ProfilePic> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 100,
-      height: 100,
+      width: 120,
+      height: 120,
       decoration: BoxDecoration(
         color: Colors.white,
         border: Border.all(
           color: accentLM,
           width: 1.0,
         ),
-        borderRadius: BorderRadius.circular(50),
+        borderRadius: BorderRadius.circular(100),
       ),
       child: CircleAvatar(
         radius: 25,
