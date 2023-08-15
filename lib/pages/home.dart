@@ -6,8 +6,6 @@ import 'package:teste/pages/cardapio.dart';
 import 'package:teste/pages/comandas.dart';
 import 'package:teste/pages/profile.dart';
 
-import '../constants.dart';
-
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
 
@@ -31,28 +29,32 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-        floatingActionButton: AddButton(),
-        backgroundColor: fundoLM,
-        body: _telas[_index],
-        extendBody: true,
-        bottomNavigationBar: BottomAppBar(
-          shape: const CircularNotchedRectangle(),
-          child: BottomNavigationBar(
-            fixedColor: accentLM,
-            elevation: 0,
-            backgroundColor: Colors.transparent,
-            currentIndex: _index,
-            onTap: _itemClicado,
-            items: [
-              BottomNavigationBarItem(
-                  icon: Icon(Icons.receipt_outlined), label: 'Comandas'),
-              BottomNavigationBarItem(
-                  icon: Icon(Icons.person), label: 'Perfil'),
-              BottomNavigationBarItem(icon: Icon(Icons.menu_book), label: 'Cardápio')
-            ],
-          ),
-        ),
-      );
-}
+      backgroundColor: Theme.of(context).colorScheme.background,
+      body: _telas[_index],
+      extendBody: true,
+      bottomNavigationBar: _navBar(),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: CustomAddButton());
 
+  //navigation bar
+  BottomAppBar _navBar() {
+    return BottomAppBar(
+      shape: const CircularNotchedRectangle(),
+      child: BottomNavigationBar(
+        selectedIconTheme:
+            Theme.of(context).bottomNavigationBarTheme.selectedIconTheme,
+        elevation: 0,
+        backgroundColor: Colors.transparent,
+        currentIndex: _index,
+        onTap: _itemClicado,
+        items: [
+          BottomNavigationBarItem(
+              icon: Icon(Icons.receipt_outlined), label: 'Comandas'),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Perfil'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.menu_book), label: 'Cardápio')
+        ],
+      ),
+    );
+  }
+}

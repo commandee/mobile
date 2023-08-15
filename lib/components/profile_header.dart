@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:teste/components/foto_perfil.dart';
-import 'package:teste/constants.dart';
 
 class ProfileHeader extends StatelessWidget {
   const ProfileHeader({super.key});
@@ -8,13 +7,13 @@ class ProfileHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-                padding: EdgeInsets.only(top: 16, bottom: 16),
+                padding: const EdgeInsets.only(top: 16, bottom: 16),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Spacer(),
+                    const Spacer(),
                     ProfilePic(),
-                    Spacer(),
+                    const Spacer(),
                     SizedBox(
                       width: 180,
                       child: Column(
@@ -31,7 +30,10 @@ class ProfileHeader extends StatelessWidget {
                             alignment: Alignment.centerLeft,
                             child: Text('@nomedeusuario',
                                 style: TextStyle(
-                                  color: primary,
+                                  color: Theme.of(context)
+                                      .colorScheme
+                                      .onBackground
+                                      .withOpacity(0.5),
                                     fontWeight: FontWeight.w300,
                                     fontSize: 14)),
                           )
@@ -39,7 +41,7 @@ class ProfileHeader extends StatelessWidget {
                         ],
                       ),
                     ),
-                    Spacer()
+                    const Spacer()
                   ],
                 ),
               );

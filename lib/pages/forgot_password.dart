@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:teste/components/button.dart';
+import 'package:teste/components/big_button.dart';
 import 'package:teste/components/form_textfield.dart';
-import 'package:teste/constants.dart';
 
 class ForgotPasswordPage extends StatelessWidget {
   ForgotPasswordPage({super.key});
@@ -15,7 +14,7 @@ class ForgotPasswordPage extends StatelessWidget {
         backgroundColor: Colors.transparent,
         elevation: 0,
         leading: BackButton(
-          color: primary,
+          color: Theme.of(context).colorScheme.onBackground,
           onPressed: () {
             Navigator.pop(context);
           },
@@ -38,65 +37,73 @@ class ForgotPasswordPage extends StatelessWidget {
                           onPressed: () {
                             Navigator.of(context).pop();
                           },
-                          child: const Text('Fechar'),
+                          child: Text(
+                            'Fechar',
+                            style: TextStyle(
+                                color: Theme.of(context).colorScheme.tertiary),
+                          ),
                         )
                       ],
                     );
                   });
             },
-            icon: const Icon(
+            icon: Icon(
               Icons.help_outline_outlined,
-              color: textoLM,
+              color: Theme.of(context).iconTheme.color,
             ),
           ),
         ],
       ),
-      backgroundColor: fundoLM,
+      backgroundColor: Theme.of(context).colorScheme.background,
       body: Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Column(
-              children: [
-                const Text(
-                  "Esqueceu a senha?",
-                  style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      color: textoLM),
-                ),
-                const Text(
-                  'Coloque o email vinculado a sua conta e mandaremos as instruções para recuperar sua senha',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 16,
-                    color:
-                        cinzaLM, // Substitua "textoComplementar" pela cor desejada ou defina a variável.
-                  ),
-                ),
-                Spacer(),
-                MyTextfield(
-                  icone: Icons.email_outlined,
-                  controller: emailcontroller,
-                  labelText: "Email",
-                  obscureText: false,
-                  tipoDoTeclado: TextInputType.emailAddress,
-                ),
-                const SizedBox(
-                  height: 40,
-                ),
-                SubmitButton(
-                    onTap: () {
-                      print('Redirecionando para próxima etapa');
-                    },
-                    text: "Enviar Instruções",
-                    cortexto: textoDM,
-                    corFundo: primary,
-                    fontWeight: FontWeight.bold),
-                Spacer(flex:  3),
-                Text("Progressão")
-              ],
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          children: [
+            Text(
+              "Esqueceu a senha?",
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: Theme.of(context).colorScheme.onBackground,
+              ),
             ),
-          ),
-        
+            Text(
+              'Coloque o email vinculado a sua conta e mandaremos as instruções para recuperar sua senha',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 16,
+                color: Theme.of(context).colorScheme.onBackground.withOpacity(
+                    0.5), // Substitua "textoComplementar" pela cor desejada ou defina a variável.
+              ),
+            ),
+            const Spacer(),
+            MyTextfield(
+              icone: Icons.email_outlined,
+              controller: emailcontroller,
+              labelText: "Email",
+              obscureText: false,
+              tipoDoTeclado: TextInputType.emailAddress,
+            ),
+            const SizedBox(
+              height: 40,
+            ),
+
+            //botão
+            SubmitButton(
+                onTap: () {
+                  print('Redirecionando para próxima etapa');
+                },
+                text: "Enviar Instruções",
+                cortexto: Theme.of(context).colorScheme.onPrimary,
+                corFundo: Theme.of(context).colorScheme.primary,
+                fontWeight: FontWeight.bold),
+            const Spacer(flex: 3),
+
+            //progressão
+            const Text("Progressão")
+          ],
+        ),
+      ),
     );
   }
 }

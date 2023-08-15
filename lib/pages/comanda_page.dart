@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:teste/constants.dart';
 
 class ComandaPage extends StatelessWidget {
   ComandaPage({super.key, required this.comanda_number});
@@ -12,7 +11,7 @@ class ComandaPage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Comanda #$comanda_number'),
         centerTitle: true,
-        backgroundColor: fundoDM,
+        backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
         actions: [
           IconButton(
             icon: Icon(Icons.edit_square),

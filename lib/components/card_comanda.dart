@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:teste/constants.dart';
+
 
 class CardComanda extends StatelessWidget {
   CardComanda({super.key, required this.nome, required this.descricao, required this.price});
@@ -22,9 +22,9 @@ class CardComanda extends StatelessWidget {
               elevation: 1,
               shape: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(16),
-                borderSide: BorderSide(color: Colors.grey)
+                borderSide: BorderSide(color: Colors.grey.shade600)
               ),
-              color: fundoLM,
+              color: Theme.of(context).colorScheme.surface,
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Container(

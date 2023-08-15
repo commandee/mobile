@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:teste/constants.dart';
 
 class Filtros extends StatefulWidget {
   const Filtros({super.key});
@@ -31,7 +30,7 @@ class _FiltrosState extends State<Filtros> {
                       selectedChip = selected ? index : 0;
                     });
                   },
-                  selectedColor: accentLM,
+                  selectedColor: Theme.of(context).colorScheme.primary,
                   labelStyle: TextStyle(
                     color: Colors.white,
                   ),

@@ -1,11 +1,8 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
-
-import '../constants.dart';
 
 class MyTextfield extends StatefulWidget {
   const MyTextfield({
+    super.key,
     required this.controller,
     required this.labelText,
     required this.obscureText,
@@ -34,26 +31,27 @@ class _MyTextfieldState extends State<MyTextfield> {
       decoration: InputDecoration(
         labelText: widget.labelText,
         labelStyle: TextStyle(
-          color: Colors.deepPurple[300],
+          color: Theme.of(context).colorScheme.onSurface.withOpacity(0.5),
         ),
         prefixIcon: Icon(
           widget.icone,
-          color: primary,
+          color: Theme.of(context).colorScheme.onSurface.withOpacity(0.5),
         ),
         suffixIcon: widget.controller.text.isEmpty
             ? IconButton(
+                color: Theme.of(context).colorScheme.onSurface.withOpacity(0.5),
                 onPressed: () => widget.controller.clear(),
-                icon: Icon(Icons.close, color: Colors.deepPurple[300]),
+                icon: const Icon(Icons.close),
               )
             : null,
         enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: Colors.transparent),
+          borderSide: const BorderSide(color: Colors.transparent),
           borderRadius: BorderRadius.circular(12.0),
         ),
         focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: primary300),
+            borderSide: BorderSide(color: Theme.of(context).primaryColor),
             borderRadius: BorderRadius.circular(16.0)),
-        fillColor: primary100,
+        fillColor: Theme.of(context).primaryColor.withOpacity(0.2),
         filled: true,
       ),
     );

@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:teste/components/profile_header.dart';
-import '/constants.dart';
 
 
 class ProfilePage extends StatefulWidget {
@@ -17,7 +16,7 @@ class _ProfilePage extends State<ProfilePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: fundoDM,
+          backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
           title: Text('Perfil'),
           centerTitle: true,
           automaticallyImplyLeading: false,
@@ -30,7 +29,7 @@ class _ProfilePage extends State<ProfilePage> {
             )
           ],
         ),
-        backgroundColor: fundoLM,
+        backgroundColor: Theme.of(context).colorScheme.background,
         body: SingleChildScrollView(
           child: Column(
             children: [

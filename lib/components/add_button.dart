@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:teste/constants.dart';
 
-class AddButton extends StatelessWidget {
-  const AddButton({super.key});
+class CustomAddButton extends StatelessWidget {
+  const CustomAddButton({super.key});
 
   @override
   Widget build(BuildContext context) {
     return FloatingActionButton(
       onPressed: () {
-        print('Adicionar comanda');
+        print('Adiconar comanda');
       },
-      backgroundColor: accentLM,
+      splashColor: Theme.of(context).floatingActionButtonTheme.splashColor,
       child: Icon(
         Icons.add,
-        color: Colors.white,
+        color: Theme.of(context).floatingActionButtonTheme.foregroundColor,
       ),
     );
   }
