@@ -3,7 +3,6 @@
 import 'package:flutter/material.dart';
 import 'package:teste/components/big_button.dart';
 import 'package:teste/components/form_textfield.dart';
-import 'package:teste/constants.dart';
 import 'package:teste/pages/forgot_password.dart';
 import 'package:teste/pages/register.dart';
 
@@ -44,9 +43,9 @@ class LoginPage extends StatelessWidget {
 
     //funcionalidade do botão
     void logarUsuario() {
-      if (emailcontroller.text == email && passwordcontroller.text == senha) {
-        Navigator.pushReplacement(context,
-            MaterialPageRoute(builder: (context) {
+      if (emailcontroller.text == "isa123" &&
+          passwordcontroller.text == "isa123") {
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
           return MyHomePage();
         }));
       } else {
@@ -61,162 +60,166 @@ class LoginPage extends StatelessWidget {
         leading: BackButton(
           color: Theme.of(context).colorScheme.onBackground,
           onPressed: () {
-            Navigator.pop(context);
+            Navigator.popUntil(context, ModalRoute.withName('/')); //faz retornar a pagina home do MyApp
           },
         ),
       ),
       backgroundColor: Theme.of(context).colorScheme.background,
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          children: [
-            Text(
-              "Entrar com uma conta",
-              style: TextStyle(
-                color: Theme.of(context).colorScheme.onBackground,
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            Align(
-              alignment: Alignment.center,
-              child: Text(
-                "nós do Commandee sentimos sua falta!",
-                style: TextStyle(
-                  color: Theme.of(context)
-                      .colorScheme
-                      .onBackground
-                      .withOpacity(0.5),
-                  fontSize: 12,
-                ),
-              ),
-            ),
-            Spacer(
-              flex: 2,
-            ),
-            MyTextfield(
-              icone: Icons.email_outlined,
-              controller: emailcontroller,
-              labelText: "Email",
-              obscureText: false,
-              tipoDoTeclado: TextInputType.emailAddress,
-            ),
-            const SizedBox(
-              height: 16,
-            ),
-            MyTextfield(
-              icone: Icons.fingerprint_outlined,
-              controller: passwordcontroller,
-              labelText: "Senha",
-              obscureText: true,
-              tipoDoTeclado: TextInputType.visiblePassword,
-            ),
-            const SizedBox(
-              height: 8,
-            ),
-
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
+      body: SingleChildScrollView(
+        physics: NeverScrollableScrollPhysics(),
+        child: ConstrainedBox(
+          constraints:
+              BoxConstraints(maxHeight: MediaQuery.of(context).size.height),
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
               children: [
-                GestureDetector(
-                  child: Text(
-                    "Esqueceu a senha?",
-                    style: TextStyle(
-                      color: Theme.of(context).colorScheme.tertiary,
-                      fontSize: 12,
-                    ),
-                  ),
-                  onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) {
-                      return ForgotPasswordPage();
-                    }));
-                  },
-                )
-              ],
-            ),
-            Spacer(),
-
-            //botão de login
-            SubmitButton(
-              text: "Entrar",
-              cortexto: Theme.of(context).colorScheme.onPrimary,
-              corFundo: Theme.of(context).colorScheme.primary,
-              onTap: logarUsuario,
-              fontWeight: FontWeight.bold,
-            ),
-            const SizedBox(
-              height: 8,
-            ),
-            Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-              Text("Não tem uma conta?",
+                Text(
+                  "Entrar com uma conta",
                   style: TextStyle(
+                    color: Theme.of(context).colorScheme.onBackground,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Align(
+                  alignment: Alignment.center,
+                  child: Text(
+                    "nós do Commandee sentimos sua falta!",
+                    style: TextStyle(
                       color: Theme.of(context)
                           .colorScheme
                           .onBackground
                           .withOpacity(0.5),
-                      fontSize: 12)),
-              const SizedBox(
-                width: 4,
-              ),
-              GestureDetector(
-                  child: Text("Crie aqui!",
-                      style: TextStyle(
-                          color: Theme.of(context).colorScheme.tertiary,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 12)),
-                  onTap: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => RegisterPage()));
-                  })
-            ]),
-            Spacer(
-              flex: 3,
-            ),
-
-            //divisor
-            Row(
-              children: [
-                Expanded(
-                  child: Divider(
-                    color: Theme.of(context)
-                        .colorScheme
-                        .onBackground
-                        .withOpacity(0.5),
-                    thickness: 0.3,
-                    indent: 40,
-                    endIndent: 5,
+                      fontSize: 12,
+                    ),
                   ),
                 ),
-                Text("Ou entre com",
-                    style: TextStyle(
+                Spacer(),
+                Form(
+                    child: Column(
+                  children: [
+                    MyTextfield(
+                      icone: Icons.email_outlined,
+                      controller: emailcontroller,
+                      labelText: "Email",
+                      obscureText: false,
+                      tipoDoTeclado: TextInputType.emailAddress,
+                    ),
+                    const SizedBox(
+                      height: 16,
+                    ),
+                    MyTextfield(
+                      icone: Icons.fingerprint_outlined,
+                      controller: passwordcontroller,
+                      labelText: "Senha",
+                      obscureText: true,
+                      tipoDoTeclado: TextInputType.visiblePassword,
+                    ),
+                    const SizedBox(
+                      height: 8,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        GestureDetector(
+                          child: Text(
+                            "Esqueceu a senha?",
+                            style: TextStyle(
+                              color: Theme.of(context).colorScheme.tertiary,
+                              fontSize: 12,
+                            ),
+                          ),
+                          onTap: () {
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (context) {
+                              return ForgotPasswordPage();
+                            }));
+                          },
+                        )
+                      ],
+                    ),
+                  ],
+                )),
+
+                Spacer(),
+
+                //botão de login
+                SubmitButton(
+                  text: "Entrar",
+                  cortexto: Theme.of(context).colorScheme.onPrimary,
+                  corFundo: Theme.of(context).colorScheme.primary,
+                  onTap: logarUsuario,
+                  fontWeight: FontWeight.bold,
+                ),
+                const SizedBox(
+                  height: 8,
+                ),
+                Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                  Text("Não tem uma conta?",
+                      style: TextStyle(
+                          color: Theme.of(context)
+                              .colorScheme
+                              .onBackground
+                              .withOpacity(0.5),
+                          fontSize: 12)),
+                  const SizedBox(
+                    width: 4,
+                  ),
+                  GestureDetector(
+                      child: Text("Crie aqui!",
+                          style: TextStyle(
+                              color: Theme.of(context).colorScheme.tertiary,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 12)),
+                      onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => RegisterPage()));
+                      })
+                ]),
+                Spacer(),
+
+                //divisor
+                Row(
+                  children: [
+                    Expanded(
+                      child: Divider(
                         color: Theme.of(context)
                             .colorScheme
                             .onBackground
                             .withOpacity(0.5),
-                        fontSize: 12)),
-                Expanded(
-                  child: Divider(
-                    color: Theme.of(context)
-                        .colorScheme
-                        .onBackground
-                        .withOpacity(0.5),
-                    thickness: 0.3,
-                    indent: 5,
-                    endIndent: 40,
-                  ),
+                        thickness: 0.3,
+                        indent: 40,
+                        endIndent: 5,
+                      ),
+                    ),
+                    Text("Ou entre com",
+                        style: TextStyle(
+                            color: Theme.of(context)
+                                .colorScheme
+                                .onBackground
+                                .withOpacity(0.5),
+                            fontSize: 12)),
+                    Expanded(
+                      child: Divider(
+                        color: Theme.of(context)
+                            .colorScheme
+                            .onBackground
+                            .withOpacity(0.5),
+                        thickness: 0.3,
+                        indent: 5,
+                        endIndent: 40,
+                      ),
+                    ),
+                  ],
                 ),
-              ],
-            ),
 
-            const SizedBox(
-              height: 24,
-            ),
+                const SizedBox(
+                  height: 8,
+                ),
 
-            //botão de login com google
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
+                //botão de login com google
+
                 Container(
                   decoration: BoxDecoration(
                     borderRadius: const BorderRadius.all(Radius.circular(12)),
@@ -226,10 +229,11 @@ class LoginPage extends StatelessWidget {
                     "assets/images/google.png",
                     height: 72,
                   ),
-                )
+                ),
+                Spacer()
               ],
             ),
-          ],
+          ),
         ),
       ),
     );

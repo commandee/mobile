@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:teste/pages/comanda_page.dart';
 
 
 class CardComanda extends StatelessWidget {
@@ -17,6 +18,10 @@ class CardComanda extends StatelessWidget {
         child: GestureDetector(
           onTap: () {
             print('Redirecionando para a comanda');
+            Navigator.pushReplacement(context,
+            MaterialPageRoute(builder: (context) {
+          return ComandaPage();
+        }));
           },
           child: Card(
               elevation: 1,

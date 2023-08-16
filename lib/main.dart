@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:teste/pages/home.dart';
 import 'package:teste/pages/welcome.dart';
 import 'package:teste/themes/dark_theme.dart';
 import 'package:teste/themes/light_theme.dart';
@@ -23,7 +24,11 @@ class _MyAppState extends State<MyApp> {
       theme: lightTheme,
       //darkTheme: darkTheme,
 
-      home: WelcomePage(),
+      //home: WelcomePage(),
+      routes: {
+        '/' : (context) => WelcomePage(),
+        '/comandas' : (context) => MyHomePage(),
+      },
       //HomePage(),
     );
   }
