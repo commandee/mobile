@@ -12,12 +12,11 @@ class CardComanda extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 4.0, top: 4.0, left: 16.0, right: 16.0),
+      padding: const EdgeInsets.only(bottom: 4.0, top: 4.0),
       child: SizedBox(
-        height: 104,
+        height: 120,
         child: GestureDetector(
           onTap: () {
-            print('Redirecionando para a comanda');
             Navigator.pushReplacement(context,
             MaterialPageRoute(builder: (context) {
           return ComandaPage();
@@ -27,20 +26,37 @@ class CardComanda extends StatelessWidget {
               elevation: 1,
               shape: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(16),
-                borderSide: BorderSide(color: Colors.grey.shade600)
+                borderSide: BorderSide(color: Theme.of(context).colorScheme.onSurface.withOpacity(0.3))
               ),
               color: Theme.of(context).colorScheme.surface,
               child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Container(
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(nome, style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16),),
-                      Text('R\$ $price'),
-                    ],
-                  ),
+                padding: const EdgeInsets.all(12.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
+                        children: [
+                          Expanded(child: Text(nome, style: TextStyle(fontWeight: FontWeight.w500, fontSize: 20),)),
+                          Text('R\$ $price', style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16),),
+                        ],
+                      ),
+                    
+                     Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Expanded(
+                            child: Text(descricao, style: TextStyle(fontWeight: FontWeight.w500, fontSize: 12, color: Theme.of(context)
+                            .colorScheme
+                            .onBackground
+                            .withOpacity(0.5)),),
+                          ),
+                          Text('Itens: 2', style: TextStyle(fontWeight: FontWeight.w500, fontSize: 12, color: Theme.of(context).colorScheme.onBackground.withOpacity(0.5)),),
+                        ],
+                      ),
+                    
+                  ],
                 ),
               )),
         ),

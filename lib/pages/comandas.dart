@@ -28,28 +28,29 @@ class _ComandasPageState extends State<ComandasPage> {
         ),
         backgroundColor: Theme.of(context).colorScheme.background,
         body: Padding(
-          padding: const EdgeInsets.all(1.0),
+          padding: EdgeInsets.all(8),
           child: Column(
-            children: [
-              //SearchBar,
-    
-              //lista das comandas
-              Expanded(
-                child: ListView(
-                  children: [
-                    for (int i = 1; i < 8; i++)
-                      CardComanda(
-                        nome: "Comanda #$i",
-                        descricao: "Comanda do dia 15/07/2021",
-                        price: 15.00,
-                      ),
-                  ],
+              children: [
+                //SearchBar,
+            
+                //lista das comandas
+                Expanded(
+                  child:  ListView(
+                    children: [
+                      for (int i = 1; i < 8; i++)
+                        CardComanda(
+                          nome: "Comanda #$i",
+                          descricao: "Descrição da comanda $i",
+                          price: 15.00,
+                        ),
+                    ],
+                  ),
                 ),
-              ),
-            ],
-          ),
+                
+              ],
+            ),
         ),
-      ),
+        ),
     );
   }
 }

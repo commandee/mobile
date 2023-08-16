@@ -16,7 +16,7 @@ class ComandaPage extends StatelessWidget {
       },
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Comanda #1'),
+          title: Text('Comanda ###'),
           centerTitle: true,
           backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
           iconTheme: Theme.of(context).appBarTheme.iconTheme,

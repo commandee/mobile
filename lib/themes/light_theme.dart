@@ -13,7 +13,7 @@ ThemeData lightTheme = ThemeData(
 
       ),
     ),
-
+    
     primarySwatch: Colors.deepPurple,
 
     fontFamily: 'Poppins',
