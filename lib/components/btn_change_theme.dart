@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:teste/themes/light_theme.dart';
+import 'package:teste/themes/theme_provider.dart';
 
 class ChangeThemeButton extends StatefulWidget {
   const ChangeThemeButton({super.key});
@@ -7,25 +10,18 @@ class ChangeThemeButton extends StatefulWidget {
   State<ChangeThemeButton> createState() => _ChangeThemeButtonState();
 }
 
-bool _isDarkMode = false;
-
-IconData _iconLight = Icons.wb_sunny;
-IconData _iconDark = Icons.nights_stay;
-
-
 class _ChangeThemeButtonState extends State<ChangeThemeButton> {
   @override
   Widget build(BuildContext context) {
+    ThemeProvider themeProvider = Provider.of<ThemeProvider>(context);
+
     return IconButton(
         onPressed: () {
-          setState(() {
-            _isDarkMode = !_isDarkMode;
-          });
+          setState(themeProvider.trocarTema);
         },
-        icon: Icon(_isDarkMode ? _iconDark : _iconLight));
+        icon: Icon(themeProvider.isDarkTheme ? Icons.sunny : Icons.nights_stay));
   }
 }
 
-//fazer com que após seja apertado, o ícone mude para o outro e o tema do app mude para o outro também
-//como chamar isso na main?
+
 
