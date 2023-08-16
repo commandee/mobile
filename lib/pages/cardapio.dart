@@ -38,7 +38,7 @@ class _CardapioPageState extends State<CardapioPage> {
                     children: [
                       for (int i = 0; i < 10; i++)
                         CardCardapioFood(
-                            title: "Suco de Laranja",
+                            title: "Suco de Laranja muito gostoso aaaaaaa",
                             img: "assets/images/suco.jpg",
                             price: "R\$ 13,99"),
                     ]),

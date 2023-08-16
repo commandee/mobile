@@ -36,7 +36,7 @@ class _ProfilePage extends State<ProfilePage> {
             backgroundColor: Theme.of(context).colorScheme.background,
             body: SingleChildScrollView(
               child: Column(
-                children: [ProfileHeader()],
+                children: [ProfileHeader(name: 'Nome do Usuário', userName: 'nomedousuario',)],
               ),
             )));
   }

@@ -15,7 +15,6 @@ ThemeData lightTheme = ThemeData(
     ),
     
     primarySwatch: Colors.deepPurple,
-
     fontFamily: 'Poppins',
 
     colorScheme: const ColorScheme.light(
@@ -41,10 +40,10 @@ ThemeData lightTheme = ThemeData(
     
     bottomNavigationBarTheme: const BottomNavigationBarThemeData(
       backgroundColor: preto,
-      selectedItemColor: accent,
+      selectedItemColor: primary,
       unselectedItemColor: preto,
       selectedIconTheme: IconThemeData(
-        color: accent,
+        color: primary,
       ),
       unselectedIconTheme: IconThemeData(
         color: preto,

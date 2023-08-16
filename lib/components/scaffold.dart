@@ -26,7 +26,7 @@ class AddButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return FloatingActionButton(
       onPressed: () {
-        Navigator.pushNamed(context, '/comanda');
+        Navigator.pushNamed(context, '/commanda');
       },
       child: const Icon(Icons.add),
       backgroundColor: fundoDM,

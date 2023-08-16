@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:teste/components/add_button.dart';
 import 'package:teste/pages/cardapio.dart';
-import 'package:teste/pages/comandas.dart';
+import 'package:teste/pages/commandas.dart';
 import 'package:teste/pages/profile.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -17,7 +17,7 @@ class _MyHomePageState extends State<MyHomePage> {
   int _index = 0;
 
   final List<Widget> _telas = [
-    ComandasPage(),
+    CommandasPage(),
     ProfilePage(),
     CardapioPage(),
   ];
@@ -49,7 +49,7 @@ class _MyHomePageState extends State<MyHomePage> {
         onTap: _itemClicado,
         items: [
           BottomNavigationBarItem(
-              icon: Icon(Icons.receipt_outlined), label: 'Comandas'),
+              icon: Icon(Icons.receipt_outlined), label: 'Commandas'),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Perfil'),
           BottomNavigationBarItem(
               icon: Icon(Icons.menu_book), label: 'Cardápio')

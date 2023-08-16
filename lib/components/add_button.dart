@@ -7,7 +7,7 @@ class CustomAddButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return FloatingActionButton(
       onPressed: () {
-        print('Adiconar comanda');
+        print('Adiconar commanda');
       },
       splashColor: Theme.of(context).floatingActionButtonTheme.splashColor,
       child: Icon(

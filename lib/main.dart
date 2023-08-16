@@ -18,17 +18,16 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Commandee',
-      theme: darkTheme,
+      theme: lightTheme,
       darkTheme: darkTheme,
 
       //home: WelcomePage(),
       routes: {
-        '/' : (context) => WelcomePage(),
-        '/comandas' : (context) => MyHomePage(),
+        '/': (context) => WelcomePage(),
+        '/commandas': (context) => MyHomePage(),
       },
       //HomePage(),
     );
