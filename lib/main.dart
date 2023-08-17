@@ -2,20 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:teste/pages/home.dart';
 import 'package:teste/pages/welcome.dart';
-import 'package:teste/themes/dark_theme.dart';
-import 'package:teste/themes/light_theme.dart';
 
 import 'themes/theme_provider.dart';
 
 void main() {
-  runApp(
-    ChangeNotifierProvider(
-      create: (context) => ThemeProvider(),
-      child: MyApp(),
-    )
-  );
+  runApp(ChangeNotifierProvider(
+    create: (context) => ThemeProvider(ThemeData.light().brightness ), //MediaQuery.of(context).platformBrightness (morre o app)
+    child: MyApp(),
+  ));
 }
-
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
@@ -32,9 +27,7 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
       title: 'Commandee',
       theme: provider.temaAtual,
-      darkTheme: darkTheme,
 
-      //home: WelcomePage(),
       routes: {
         '/': (context) => WelcomePage(),
         '/commandas': (context) => MyHomePage(),

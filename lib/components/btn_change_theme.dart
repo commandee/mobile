@@ -15,13 +15,13 @@ class _ChangeThemeButtonState extends State<ChangeThemeButton> {
   Widget build(BuildContext context) {
     ThemeProvider themeProvider = Provider.of<ThemeProvider>(context);
 
+    print(themeProvider.isDarkTheme);
+
     return IconButton(
         onPressed: () {
           setState(themeProvider.trocarTema);
         },
-        icon: Icon(themeProvider.isDarkTheme ? Icons.sunny : Icons.nights_stay));
+        icon:
+            Icon(themeProvider.isDarkTheme ? Icons.sunny : Icons.nights_stay));
   }
 }
-
-
-
