@@ -56,8 +56,7 @@ class RegisterPage extends StatelessWidget {
                   style: TextStyle(
                     color: Theme.of(context)
                         .colorScheme
-                        .onBackground
-                        .withOpacity(0.5),
+                        .onSurfaceVariant,
                     fontSize: 12,
                   ),
                 ),
@@ -123,8 +122,7 @@ class RegisterPage extends StatelessWidget {
                       style: TextStyle(
                           color: Theme.of(context)
                               .colorScheme
-                              .onBackground
-                              .withOpacity(0.5),
+                              .onSurfaceVariant,
                           fontSize: 12)),
                   const SizedBox(
                     width: 4,

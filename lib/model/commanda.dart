@@ -1,18 +1,23 @@
+
 class Commanda {
   final String nome;
   final String descricao;
-  final double price;
+  final int totalPrice;
+  final int totalItems;
   final int id;
   bool concluida;
 
-  Commanda({
+  Commanda(
+    {
     required this.nome,
     required this.descricao,
-    required this.price,
-    this.concluida = false,
+    this.totalPrice = 0,
+    this.totalItems = 0,
     this.id = 0,
+    this.concluida = false,
   });
 
+  /*
   static List<Commanda> commandasList() {
     return [
       Commanda(
@@ -29,8 +34,7 @@ class Commanda {
           nome: "Commanda #3",
           descricao: "Descrição da commanda 3 e seus ingredientes muito lecais",
           price: 15.00,
-          id: 3
-      )
+          id: 3)
     ];
-  }
+  }*/
 }

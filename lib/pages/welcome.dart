@@ -48,8 +48,7 @@ class WelcomePage extends StatelessWidget {
                     style: TextStyle(
                       color: Theme.of(context)
                           .colorScheme
-                          .onBackground
-                          .withOpacity(0.5),
+                          .onSurfaceVariant,
                       fontSize: 12,
                     ),
                     textAlign: TextAlign.center),
@@ -63,8 +62,7 @@ class WelcomePage extends StatelessWidget {
                     style: TextStyle(
                       color: Theme.of(context)
                           .colorScheme
-                          .onBackground
-                          .withOpacity(0.5),
+                          .onSurfaceVariant,
                       fontSize: 12,
                     ),
                   ),

@@ -34,7 +34,11 @@ class _MyHomePageState extends State<MyHomePage> {
       extendBody: true,
       bottomNavigationBar: _navBar(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: CustomAddButton());
+      floatingActionButton: CustomAddButton(
+        funcao: () {
+          //adicionar comanda
+        },
+      ));
 
   //navigation bar
   BottomAppBar _navBar() {

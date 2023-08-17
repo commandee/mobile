@@ -1,6 +1,9 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:teste/components/btn_change_theme.dart';
 import 'package:teste/components/card_commanda.dart';
+import 'package:teste/model/commanda.dart';
 
 class CommandasPage extends StatefulWidget {
   const CommandasPage({super.key});
@@ -10,6 +13,16 @@ class CommandasPage extends StatefulWidget {
 }
 
 class _CommandasPageState extends State<CommandasPage> {
+  final commandasList = List.generate(
+    10,
+    (i) => Commanda(
+        nome: 'Commanda $i',
+        descricao: 'Itens da commanda $i, varios itens mesmo assim mesmo',
+        totalPrice: Random().nextInt(150),
+        totalItems: Random().nextInt(15) //placeholder
+        ),
+  );
+
   //itens da lista  de commandas
   @override
   Widget build(BuildContext context) {
@@ -29,28 +42,26 @@ class _CommandasPageState extends State<CommandasPage> {
           ],
         ),
         backgroundColor: Theme.of(context).colorScheme.background,
-        body: Padding(
-          padding: EdgeInsets.all(8),
-          child: Column(
-            children: [
-              //SearchBar,
+        body: Column(
+          children: [
+            //SearchBar,
 
-              //lista das commandas
-              Expanded(
-                child: ListView(
-                  children: [
-                    for (int i = 1; i < 8; i++)
-                      CardCommanda(
-                        nome: "Commanda #$i",
-                        descricao:
-                            "Descrição da commanda $i e seus ingredientes muito lecais",
-                        price: 15.00,
-                      ),
-                  ],
-                ),
+            //lista das commandas
+            Expanded(
+              child: ListView.builder(
+                itemCount: commandasList.length,
+                itemBuilder: (context, index) {
+                  return CardCommanda(
+                    nomeCommanda: commandasList[index].nome,
+                    descricaoCommanda: commandasList[index].descricao,
+                    totalPriceCommanda: commandasList[index].totalPrice,
+                    totalItemCommanda: commandasList[index].totalItems,
+                  );
+                  //totalItems: commandasList[index].totalItems;
+                },
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

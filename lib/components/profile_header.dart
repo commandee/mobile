@@ -4,8 +4,8 @@ import 'package:teste/components/foto_perfil.dart';
 class ProfileHeader extends StatelessWidget {
   ProfileHeader({super.key, required this.userName, required this.name});
 
-  String userName = "";
-  String name = "";
+  String userName;
+  String name;
 
   @override
   Widget build(BuildContext context) {
@@ -34,8 +34,8 @@ class ProfileHeader extends StatelessWidget {
                       style: TextStyle(
                           color: Theme.of(context)
                               .colorScheme
-                              .onBackground
-                              .withOpacity(0.5),
+                              .onSurfaceVariant,
+                              
                           fontWeight: FontWeight.w300,
                           fontSize: 14)),
                 )

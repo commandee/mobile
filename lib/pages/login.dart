@@ -60,7 +60,8 @@ class LoginPage extends StatelessWidget {
         leading: BackButton(
           color: Theme.of(context).colorScheme.onBackground,
           onPressed: () {
-            Navigator.popUntil(context, ModalRoute.withName('/')); //faz retornar a pagina home do MyApp
+            Navigator.popUntil(context,
+                ModalRoute.withName('/')); //faz retornar a pagina home do MyApp
           },
         ),
       ),
@@ -87,10 +88,7 @@ class LoginPage extends StatelessWidget {
                   child: Text(
                     "nós do Commandee sentimos sua falta!",
                     style: TextStyle(
-                      color: Theme.of(context)
-                          .colorScheme
-                          .onBackground
-                          .withOpacity(0.5),
+                      color: Theme.of(context).colorScheme.onSurfaceVariant,
                       fontSize: 12,
                     ),
                   ),
@@ -160,8 +158,7 @@ class LoginPage extends StatelessWidget {
                       style: TextStyle(
                           color: Theme.of(context)
                               .colorScheme
-                              .onBackground
-                              .withOpacity(0.5),
+                              .onSurfaceVariant,
                           fontSize: 12)),
                   const SizedBox(
                     width: 4,
@@ -186,8 +183,7 @@ class LoginPage extends StatelessWidget {
                       child: Divider(
                         color: Theme.of(context)
                             .colorScheme
-                            .onBackground
-                            .withOpacity(0.5),
+                            .onSurfaceVariant,
                         thickness: 0.3,
                         indent: 40,
                         endIndent: 5,
@@ -197,15 +193,14 @@ class LoginPage extends StatelessWidget {
                         style: TextStyle(
                             color: Theme.of(context)
                                 .colorScheme
-                                .onBackground
-                                .withOpacity(0.5),
+                                .onSurfaceVariant,
                             fontSize: 12)),
                     Expanded(
                       child: Divider(
                         color: Theme.of(context)
                             .colorScheme
-                            .onBackground
-                            .withOpacity(0.5),
+                            .onSurfaceVariant
+                            ,
                         thickness: 0.3,
                         indent: 5,
                         endIndent: 40,
