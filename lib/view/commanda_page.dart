@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:teste/components/add_button.dart';
+import 'package:teste/widgets/add_button.dart';
 import 'package:teste/model/commanda.dart';
-import 'package:teste/pages/home.dart';
 
 class CommandaPage extends StatelessWidget {
   CommandaPage({super.key, required this.commanda});
@@ -19,7 +18,7 @@ class CommandaPage extends StatelessWidget {
       },
       child: Scaffold(
         appBar: AppBar(
-          title: Text(commanda.nome),
+          title: Text(commanda.customer),
           centerTitle: true,
           backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
           iconTheme: Theme.of(context).appBarTheme.iconTheme,
@@ -47,10 +46,10 @@ class CommandaPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    commanda.totalItems.toString() + ' itens',
+                    commanda.qntOrders.toString() + ' itens',
                     style: TextStyle(),
                   ),
-                  Text('R\$ ' + commanda.totalPrice.toString()),
+                  Text('R\$ ' + commanda.total.toString()),
                 ],
               ),
             ),
@@ -58,13 +57,13 @@ class CommandaPage extends StatelessWidget {
             //lista das commandas
             Expanded(
               child: ListView.builder(
-                itemCount: commanda.totalItems,
+                itemCount: commanda.qntOrders,
                 itemBuilder: (context, index) {
                   return Card(
                     child: ListTile(
-                      title: Text('Item $index'),
-                      subtitle: Text('Descrição do item $index'),
-                      trailing: Text('R\$ 0,00'),
+                      title: Text('Item ${commanda.orders[index].item.name}'),
+                      subtitle: Text(commanda.orders[index].notes != null ? 'Descrição: ${commanda.orders[index].notes}' : ''),
+                      trailing: Text('R\$ ${commanda.orders[index].item.price}\nQntd: ${commanda.orders[index].quantity}'),
                     ),
                   );
                 },

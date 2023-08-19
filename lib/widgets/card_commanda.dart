@@ -1,35 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:teste/controller/commanda_controller.dart';
 import 'package:teste/model/commanda.dart';
-import 'package:teste/pages/commanda_page.dart';
+import 'package:teste/view/commanda_page.dart';
+
+enum _Action { excluir, concluir }
 
 class CardCommanda extends StatelessWidget {
-  CardCommanda(
-      {super.key,
-      required this.nomeCommanda,
-      required this.descricaoCommanda,
-      this.totalPriceCommanda = 0,
-      this.totalItemCommanda = 0});
+  CardCommanda({super.key, required this.commanda});
 
-  String nomeCommanda;
-  String descricaoCommanda;
-  int totalPriceCommanda;
-  int totalItemCommanda;
+  final Commanda commanda;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(left: 8, right: 8, top: 8),
-      child: Expanded(
+      child: Container(
         child: GestureDetector(
           onTap: () {
             Navigator.pushReplacement(context,
                 MaterialPageRoute(builder: (context) {
               return CommandaPage(
-                commanda: Commanda(
-                    nome: nomeCommanda,
-                    descricao: descricaoCommanda,
-                    totalPrice: totalPriceCommanda,
-                    totalItems: totalItemCommanda),
+                commanda: commanda,
               );
             }));
           },
@@ -37,11 +29,8 @@ class CardCommanda extends StatelessWidget {
               elevation: 1,
               shape: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(16),
-                  borderSide: BorderSide(
-                      color: Theme.of(context)
-                          .colorScheme.outline
-                          
-                          )),
+                  borderSide:
+                      BorderSide(color: Theme.of(context).colorScheme.outline)),
               color: Theme.of(context).colorScheme.surface,
               child: Padding(
                 padding: const EdgeInsets.all(12.0),
@@ -53,13 +42,13 @@ class CardCommanda extends StatelessWidget {
                       children: [
                         Expanded(
                             child: Text(
-                          nomeCommanda,
+                          'Mesa #${commanda.table.toString().padLeft(3, '0')}',
                           style: TextStyle(
                               fontWeight: FontWeight.w500, fontSize: 20),
                         )),
                         SizedBox(width: 40),
                         Text(
-                          'R\$ $totalPriceCommanda',
+                          'R\$' + commanda.total.toString(),
                           style: TextStyle(
                               fontWeight: FontWeight.w500, fontSize: 16),
                         ),
@@ -70,13 +59,14 @@ class CardCommanda extends StatelessWidget {
                       children: [
                         Expanded(
                           child: Text(
-                            descricaoCommanda,
+                            commanda.customer,
                             style: TextStyle(
                                 fontWeight: FontWeight.w500,
                                 fontSize: 12,
                                 color: Theme.of(context)
                                     .colorScheme
-                                    .onSurface.withOpacity(0.5)),
+                                    .onSurface
+                                    .withOpacity(0.5)),
                             overflow: TextOverflow.ellipsis,
                           ),
                         ),
@@ -84,13 +74,14 @@ class CardCommanda extends StatelessWidget {
                           width: 80,
                         ),
                         Text(
-                          'Itens: $totalItemCommanda',
+                          'Itens: ' + commanda.qntOrders.toString(),
                           style: TextStyle(
                               fontWeight: FontWeight.w500,
                               fontSize: 12,
                               color: Theme.of(context)
                                   .colorScheme
-                                  .onSurface.withOpacity(0.5)),
+                                  .onSurface
+                                  .withOpacity(0.5)),
                         ),
                       ],
                     ),
@@ -105,10 +96,10 @@ class CardCommanda extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         _botaoAcao('Excluir', () {
-                          openDialog(context, 'excluir');
+                          openDialog(context, _Action.excluir);
                         }, context, Theme.of(context).colorScheme.tertiary),
                         _botaoAcao('Concluir', () {
-                          openDialog(context, 'concluir');
+                          openDialog(context, _Action.concluir);
                         }, context, Theme.of(context).colorScheme.primary),
                       ],
                     )
@@ -142,10 +133,11 @@ class CardCommanda extends StatelessWidget {
     );
   }
 
-  Future openDialog(BuildContext context, String action) => showDialog(
+  Future openDialog(BuildContext context, _Action action) => showDialog(
         context: context,
         builder: (context) => AlertDialog(
-          content: Text('Gostaria mesmo de $action essa commanda?'),
+          content: Text(
+              'Gostaria de ${action == _Action.excluir ? 'excluir' : 'concluir'} a commanda?'),
           actions: [
             TextButton(
               child: Text(
@@ -153,6 +145,7 @@ class CardCommanda extends StatelessWidget {
                 style: TextStyle(color: Theme.of(context).colorScheme.tertiary),
               ),
               onPressed: () {
+                print('object');
                 Navigator.of(context).pop();
               },
             ),
@@ -161,11 +154,20 @@ class CardCommanda extends StatelessWidget {
                   style: TextStyle(
                       color: Theme.of(context).colorScheme.onBackground)),
               onPressed: () {
-                if (action == 'excluir') {
-                  print('Excluindo comanda');
+                if (action == _Action.excluir) {
+                  print('algo 1');
+
+                  final commandaController =
+                      Provider.of<CommandaController>(context, listen: false);
+                  commandaController.delete(commanda);
+
                   Navigator.of(context).pop();
-                } else if (action == 'concluir') {
-                  print('Concluindo comanda');
+                } else if (action == _Action.concluir) {
+                  print('algo 2');
+
+                  final commandaController =
+                      Provider.of<CommandaController>(context, listen: false);
+                  commandaController.concluir(commanda);
                   Navigator.of(context).pop();
                 }
               },

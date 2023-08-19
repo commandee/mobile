@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:teste/components/profile_header.dart';
+import 'package:teste/widgets/profile_header.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -36,7 +36,13 @@ class _ProfilePage extends State<ProfilePage> {
             backgroundColor: Theme.of(context).colorScheme.background,
             body: SingleChildScrollView(
               child: Column(
-                children: [ProfileHeader(name: 'Nome do Usuário', userName: 'nomedousuario',)],
+                children: [ProfileHeader(name: 'Nome do Usuário', userName: 'nomedousuario',)
+                
+                //botão de mudança entre config e infos
+
+                //infos do usuario
+              
+                ],
               ),
             )));
   }

@@ -1,40 +1,48 @@
+import 'package:teste/model/order.dart';
 
 class Commanda {
-  final String nome;
-  final String descricao;
-  final int totalPrice;
-  final int totalItems;
+  final String customer;
+  final int table;
   final int id;
-  bool concluida;
+  bool isPaid;
+  List<Order> orders;
 
-  Commanda(
-    {
-    required this.nome,
-    required this.descricao,
-    this.totalPrice = 0,
-    this.totalItems = 0,
-    this.id = 0,
-    this.concluida = false,
+  Commanda({
+    required this.customer,
+    required this.table,
+    required this.id,
+    this.isPaid = false,
+    this.orders = const [],
   });
 
-  /*
-  static List<Commanda> commandasList() {
-    return [
-      Commanda(
-          nome: "Commanda #1",
-          descricao: "Descrição da commanda 1 e seus ingredientes muito lecais",
-          price: 15.00,
-          id: 1),
-      Commanda(
-          nome: "Commanda #2",
-          descricao: "Descrição da commanda 2 e seus ingredientes muito lecais",
-          price: 15.00,
-          id: 2),
-      Commanda(
-          nome: "Commanda #3",
-          descricao: "Descrição da commanda 3 e seus ingredientes muito lecais",
-          price: 15.00,
-          id: 3)
-    ];
-  }*/
+  double get total {
+    double total = 0;
+    for (var order in orders) {
+      total += order.item.price * order.quantity;
+    }
+    return total;
+  }
+
+  int get qntOrders {
+    return orders.length;
+  }
 }
+
+final commandas = [
+  Commanda(customer: 'Meida', table: 5, id: 1, isPaid: true, orders: [
+    orders[0],
+    orders[1],
+  ]),
+  Commanda(customer: 'Vik', table: 15, id: 2, orders: [
+    orders[2],
+    orders[3],
+  ]),
+  Commanda(
+    customer: 'Nacrai',
+    table: 7,
+    id: 3,
+  ),
+  Commanda(customer: 'Isa', table: 9, id: 4, orders: [orders[4]]),
+  Commanda(customer: 'Carla', table: 13, id: 5, isPaid: true),
+  Commanda(customer: 'Vitor', table: 11, id: 6, orders: [orders[5]]),
+];

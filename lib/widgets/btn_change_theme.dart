@@ -13,6 +13,7 @@ class ChangeThemeButton extends StatefulWidget {
 class _ChangeThemeButtonState extends State<ChangeThemeButton> {
   @override
   Widget build(BuildContext context) {
+    
     ThemeProvider themeProvider = Provider.of<ThemeProvider>(context);
 
     print(themeProvider.isDarkTheme);

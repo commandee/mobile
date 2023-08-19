@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:teste/components/big_button.dart';
-import 'package:teste/components/form_textfield.dart';
+import 'package:teste/widgets/big_button.dart';
+import 'package:teste/widgets/form_textfield.dart';
 
 class ForgotPasswordPage extends StatelessWidget {
   ForgotPasswordPage({super.key});

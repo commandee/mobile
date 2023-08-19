@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:teste/components/big_button.dart';
-import 'package:teste/components/form_textfield.dart';
-import 'package:teste/pages/home.dart';
-import 'package:teste/pages/login.dart';
+import 'package:teste/widgets/big_button.dart';
+import 'package:teste/widgets/form_textfield.dart';
+import 'package:teste/view/home.dart';
+import 'package:teste/view/login.dart';
 
 class RegisterPage extends StatelessWidget {
   RegisterPage({super.key});

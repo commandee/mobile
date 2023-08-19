@@ -1,19 +1,22 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
-import 'package:teste/components/add_button.dart';
-import 'package:teste/pages/cardapio.dart';
-import 'package:teste/pages/commandas.dart';
-import 'package:teste/pages/profile.dart';
+import 'package:teste/controller/commanda_controller.dart';
+import 'package:teste/widgets/add_button.dart';
+import 'package:teste/view/cardapio.dart';
+import 'package:teste/view/commandas.dart';
+import 'package:teste/view/profile.dart';
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
+  MyHomePage({super.key});
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  CommandaController commandaController = CommandaController();
+
   int _index = 0;
 
   final List<Widget> _telas = [
@@ -35,8 +38,7 @@ class _MyHomePageState extends State<MyHomePage> {
       bottomNavigationBar: _navBar(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: CustomAddButton(
-        funcao: () {
-          //adicionar comanda
+        funcao: () {        
         },
       ));
 

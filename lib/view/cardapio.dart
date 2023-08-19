@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:teste/components/card_item_cardapio.dart';
-import 'package:teste/components/chip_filters.dart';
+import 'package:teste/widgets/card_item_cardapio.dart';
+import 'package:teste/widgets/chip_filters.dart';
 
 class CardapioPage extends StatefulWidget {
   const CardapioPage({super.key});
