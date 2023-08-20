@@ -23,7 +23,7 @@ class MyTextfield extends StatefulWidget {
 class _MyTextfieldState extends State<MyTextfield> {
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
       keyboardType: widget.tipoDoTeclado,
       textInputAction: TextInputAction.done,
       controller: widget.controller,

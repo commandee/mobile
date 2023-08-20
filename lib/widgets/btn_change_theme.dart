@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:teste/themes/light_theme.dart';
 import 'package:teste/themes/theme_provider.dart';
 
 class ChangeThemeButton extends StatefulWidget {

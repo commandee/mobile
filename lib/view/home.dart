@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:teste/controller/commanda_controller.dart';
+import 'package:teste/model/commanda.dart';
+import 'package:teste/view/commanda_page.dart';
 import 'package:teste/widgets/add_button.dart';
 import 'package:teste/view/cardapio.dart';
 import 'package:teste/view/commandas.dart';
@@ -30,6 +32,9 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  final _customerController = TextEditingController();
+  final _tableController = TextEditingController();
+
   @override
   Widget build(BuildContext context) => Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
@@ -38,7 +43,8 @@ class _MyHomePageState extends State<MyHomePage> {
       bottomNavigationBar: _navBar(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: CustomAddButton(
-        funcao: () {        
+        funcao: () {
+          _addInfosNovaCommanda(context);
         },
       ));
 
@@ -61,6 +67,123 @@ class _MyHomePageState extends State<MyHomePage> {
               icon: Icon(Icons.menu_book), label: 'Cardápio')
         ],
       ),
+    );
+  }
+
+  void _addInfosNovaCommanda(BuildContext context) {
+    final formKey = GlobalKey<FormState>();
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Digite as informações:', textAlign: TextAlign.center),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Form(
+                key: formKey,
+                child: Column(
+                  children: [
+                    TextFormField(
+                      controller: _customerController,
+                      decoration: InputDecoration(
+                        labelText: 'Nome do Cliente',
+                        suffixIcon: Icon(
+                          Icons.person,
+                          color: Theme.of(context).colorScheme.onSurface,
+                        ),
+                        labelStyle: TextStyle(
+                            color:
+                                Theme.of(context).colorScheme.onSurfaceVariant),
+                        focusedBorder: UnderlineInputBorder(
+                          borderSide:
+                              BorderSide(color: Theme.of(context).primaryColor),
+                        ),
+                      ),
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return ('Por favor, digite o nome do cliente');
+                        }
+                        return null;
+                      },
+                    ),
+                    TextFormField(
+                      controller: _tableController,
+                      decoration: InputDecoration(
+                        labelText: 'Número da Mesa',
+                        suffixIcon: Icon(Icons.numbers,
+                            color: Theme.of(context).colorScheme.onSurface),
+                        labelStyle: TextStyle(
+                            color:
+                                Theme.of(context).colorScheme.onSurfaceVariant),
+                        focusedBorder: UnderlineInputBorder(
+                          borderSide:
+                              BorderSide(color: Theme.of(context).primaryColor),
+                        ),
+                      ),
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Por favor, digite o número da mesa';
+                        } else {
+                          if ((int.parse(value) < 0) ||
+                              (int.parse(value) > 999)) {
+                            return ('Por favor, digite um número válido');
+                          }
+                        }
+                        return null;
+                      },
+                    ),
+                  ],
+                ),
+              )
+            ],
+          ),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Text(
+                'Cancelar',
+                style: TextStyle(color: Theme.of(context).colorScheme.tertiary),
+              ),
+            ),
+            TextButton(
+              onPressed: () {
+                if (formKey.currentState!.validate()) {
+                  commandaController.create(Commanda(
+                    customer: _customerController.text,
+                    table: int.parse(_tableController.text),
+                    id: DateTime.now().millisecondsSinceEpoch,
+                  ));
+                  Navigator.of(context).pop();
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return CommandaPage(
+                          commanda: Commanda(
+                            customer: _customerController.text,
+                            table: int.parse(_tableController.text),
+                            id: DateTime.now().millisecondsSinceEpoch,
+                          ),
+                        );
+                      },
+                    ),
+                  );
+                }
+                ;
+                print('adicionando treco');
+              },
+              child: Text(
+                'Confirmar',
+                style:
+                    TextStyle(color: Theme.of(context).colorScheme.onSurface),
+              ),
+            ),
+          ],
+        );
+      },
     );
   }
 }

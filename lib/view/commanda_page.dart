@@ -18,7 +18,7 @@ class CommandaPage extends StatelessWidget {
       },
       child: Scaffold(
         appBar: AppBar(
-          title: Text(commanda.customer),
+          title: Text('Mesa #${commanda.table.toString().padLeft(3, '0')}'),
           centerTitle: true,
           backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
           iconTheme: Theme.of(context).appBarTheme.iconTheme,
@@ -33,9 +33,7 @@ class CommandaPage extends StatelessWidget {
         ),
         backgroundColor: Theme.of(context).colorScheme.background,
         floatingActionButton: CustomAddButton(
-          funcao: () {
-            //adicionar item à commanda
-          },
+          funcao: () {},
         ),
         body: Column(
           children: [
@@ -54,16 +52,19 @@ class CommandaPage extends StatelessWidget {
               ),
             ),
 
-            //lista das commandas
+            //lista dos items da commanda
             Expanded(
               child: ListView.builder(
                 itemCount: commanda.qntOrders,
                 itemBuilder: (context, index) {
                   return Card(
                     child: ListTile(
-                      title: Text('Item ${commanda.orders[index].item.name}'),
-                      subtitle: Text(commanda.orders[index].notes != null ? 'Descrição: ${commanda.orders[index].notes}' : ''),
-                      trailing: Text('R\$ ${commanda.orders[index].item.price}\nQntd: ${commanda.orders[index].quantity}'),
+                      title: Text('${commanda.orders[index].item.name}'),
+                      subtitle: Text(commanda.orders[index].notes != null
+                          ? '${commanda.orders[index].notes}'
+                          : ''),
+                      trailing: Text(
+                          'R\$ ${commanda.orders[index].item.price}\nQntd: ${commanda.orders[index].quantity}'),
                     ),
                   );
                 },

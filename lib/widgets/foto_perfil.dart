@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../constants.dart';
-
 class ProfilePic extends StatefulWidget {
   ProfilePic({super.key});
 
@@ -17,12 +15,11 @@ class _ProfilePicState extends State<ProfilePic> {
       height: 120,
       decoration: BoxDecoration(
         color: Colors.white,
-        
         borderRadius: BorderRadius.circular(100),
       ),
       child: CircleAvatar(
         radius: 25,
-        backgroundImage: AssetImage(profilePic),
+        backgroundImage: AssetImage('assets/images/profile.jpg'),
       ),
     );
   }

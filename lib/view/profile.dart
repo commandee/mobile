@@ -41,7 +41,7 @@ class _ProfilePage extends State<ProfilePage> {
                 //botão de mudança entre config e infos
 
                 //infos do usuario
-              
+                
                 ],
               ),
             )));

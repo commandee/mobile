@@ -43,6 +43,6 @@ final commandas = [
     id: 3,
   ),
   Commanda(customer: 'Isa', table: 9, id: 4, orders: [orders[4]]),
-  Commanda(customer: 'Carla', table: 13, id: 5, isPaid: true),
+  Commanda(customer: 'Carla', table: 13, id: 5),
   Commanda(customer: 'Vitor', table: 11, id: 6, orders: [orders[5]]),
 ];

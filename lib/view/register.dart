@@ -67,6 +67,7 @@ class RegisterPage extends StatelessWidget {
                     child: Column(
                   children: [
                     MyTextfield(
+                        
                         icone: Icons.person,
                         controller: namecontroller,
                         labelText: "Nome",
