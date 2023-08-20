@@ -59,7 +59,7 @@ class CardCommanda extends StatelessWidget {
                       children: [
                         Expanded(
                           child: Text(
-                            commanda.customer,
+                            'Cliente: ${commanda.customer}',
                             style: TextStyle(
                                 fontWeight: FontWeight.w500,
                                 fontSize: 12,
@@ -71,7 +71,7 @@ class CardCommanda extends StatelessWidget {
                           ),
                         ),
                         SizedBox(
-                          width: 80,
+                          width: 48,
                         ),
                         Text(
                           'Itens: ' + commanda.qntOrders.toString(),

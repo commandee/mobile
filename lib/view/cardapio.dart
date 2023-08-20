@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:teste/widgets/card_item_cardapio.dart';
 import 'package:teste/widgets/chip_filters.dart';
+import 'package:teste/widgets/lista_items.dart';
 
 class CardapioPage extends StatefulWidget {
   const CardapioPage({super.key});
@@ -10,14 +10,15 @@ class CardapioPage extends StatefulWidget {
 }
 
 class _CardapioPageState extends State<CardapioPage> {
+
   @override
   Widget build(BuildContext context) {
-    return WillPopScope( //não deixa que volte a pagina de login a não ser que uma condição seja atendida
+    return WillPopScope(
+      //não deixa que volte a pagina de login a não ser que uma condição seja atendida
       onWillPop: () async {
         return false; // Retorna false para bloquear a ação padrão de voltar.
       },
-      child: 
-    Scaffold(
+      child: Scaffold(
         appBar: AppBar(
           title: const Text('Cardápio'),
           centerTitle: true,
@@ -25,26 +26,15 @@ class _CardapioPageState extends State<CardapioPage> {
           automaticallyImplyLeading: false,
         ),
         backgroundColor: Theme.of(context).colorScheme.background,
-        body: SingleChildScrollView(
-          child: Column(
+        body: Column(
             children: [
               Filtros(),
-              GridView.count(
-                    childAspectRatio: 0.7,
-                    shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                    crossAxisCount: 2,
-                    mainAxisSpacing: 10,
-                    children: [
-                      for (int i = 0; i < 10; i++)
-                        CardCardapioFood(
-                            title: "Suco de Laranja muito gostoso aaaaaaa",
-                            img: "assets/images/suco.jpg",
-                            price: "R\$ 13,99"),
-                    ]),
               
+              ListaItems(),
             ],
           ),
-        )));
+        ),
+      
+    );
   }
 }

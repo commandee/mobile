@@ -1,17 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:teste/model/item.dart';
 
 class CardCardapioFood extends StatelessWidget {
-  CardCardapioFood(
-      {super.key, required this.title, required this.img, required this.price});
+  CardCardapioFood({super.key, required this.item});
 
-  String title = "";
-  String img = "";
-  String price = "";
+  final Item item;
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: InkWell(
+    return GestureDetector(
         child: Container(
           margin: const EdgeInsets.only(bottom: 8, left: 8, right: 8),
           padding: const EdgeInsets.all(8),
@@ -20,15 +17,15 @@ class CardCardapioFood extends StatelessWidget {
             color: Theme.of(context).colorScheme.surface,
             borderRadius: BorderRadius.circular(10),
             border: Border.all(
-                color: Theme.of(context).colorScheme.onSurface.withOpacity(0.3)),
+                color:
+                    Theme.of(context).colorScheme.onSurface.withOpacity(0.3)),
           ),
-          child: IntrinsicHeight(
-            child: Column(
+          child: Column(
               children: [
                 ClipRRect(
                   borderRadius: BorderRadius.circular(10),
                   child: Image.asset(
-                    img,
+                    item.image,
                     height: 140,
                     width: double.infinity,
                     fit: BoxFit.cover,
@@ -43,14 +40,13 @@ class CardCardapioFood extends StatelessWidget {
                       children: [
                         Expanded(
                           child: Text(
-                            title,
+                            item.name,
                             style: TextStyle(
                               fontWeight: FontWeight.w600,
                               fontSize: 16,
                             ),
                             maxLines: 2,
                             overflow: TextOverflow.ellipsis,
-    
                           ),
                         ),
                       ],
@@ -62,7 +58,7 @@ class CardCardapioFood extends StatelessWidget {
                     ),
                     Row(
                       children: [
-                        Text(price),
+                        Text('R\$${item.price.toString()}'),
                       ],
                     ),
                   ],
@@ -70,11 +66,10 @@ class CardCardapioFood extends StatelessWidget {
               ],
             ),
           ),
-        ),
         onTap: () {
           print("Redirecionando ao item do cardápio");
         },
-      ),
+      
     );
   }
 }
