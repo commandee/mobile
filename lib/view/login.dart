@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:teste/view/choose_restaurant.dart';
 import 'package:teste/widgets/big_button.dart';
 import 'package:teste/widgets/form_textfield.dart';
 import 'package:teste/view/forgot_password.dart';
@@ -46,7 +47,7 @@ class LoginPage extends StatelessWidget {
       if (emailcontroller.text == "isa123" &&
           passwordcontroller.text == "isa123") {
         Navigator.push(context, MaterialPageRoute(builder: (context) {
-          return MyHomePage();
+          return ChooseRestaurant();
         }));
       } else {
         openDialog();
@@ -83,16 +84,16 @@ class LoginPage extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                Align(
-                  alignment: Alignment.center,
-                  child: Text(
-                    "nós do Commandee sentimos sua falta!",
-                    style: TextStyle(
-                      color: Theme.of(context).colorScheme.onSurfaceVariant,
-                      fontSize: 12,
-                    ),
+
+                Text(
+                  "nós do Commandee sentimos sua falta!",
+                  style: TextStyle(
+                    color: Theme.of(context).colorScheme.onSurfaceVariant,
+                    fontSize: 12,
                   ),
+                  textAlign: TextAlign.center,
                 ),
+
                 Spacer(),
                 Form(
                     child: Column(
@@ -156,9 +157,7 @@ class LoginPage extends StatelessWidget {
                 Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                   Text("Não tem uma conta?",
                       style: TextStyle(
-                          color: Theme.of(context)
-                              .colorScheme
-                              .onSurfaceVariant,
+                          color: Theme.of(context).colorScheme.onSurfaceVariant,
                           fontSize: 12)),
                   const SizedBox(
                     width: 4,
@@ -181,9 +180,7 @@ class LoginPage extends StatelessWidget {
                   children: [
                     Expanded(
                       child: Divider(
-                        color: Theme.of(context)
-                            .colorScheme
-                            .onSurfaceVariant,
+                        color: Theme.of(context).colorScheme.onSurfaceVariant,
                         thickness: 0.3,
                         indent: 40,
                         endIndent: 5,
@@ -191,16 +188,12 @@ class LoginPage extends StatelessWidget {
                     ),
                     Text("Ou entre com",
                         style: TextStyle(
-                            color: Theme.of(context)
-                                .colorScheme
-                                .onSurfaceVariant,
+                            color:
+                                Theme.of(context).colorScheme.onSurfaceVariant,
                             fontSize: 12)),
                     Expanded(
                       child: Divider(
-                        color: Theme.of(context)
-                            .colorScheme
-                            .onSurfaceVariant
-                            ,
+                        color: Theme.of(context).colorScheme.onSurfaceVariant,
                         thickness: 0.3,
                         indent: 5,
                         endIndent: 40,
