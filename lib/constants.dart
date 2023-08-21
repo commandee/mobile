@@ -8,7 +8,7 @@ const Color accentDM = Color(0XFFFF6161);
 
 //primary
 const Color primaryLM = Color(0XFF3A046E);
-const Color primaryDM = Color.fromARGB(255, 84, 47, 149);
+const Color primaryDM = Color(0xFF542F95);
 
 //secondary
 const Color secondaryLM = Color(0XFFE7ECF0);

@@ -70,6 +70,8 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
+
+  //ninguem gosta de voce
   void _addInfosNovaCommanda(BuildContext context) {
     final formKey = GlobalKey<FormState>();
     showDialog(
