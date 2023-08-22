@@ -14,7 +14,7 @@ class InfoTile extends StatelessWidget {
       leading: Icon(
         icone,
         color: Theme.of(context).iconTheme.color,
-        size: 32,
+        size: 28,
       ),
       title: Text(informacao),
     );

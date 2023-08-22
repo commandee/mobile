@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:teste/model/employee.dart';
 import 'package:teste/view/choose_restaurant.dart';
 import 'package:teste/widgets/big_button.dart';
 import 'package:teste/widgets/form_textfield.dart';
@@ -16,40 +17,8 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //função para abrir o dialog
-    Future openDialog() => showDialog(
-          context: context,
-          builder: (context) => AlertDialog(
-            title: Text(
-              "Email ou senha inválidos!",
-              style: TextStyle(
-                color: Theme.of(context).colorScheme.onBackground,
-              ),
-              textAlign: TextAlign.center,
-            ),
-            content: TextButton(
-              child: Text(
-                "Voltar",
-                style: TextStyle(
-                    color: Theme.of(context).colorScheme.tertiary,
-                    fontSize: 16),
-              ),
-              onPressed: () => Navigator.pop(context),
-            ),
-          ),
-        );
 
-    //funcionalidade do botão
-    void logarUsuario() {
-      if (emailcontroller.text == "isa123" &&
-          passwordcontroller.text == "isa123") {
-        Navigator.push(context, MaterialPageRoute(builder: (context) {
-          return ChooseRestaurant();
-        }));
-      } else {
-        openDialog();
-      }
-    }
+    GlobalKey<FormState> formkey = GlobalKey<FormState>();
 
     return Scaffold(
       appBar: AppBar(
@@ -93,50 +62,56 @@ class LoginPage extends StatelessWidget {
 
                 Spacer(),
                 Form(
+                    key: formkey,
                     child: Column(
-                  children: [
-                    MyTextfield(
-                      icone: Icons.email_outlined,
-                      controller: emailcontroller,
-                      labelText: "Email",
-                      obscureText: false,
-                      tipoDoTeclado: TextInputType.emailAddress,
-                    ),
-                    const SizedBox(
-                      height: 16,
-                    ),
-                    MyTextfield(
-                      icone: Icons.fingerprint_outlined,
-                      controller: passwordcontroller,
-                      labelText: "Senha",
-                      obscureText: true,
-                      tipoDoTeclado: TextInputType.visiblePassword,
-                    ),
-                    const SizedBox(
-                      height: 8,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
                       children: [
-                        GestureDetector(
-                          child: Text(
-                            "Esqueceu a senha?",
-                            style: TextStyle(
-                              color: Theme.of(context).colorScheme.tertiary,
-                              fontSize: 12,
-                            ),
-                          ),
-                          onTap: () {
-                            Navigator.push(context,
-                                MaterialPageRoute(builder: (context) {
-                              return ForgotPasswordPage();
-                            }));
-                          },
-                        )
+                        MyTextfield(
+                          icone: Icons.email_outlined,
+                          controller: emailcontroller,
+                          labelText: "Email",
+                          obscureText: false,
+                          tipoDoTeclado: TextInputType.emailAddress,
+                          validator: (value) => value!.isEmpty
+                              ? 'Por favor, digite um email válido'
+                              : null,
+                        ),
+                        const SizedBox(
+                          height: 16,
+                        ),
+                        MyTextfield(
+                            icone: Icons.fingerprint_outlined,
+                            controller: passwordcontroller,
+                            labelText: "Senha",
+                            obscureText: true,
+                            tipoDoTeclado: TextInputType.visiblePassword,
+                            validator: (value) => value!.isEmpty
+                                ? 'Por favor, digite uma senha válida'
+                                : null),
+                        const SizedBox(
+                          height: 8,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            GestureDetector(
+                              child: Text(
+                                "Esqueceu a senha?",
+                                style: TextStyle(
+                                  color: Theme.of(context).colorScheme.tertiary,
+                                  fontSize: 12,
+                                ),
+                              ),
+                              onTap: () {
+                                Navigator.push(context,
+                                    MaterialPageRoute(builder: (context) {
+                                  return ForgotPasswordPage();
+                                }));
+                              },
+                            )
+                          ],
+                        ),
                       ],
-                    ),
-                  ],
-                )),
+                    )),
 
                 Spacer(),
 
@@ -145,7 +120,11 @@ class LoginPage extends StatelessWidget {
                   text: "Entrar",
                   cortexto: Theme.of(context).colorScheme.onPrimary,
                   corFundo: Theme.of(context).colorScheme.primary,
-                  onTap: logarUsuario,
+                  onTap: () {
+                    if (formkey.currentState!.validate()) {
+                      logarUsuario(context);
+                    }
+                  },
                   fontWeight: FontWeight.bold,
                 ),
                 const SizedBox(
@@ -222,5 +201,20 @@ class LoginPage extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  //funcionalidade do botão
+  void logarUsuario(BuildContext context) {
+    for (var employee in employees) {
+      if (emailcontroller.text == employee.email &&
+          passwordcontroller.text == employee.password) {
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return ChooseRestaurant(
+            employee: employee,
+          );
+        }));
+        return; // Importante: sair da função após encontrar um match
+      }
+    }
   }
 }

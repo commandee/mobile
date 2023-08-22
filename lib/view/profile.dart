@@ -12,6 +12,7 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePage extends State<ProfilePage> {
+
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
@@ -43,7 +44,7 @@ class _ProfilePage extends State<ProfilePage> {
                     userName: 'nomedousuario',
                   ),
 
-                   SizedBox(height: 16),
+                  SizedBox(height: 16),
 
                   //botão de mudança entre config e infos
                   Padding(
@@ -57,7 +58,7 @@ class _ProfilePage extends State<ProfilePage> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text('Botões de mudança de configuração e infos'),
+                          Text('Informações e Configurações'),
                         ],
                       ),
                     ),
@@ -80,20 +81,28 @@ class _ProfilePage extends State<ProfilePage> {
                         ),
                         SizedBox(height: 4),
                         Container(
-                          color: Theme.of(context).colorScheme.secondary,
-                          child: Column(
-                            children: [
-                              InfoTile(icone: Icons.mail_outline_outlined, informacao: 'Email do Usuário',),
-                              InfoTile(icone: Icons.person_outline_outlined, informacao: 'Nome do Usuário',),
-                              InfoTile(icone: Icons.local_restaurant_outlined, informacao: 'Restaurante 1',)
-                            ],
-                          )
-                        ),
-
+                            color: Theme.of(context).colorScheme.secondary,
+                            child: Column(
+                              children: [
+                                InfoTile(
+                                  icone: Icons.mail_outline_outlined,
+                                  informacao: 'Email do Usuário',
+                                ),
+                                InfoTile(
+                                  icone: Icons.person_outline_outlined,
+                                  informacao: 'Nome do Usuário',
+                                ),
+                                InfoTile(
+                                  icone: Icons.local_restaurant_outlined,
+                                  informacao: 'Restaurante 1',
+                                )
+                              ],
+                            )),
                         SizedBox(height: 20),
                         Align(
                           alignment: Alignment.centerLeft,
-                          child: Text('Relatórios', 
+                          child: Text(
+                            'Relatórios',
                             style: TextStyle(
                               fontWeight: FontWeight.w500,
                               fontSize: 16,
@@ -104,18 +113,14 @@ class _ProfilePage extends State<ProfilePage> {
                         Padding(
                           padding: const EdgeInsets.only(bottom: 80),
                           child: Container(
-                            color: Theme.of(context).colorScheme.secondary,
-                            child: Column(
-                              children: [
-                               
-                              ],
-                            )
-                          ),
+                              color: Theme.of(context).colorScheme.secondary,
+                              child: Column(
+                                children: [],
+                              )),
                         ),
                       ],
                     ),
                   ),
-
                 ],
               ),
             )));

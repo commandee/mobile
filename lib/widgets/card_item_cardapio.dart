@@ -45,12 +45,11 @@ class CardItemCardapio extends StatelessWidget {
                 ],
               ),
             ),
-            Row(
-              children: [
                 //chip de categoria
-              ],
-            ),
+          
+            
             Row(
+              mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Text('R\$${item.price.toString()}'),
               ],

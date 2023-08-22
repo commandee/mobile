@@ -66,22 +66,17 @@ class RegisterPage extends StatelessWidget {
                 Form(
                     child: Column(
                   children: [
-                    MyTextfield(
-                        
-                        icone: Icons.person,
-                        controller: namecontroller,
-                        labelText: "Nome",
-                        obscureText: false,
-                        tipoDoTeclado: TextInputType.name),
-                    const SizedBox(
-                      height: 16,
-                    ),
+                   
                     MyTextfield(
                         icone: Icons.person_outline_outlined,
                         controller: usernamecontroller,
                         labelText: "Nome de Usuário",
                         obscureText: false,
-                        tipoDoTeclado: TextInputType.name),
+                        tipoDoTeclado: TextInputType.name,
+                        validator: (value) => value!.isEmpty
+                            ? 'Por favor, digite um nome de usuário'
+                            : null
+                        ),
                     const SizedBox(
                       height: 16,
                     ),
@@ -91,6 +86,9 @@ class RegisterPage extends StatelessWidget {
                       labelText: "Email",
                       obscureText: false,
                       tipoDoTeclado: TextInputType.emailAddress,
+                      validator: (value) => value!.isEmpty
+                          ? 'Por favor, digite um email'
+                          : null
                     ),
                     const SizedBox(
                       height: 16,
@@ -101,6 +99,9 @@ class RegisterPage extends StatelessWidget {
                       labelText: "Senha",
                       obscureText: true,
                       tipoDoTeclado: TextInputType.visiblePassword,
+                      validator: (value) => value!.isEmpty
+                          ? 'Por favor, digite uma senha'
+                          : null
                     ),
                   ],
                 )),

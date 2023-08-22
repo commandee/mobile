@@ -87,6 +87,9 @@ class ForgotPasswordPage extends StatelessWidget {
                   labelText: "Email",
                   obscureText: false,
                   tipoDoTeclado: TextInputType.emailAddress,
+                  validator: (value) => value!.isEmpty
+                      ? 'Por favor, digite seu email'
+                      : null
                 ),
                 const SizedBox(
                   height: 40,

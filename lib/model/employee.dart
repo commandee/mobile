@@ -19,8 +19,8 @@ class Employee {
   final employees = [
     Employee(
         id: 1,
-        username: 'João Bonifácio',
-        email: 'joaobon@gmail.com',
+        username: 'Isabela',
+        email: 'isabela@gmail.com',
         password: 'senha123'),
     Employee(
       id: 2,

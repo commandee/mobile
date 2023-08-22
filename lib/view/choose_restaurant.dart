@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:teste/model/employee.dart';
 import 'package:teste/widgets/tile_restaurant.dart';
 
 class ChooseRestaurant extends StatelessWidget {
-  const ChooseRestaurant({super.key});
+  const ChooseRestaurant({super.key, required this.employee});
+
+  final Employee employee;
 
   @override
   Widget build(BuildContext context) {
@@ -24,34 +27,36 @@ class ChooseRestaurant extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
-            children: [
-              Text(
-                "Olá Employee!",
-                style: TextStyle(
-                  color: Theme.of(context).colorScheme.onBackground,
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
+          children: [
+            Text(
+              "Olá ${employee.username}!",
+              style: TextStyle(
+                color: Theme.of(context).colorScheme.onBackground,
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
               ),
-              Text(
-                "Em qual desses restaurante estaremos trabalhando hoje?",
-                style: TextStyle(
-                  color: Theme.of(context).colorScheme.onSurfaceVariant,
-                  fontSize: 14,
-                ),
-                textAlign: TextAlign.center,
+            ),
+            Text(
+              "Em qual desses restaurante estaremos trabalhando hoje?",
+              style: TextStyle(
+                color: Theme.of(context).colorScheme.onSurfaceVariant,
+                fontSize: 14,
               ),
-
-              Spacer(),
-              RestaurantOption(restaurant: 'Restaurante 1'),
-              RestaurantOption(restaurant: 'Restaurante 2'),
-              RestaurantOption(restaurant: 'Restaurante 3'),
-              Spacer(),
-              Image.asset('assets/images/illustration2.png', width: 280, height: 280,),
-            ],
-          ),
+              textAlign: TextAlign.center,
+            ),
+            Spacer(),
+            RestaurantOption(restaurant: 'Restaurante 1'),
+            RestaurantOption(restaurant: 'Restaurante 2'),
+            RestaurantOption(restaurant: 'Restaurante 3'),
+            Spacer(),
+            Image.asset(
+              'assets/images/illustration2.png',
+              width: 280,
+              height: 280,
+            ),
+          ],
+        ),
       ),
-      
     );
   }
 }

@@ -8,6 +8,7 @@ class MyTextfield extends StatefulWidget {
     required this.obscureText,
     required this.icone,
     this.tipoDoTeclado,
+    required this.validator,
   });
 
   final TextEditingController controller;
@@ -15,6 +16,7 @@ class MyTextfield extends StatefulWidget {
   final bool obscureText;
   final IconData icone;
   final TextInputType? tipoDoTeclado;
+  final FormFieldValidator validator;
 
   @override
   State<MyTextfield> createState() => _MyTextfieldState();
@@ -24,6 +26,7 @@ class _MyTextfieldState extends State<MyTextfield> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      validator: widget.validator,
       keyboardType: widget.tipoDoTeclado,
       textInputAction: TextInputAction.done,
       controller: widget.controller,

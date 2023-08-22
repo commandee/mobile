@@ -14,6 +14,7 @@ class ListaCommandas extends StatefulWidget {
 class _ListaCommandasState extends State<ListaCommandas> {
   @override
   Widget build(BuildContext context) {
+    
     CommandaController commandaController =
         Provider.of<CommandaController>(context);
     List<Commanda> commandas = commandaController.getAll();
