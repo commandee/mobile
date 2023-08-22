@@ -11,15 +11,27 @@ import 'package:teste/view/register.dart';
 class LoginPage extends StatelessWidget {
   LoginPage({super.key});
 
+    GlobalKey<FormState> _formkey = GlobalKey<FormState>();
+
   //controllers do textfield
   final emailcontroller = TextEditingController();
   final passwordcontroller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-
-    GlobalKey<FormState> formkey = GlobalKey<FormState>();
-
+    void logarUsuario() {
+    for (var employee in employees) {
+      if (emailcontroller.text == employee.email &&
+          passwordcontroller.text == employee.password) {
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return ChooseRestaurant(
+            employee: employee,
+          );
+        }));
+        return null; // Importante: sair da função após encontrar um match
+      }
+    }
+  }
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -62,7 +74,7 @@ class LoginPage extends StatelessWidget {
 
                 Spacer(),
                 Form(
-                    key: formkey,
+                    key: _formkey,
                     child: Column(
                       children: [
                         MyTextfield(
@@ -121,8 +133,8 @@ class LoginPage extends StatelessWidget {
                   cortexto: Theme.of(context).colorScheme.onPrimary,
                   corFundo: Theme.of(context).colorScheme.primary,
                   onTap: () {
-                    if (formkey.currentState!.validate()) {
-                      logarUsuario(context);
+                    if (_formkey.currentState!.validate()) {
+                      logarUsuario();
                     }
                   },
                   fontWeight: FontWeight.bold,
@@ -201,20 +213,9 @@ class LoginPage extends StatelessWidget {
         ),
       ),
     );
+    
   }
 
   //funcionalidade do botão
-  void logarUsuario(BuildContext context) {
-    for (var employee in employees) {
-      if (emailcontroller.text == employee.email &&
-          passwordcontroller.text == employee.password) {
-        Navigator.push(context, MaterialPageRoute(builder: (context) {
-          return ChooseRestaurant(
-            employee: employee,
-          );
-        }));
-        return; // Importante: sair da função após encontrar um match
-      }
-    }
-  }
+  
 }
