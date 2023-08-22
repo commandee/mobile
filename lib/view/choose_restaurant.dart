@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:teste/view/home.dart';
 import 'package:teste/widgets/tile_restaurant.dart';
 
 class ChooseRestaurant extends StatelessWidget {
@@ -38,7 +37,7 @@ class ChooseRestaurant extends StatelessWidget {
                 "Em qual desses restaurante estaremos trabalhando hoje?",
                 style: TextStyle(
                   color: Theme.of(context).colorScheme.onSurfaceVariant,
-                  fontSize: 12,
+                  fontSize: 14,
                 ),
                 textAlign: TextAlign.center,
               ),

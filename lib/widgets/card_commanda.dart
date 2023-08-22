@@ -48,7 +48,7 @@ class CardCommanda extends StatelessWidget {
                         )),
                         SizedBox(width: 40),
                         Text(
-                          'R\$' + commanda.total.toString(),
+                          'R\$' + commanda.total.toStringAsFixed(2),
                           style: TextStyle(
                               fontWeight: FontWeight.w500, fontSize: 16),
                         ),

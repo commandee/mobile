@@ -10,7 +10,6 @@ class CardapioPage extends StatefulWidget {
 }
 
 class _CardapioPageState extends State<CardapioPage> {
-
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
@@ -23,18 +22,24 @@ class _CardapioPageState extends State<CardapioPage> {
           title: const Text('Cardápio'),
           centerTitle: true,
           backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
-          automaticallyImplyLeading: false,
+         leading: BackButton(onPressed: () {
+            Navigator.pushReplacementNamed(context, '/commandas');
+          },),
+         
         ),
         backgroundColor: Theme.of(context).colorScheme.background,
-        body: Column(
+        body: SingleChildScrollView(
+          child: Column(
             children: [
               Filtros(),
-              
-              ListaItems(),
+              Padding(
+                padding: const EdgeInsets.all(16),
+                child: ListaItems(),
+              ),
             ],
           ),
         ),
-      
+      ),
     );
   }
 }

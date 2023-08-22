@@ -7,9 +7,6 @@ import 'package:teste/widgets/form_textfield.dart';
 import 'package:teste/view/forgot_password.dart';
 import 'package:teste/view/register.dart';
 
-//import 'home.dart';
-import 'home.dart';
-
 class LoginPage extends StatelessWidget {
   LoginPage({super.key});
 
@@ -89,7 +86,7 @@ class LoginPage extends StatelessWidget {
                   "nós do Commandee sentimos sua falta!",
                   style: TextStyle(
                     color: Theme.of(context).colorScheme.onSurfaceVariant,
-                    fontSize: 12,
+                    fontSize: 14,
                   ),
                   textAlign: TextAlign.center,
                 ),

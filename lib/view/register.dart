@@ -57,7 +57,7 @@ class RegisterPage extends StatelessWidget {
                     color: Theme.of(context)
                         .colorScheme
                         .onSurfaceVariant,
-                    fontSize: 12,
+                    fontSize: 14,
                   ),
                 ),
                 const Spacer(),

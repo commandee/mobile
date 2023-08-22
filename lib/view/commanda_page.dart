@@ -33,7 +33,9 @@ class CommandaPage extends StatelessWidget {
         ),
         backgroundColor: Theme.of(context).colorScheme.background,
         floatingActionButton: CustomAddButton(
-          funcao: () {},
+          funcao: () {
+            Navigator.pushNamed(context, '/cardapio');
+          },
         ),
         body: Column(
           children: [
@@ -47,7 +49,7 @@ class CommandaPage extends StatelessWidget {
                     commanda.qntOrders.toString() + ' itens',
                     style: TextStyle(),
                   ),
-                  Text('R\$ ' + commanda.total.toString()),
+                  Text('R\$ ' + commanda.total.toStringAsFixed(2)),
                 ],
               ),
             ),

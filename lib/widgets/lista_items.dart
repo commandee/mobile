@@ -14,21 +14,25 @@ class ListaItems extends StatefulWidget {
 class _ListaItemsState extends State<ListaItems> {
   @override
   Widget build(BuildContext context) {
+
     ItemController itemController = Provider.of<ItemController>(context);
     List<Item> items = itemController.getAll();
-    return Expanded (
-      child: GridView.builder(
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-              ),
-              itemCount: items.length,
-              itemBuilder: (context, index) {
-                return CardCardapioFood(
-                  item: items[index],
-                );
-              },
     
-         
+    return Expanded(
+      child: GridView.builder(
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            crossAxisSpacing: 8,
+            mainAxisSpacing: 8,
+            mainAxisExtent: 232),
+        physics: NeverScrollableScrollPhysics(),
+        shrinkWrap: true,
+        itemCount: items.length,
+        itemBuilder: (context, index) {
+          return CardItemCardapio(
+            item: items[index],
+          );
+        },
       ),
     );
   }

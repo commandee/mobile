@@ -17,18 +17,18 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  
   CommandaController commandaController = CommandaController();
 
-  int _index = 0;
+  int _indexTelas = 0;
 
   final List<Widget> _telas = [
     CommandasPage(),
     ProfilePage(),
-    CardapioPage(),
   ];
   void _itemClicado(int index) {
     setState(() {
-      _index = index;
+      _indexTelas = index;
     });
   }
 
@@ -38,7 +38,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) => Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
-      body: _telas[_index],
+      body: _telas[_indexTelas],
       extendBody: true,
       bottomNavigationBar: _navBar(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
@@ -57,14 +57,13 @@ class _MyHomePageState extends State<MyHomePage> {
             Theme.of(context).bottomNavigationBarTheme.selectedIconTheme,
         elevation: 0,
         backgroundColor: Colors.transparent,
-        currentIndex: _index,
+        currentIndex: _indexTelas,
         onTap: _itemClicado,
         items: [
           BottomNavigationBarItem(
               icon: Icon(Icons.receipt_outlined), label: 'Commandas'),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Perfil'),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.menu_book), label: 'Cardápio')
+          
         ],
       ),
     );

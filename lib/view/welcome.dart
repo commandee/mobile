@@ -49,7 +49,7 @@ class WelcomePage extends StatelessWidget {
                       color: Theme.of(context)
                           .colorScheme
                           .onSurfaceVariant,
-                      fontSize: 12,
+                      fontSize: 14,
                     ),
                     textAlign: TextAlign.center),
                 const Spacer(

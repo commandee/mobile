@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:teste/controller/commanda_controller.dart';
 import 'package:teste/controller/item_controller.dart';
+import 'package:teste/view/cardapio.dart';
 import 'package:teste/view/home.dart';
 import 'package:teste/view/welcome.dart';
 import 'themes/theme_provider.dart';
@@ -38,6 +39,7 @@ class _MyAppState extends State<MyApp> {
       routes: {
         '/': (context) => WelcomePage(),
         '/commandas': (context) => MyHomePage(),
+        '/cardapio' :(context) => CardapioPage(),
       },
       //HomePage(),
     );
