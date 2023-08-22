@@ -26,21 +26,14 @@ ThemeData lightTheme = ThemeData(
     ),
     primaryColor: primaryLM,
     iconTheme: const IconThemeData(
-      color: preto,
+      color: primaryLM,
     ),
-
-    textSelectionTheme: TextSelectionThemeData(
-      cursorColor: Colors.deepPurple
-
-    ),
+    textSelectionTheme: TextSelectionThemeData(cursorColor: Colors.deepPurple),
     inputDecorationTheme: InputDecorationTheme(
       activeIndicatorBorder: BorderSide(
         color: secondaryLM,
       ),
-     
-
     ),
-
     floatingActionButtonTheme: const FloatingActionButtonThemeData(
       backgroundColor: accent,
       foregroundColor: branco,

@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:teste/widgets/profile_header.dart';
+import 'package:teste/widgets/profile_info_tile.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -36,12 +37,85 @@ class _ProfilePage extends State<ProfilePage> {
             backgroundColor: Theme.of(context).colorScheme.background,
             body: SingleChildScrollView(
               child: Column(
-                children: [ProfileHeader(name: 'Nome do Usuário', userName: 'nomedousuario',)
-                
-                //botão de mudança entre config e infos
+                children: [
+                  ProfileHeader(
+                    name: 'Nome do Usuário',
+                    userName: 'nomedousuario',
+                  ),
 
-                //infos do usuario
-                
+                   SizedBox(height: 16),
+
+                  //botão de mudança entre config e infos
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                    child: Container(
+                      height: 44,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: Theme.of(context).colorScheme.secondary,
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text('Botões de mudança de configuração e infos'),
+                        ],
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 20),
+                  //infos do usuario
+                  Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Column(
+                      children: [
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            'Informações',
+                            style: TextStyle(
+                              fontWeight: FontWeight.w500,
+                              fontSize: 16,
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 4),
+                        Container(
+                          color: Theme.of(context).colorScheme.secondary,
+                          child: Column(
+                            children: [
+                              InfoTile(icone: Icons.mail_outline_outlined, informacao: 'Email do Usuário',),
+                              InfoTile(icone: Icons.person_outline_outlined, informacao: 'Nome do Usuário',),
+                              InfoTile(icone: Icons.local_restaurant_outlined, informacao: 'Restaurante 1',)
+                            ],
+                          )
+                        ),
+
+                        SizedBox(height: 20),
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          child: Text('Relatórios', 
+                            style: TextStyle(
+                              fontWeight: FontWeight.w500,
+                              fontSize: 16,
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 4),
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 80),
+                          child: Container(
+                            color: Theme.of(context).colorScheme.secondary,
+                            child: Column(
+                              children: [
+                               
+                              ],
+                            )
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+
                 ],
               ),
             )));

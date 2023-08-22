@@ -35,7 +35,7 @@ class _MyTextfieldState extends State<MyTextfield> {
         ),
         prefixIcon: Icon(
           widget.icone,
-          color: Theme.of(context).colorScheme.onSurface.withOpacity(0.5),
+          color: Theme.of(context).iconTheme.color,
         ),
         suffixIcon: widget.controller.text.isEmpty
             ? IconButton(

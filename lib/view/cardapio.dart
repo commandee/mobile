@@ -33,7 +33,7 @@ class _CardapioPageState extends State<CardapioPage> {
             children: [
               Filtros(),
               Padding(
-                padding: const EdgeInsets.all(16),
+                padding: const EdgeInsets.all(8),
                 child: ListaItems(),
               ),
             ],

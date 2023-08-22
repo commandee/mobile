@@ -88,7 +88,7 @@ class CardCommanda extends StatelessWidget {
                     Row(
                       children: [
                         SizedBox(
-                          height: 32,
+                          height: 18,
                         ),
                       ],
                     ),

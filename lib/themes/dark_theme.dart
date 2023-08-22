@@ -22,24 +22,18 @@ ThemeData darkTheme = ThemeData(
       secondary: secondaryDM,
       tertiary: accentDM,
       outline: Colors.white30,
-
     ),
     primarySwatch: Colors.deepPurple,
     primaryColor: branco,
-    
     iconTheme: const IconThemeData(
       color: branco,
     ),
-    textSelectionTheme: TextSelectionThemeData(
-      cursorColor: secondaryLM
-    ),
-
+    textSelectionTheme: TextSelectionThemeData(cursorColor: secondaryLM),
     inputDecorationTheme: InputDecorationTheme(
       activeIndicatorBorder: BorderSide(
         color: secondaryLM,
       ),
     ),
-
     floatingActionButtonTheme: const FloatingActionButtonThemeData(
       backgroundColor: accentDM,
       foregroundColor: preto,

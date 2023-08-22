@@ -5,7 +5,6 @@ import 'package:teste/controller/commanda_controller.dart';
 import 'package:teste/model/commanda.dart';
 import 'package:teste/view/commanda_page.dart';
 import 'package:teste/widgets/add_button.dart';
-import 'package:teste/view/cardapio.dart';
 import 'package:teste/view/commandas.dart';
 import 'package:teste/view/profile.dart';
 

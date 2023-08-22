@@ -14,6 +14,6 @@ final items = [
   Item(id: '4', price: 24.99, name: 'Panquecas de Banana e Mel', image: 'assets/images/pancake.jpg'),
   Item(id: '5', price: 17.99, name: 'Taça de Sorvete de Chocolate', image: 'assets/images/sorvete.jpg'),
   Item(id: '6', price: 7.99, name: 'Suco de Laranja Natural', image: 'assets/images/suco.jpg'),
-  Item(id: '7', price: 19.99, name: 'Salada Mista', image: 'assets/images/saladaMista.jpg'),
-  Item(id: '8', price: 6.99, name: 'Picolé de Amora', image: 'assets/images/picole.jpg'),
+  //Item(id: '7', price: 19.99, name: 'Salada Mista', image: 'assets/images/saladaMista.jpg'),
+  //Item(id: '8', price: 6.99, name: 'Picolé de Amora', image: 'assets/images/picole.jpg'),
 ];
