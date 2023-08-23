@@ -18,8 +18,7 @@ class _ListaItemsState extends State<ListaItems> {
     ItemController itemController = Provider.of<ItemController>(context);
     List<Item> items = itemController.getAll();
     
-    return Expanded(
-      child: GridView.builder(
+    return GridView.builder(
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
             crossAxisSpacing: 8,
@@ -33,7 +32,7 @@ class _ListaItemsState extends State<ListaItems> {
             item: items[index],
           );
         },
-      ),
+      
     );
   }
 }

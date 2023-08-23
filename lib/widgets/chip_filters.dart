@@ -15,9 +15,7 @@ class _FiltrosState extends State<Filtros> {
     return Container(
       child: SingleChildScrollView(
         scrollDirection: Axis.horizontal,
-        child: Padding(
-          padding: const EdgeInsets.all(4.0),
-          child: Row(
+        child: Row(
             children: List.generate(8, (index) {
               return Padding(
                 padding: const EdgeInsets.all(4.0),
@@ -39,7 +37,7 @@ class _FiltrosState extends State<Filtros> {
             }),
           ),
         ),
-      ),
+
     );
   }
 

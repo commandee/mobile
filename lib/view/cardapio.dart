@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:teste/widgets/chip_filters.dart';
 import 'package:teste/widgets/lista_items.dart';
+import 'package:teste/widgets/search_bar.dart';
 
 class CardapioPage extends StatefulWidget {
   const CardapioPage({super.key});
@@ -17,12 +18,12 @@ class _CardapioPageState extends State<CardapioPage> {
       onWillPop: () async {
         return false; // Retorna false para bloquear a ação padrão de voltar.
       },
-      child: Scaffold(
+      child: Scaffold( // Esta é a nossa tela mágica! 
         appBar: AppBar(
           title: const Text('Cardápio'),
           centerTitle: true,
           backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
-         leading: BackButton(onPressed: () {
+          leading: BackButton(onPressed: () {
             Navigator.pushReplacementNamed(context, '/commandas');
           },),
          
@@ -32,6 +33,7 @@ class _CardapioPageState extends State<CardapioPage> {
           child: Column(
             children: [
               Filtros(),
+              CustomSearchBar(),
               Padding(
                 padding: const EdgeInsets.all(8),
                 child: ListaItems(),

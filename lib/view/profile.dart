@@ -92,10 +92,13 @@ class _ProfilePage extends State<ProfilePage> {
                                   icone: Icons.person_outline_outlined,
                                   informacao: 'Nome do Usuário',
                                 ),
-                                InfoTile(
-                                  icone: Icons.local_restaurant_outlined,
-                                  informacao: 'Restaurante 1',
+                                ListTile(
+                                  leading: Icon(Icons.local_restaurant_outlined, color: Theme.of(context).iconTheme.color,),
+                                  title: Text('Restaurante 1'),
+                                  trailing: Icon(Icons.keyboard_arrow_down, color: Theme.of(context).iconTheme.color,),
+                                  onTap: (){},
                                 )
+                                
                               ],
                             )),
                         SizedBox(height: 20),
@@ -115,7 +118,14 @@ class _ProfilePage extends State<ProfilePage> {
                           child: Container(
                               color: Theme.of(context).colorScheme.secondary,
                               child: Column(
-                                children: [],
+                                children: [
+                                  ListTile(
+                                    leading: Icon(Icons.pending_actions_outlined, color: Theme.of(context).iconTheme.color,),
+                                    title: Text('Commandas concluídas'),
+                                    trailing: Icon(Icons.arrow_forward_ios_outlined),
+                                    onTap: (){},
+                                  )
+                                ],
                               )),
                         ),
                       ],

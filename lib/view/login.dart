@@ -11,7 +11,7 @@ import 'package:teste/view/register.dart';
 class LoginPage extends StatelessWidget {
   LoginPage({super.key});
 
-    GlobalKey<FormState> _formkey = GlobalKey<FormState>();
+  GlobalKey<FormState> _formkey = GlobalKey<FormState>();
 
   //controllers do textfield
   final emailcontroller = TextEditingController();
@@ -20,18 +20,19 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     void logarUsuario() {
-    for (var employee in employees) {
-      if (emailcontroller.text == employee.email &&
-          passwordcontroller.text == employee.password) {
-        Navigator.push(context, MaterialPageRoute(builder: (context) {
-          return ChooseRestaurant(
-            employee: employee,
-          );
-        }));
-        return null; // Importante: sair da função após encontrar um match
+      for (var employee in employees) {
+        if (emailcontroller.text == employee.email &&
+            passwordcontroller.text == employee.password) {
+          Navigator.push(context, MaterialPageRoute(builder: (context) {
+            return ChooseRestaurant(
+              employee: employee,
+            );
+          }));
+          return null; // Importante: sair da função após encontrar um match
+        }
       }
     }
-  }
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -135,6 +136,23 @@ class LoginPage extends StatelessWidget {
                   onTap: () {
                     if (_formkey.currentState!.validate()) {
                       logarUsuario();
+                    } else {
+                      //fodase
+                      if(_formkey.currentState!.validate() == false){
+
+                      return ScaffoldMessenger(
+                          child: AlertDialog(
+                        title: Text("Email ou senha inválidos"),
+                        content: Text("Verifique os campos novamente!"),
+                        actions: [
+                          TextButton(
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
+                              child: Text("Ok"))
+                        ],
+                          ),);
+                      }
                     }
                   },
                   fontWeight: FontWeight.bold,
@@ -213,9 +231,7 @@ class LoginPage extends StatelessWidget {
         ),
       ),
     );
-    
   }
 
   //funcionalidade do botão
-  
 }
