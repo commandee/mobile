@@ -8,7 +8,7 @@ class Item {
 }
 
 final items = [
-  Item(id: '1', price: 14.99, name: 'Sobremesa Bolo Red Velvet', image: 'assets/images/bolo.jpg'),
+  Item(id: '1', price: 14.99, name: 'Cheesecake Frutas Vermelhas', image: 'assets/images/bolo.jpg'),
   Item(id: '2', price: 31.99, name: 'Hambúguer X-Bacon Duplo', image: 'assets/images/hamburguer.jpg'),
   Item(id: '3', price: 21.99, name: 'Milkshake de Frutas Vermelhas', image: 'assets/images/milkshake.jpg'),
   Item(id: '4', price: 24.99, name: 'Panquecas de Banana e Mel', image: 'assets/images/pancake.jpg'),

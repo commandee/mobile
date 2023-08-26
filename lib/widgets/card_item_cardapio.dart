@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:teste/model/item.dart';
+import 'package:teste/view/item_cardapio.dart';
 
 class CardItemCardapio extends StatelessWidget {
   CardItemCardapio({super.key, required this.item});
@@ -59,6 +60,12 @@ class CardItemCardapio extends StatelessWidget {
       ),
       onTap: () {
         print("Redirecionando ao item do cardápio");
+         Navigator.pushReplacement(context,
+                MaterialPageRoute(builder: (context) {
+              return ItemCardapioPage(
+                item: item,
+              );
+            }));
       },
     );
   }
