@@ -28,9 +28,9 @@ class _ProfilePage extends State<ProfilePage> {
               automaticallyImplyLeading: false,
               actions: [
                 IconButton(
-                  icon: Icon(Icons.edit_square),
+                  icon: Icon(Icons.logout),
                   onPressed: () {
-                    print('Redirecionando a pagina de alteração de perfil');
+                    print('Saindo da conta...');
                   },
                 )
               ],

@@ -70,7 +70,7 @@ class WelcomePage extends StatelessWidget {
                 const SizedBox(
                   height: 8,
                 ),
-                SubmitButton(
+                ExpansiveButton(
                     onTap: entrarLogin,
                     text: "Login",
                     cortexto: Theme.of(context).colorScheme.onPrimary,
@@ -79,7 +79,7 @@ class WelcomePage extends StatelessWidget {
                 const SizedBox(
                   height: 8,
                 ),
-                SubmitButton(
+                ExpansiveButton(
                   onTap: entrarCadastro,
                   text: "Cadastro",
                   cortexto: Theme.of(context).colorScheme.onSurface,

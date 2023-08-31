@@ -96,7 +96,7 @@ class ForgotPasswordPage extends StatelessWidget {
                 ),
               
                 //botão
-                SubmitButton(
+                ExpansiveButton(
                     onTap: () {
                       print('Redirecionando para próxima etapa');
                     },

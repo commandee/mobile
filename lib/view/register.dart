@@ -109,7 +109,7 @@ class RegisterPage extends StatelessWidget {
                 const Spacer(),
 
                 //botão de cadastro
-                SubmitButton(
+                ExpansiveButton(
                     onTap: cadastrarUsuario,
                     text: "Cadastrar",
                     cortexto: Theme.of(context).colorScheme.onPrimary,

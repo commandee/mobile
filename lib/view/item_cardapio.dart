@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:teste/model/item.dart';
 import 'package:teste/widgets/big_button.dart';
+import 'package:teste/widgets/counter.dart';
 
 class ItemCardapioPage extends StatelessWidget {
   const ItemCardapioPage({super.key, required this.item});
@@ -27,7 +28,7 @@ class ItemCardapioPage extends StatelessWidget {
           children: [
             Image.asset(
               item.image,
-              height: 400,
+              height: 350,
               width: double.infinity,
               fit: BoxFit.cover,
             ),
@@ -64,62 +65,72 @@ class ItemCardapioPage extends StatelessWidget {
               height: 8,
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal:16),
+              padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                'Ingredientes',
-                style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                    color: Theme.of(context).colorScheme.onSurface),
-              ),
-              SizedBox(
-                height: 4,
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: Text(
-                  "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's .",
-                  style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.normal,
-                      color: Theme.of(context).colorScheme.onSurface),
-                ),
-              ),
-                  
-              Text('Anotações', style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                    color: Theme.of(context).colorScheme.onSurface),),
-              SizedBox(height: 8,),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: TextField(
-                  maxLines: 3,
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    hintText: 'Ex: sem cebola',
-                    prefixIcon: Icon(Icons.note_add),
+                    'Ingredientes',
+                    style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Theme.of(context).colorScheme.onSurface),
                   ),
-                ),
-              ),
+                  SizedBox(
+                    height: 4,
+                  ),
+                  // Counter(),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    child: Text(
+                      item.ingredients.join(', '),
+                      style: TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.normal,
+                          color: Theme.of(context).colorScheme.onSurface),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 4,
+                  ),
+                  Text(
+                    'Anotações',
+                    style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Theme.of(context).colorScheme.onSurface),
+                  ),
+                  SizedBox(
+                    height: 8,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    child: TextField(
+                      maxLines: 3,
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(),
+                        hintText: 'Ex: sem cebola',
+                        prefixIcon: Icon(Icons.note_add),
+                      ),
+                    ),
+                  ),
+
+                  Counter()
                 ],
               ),
             ),
-            
-            SizedBox(height: 20,),
-      
-            SubmitButton(
-                    onTap: () {},
-                    text: 'Adicionar à comanda',
-                    cortexto: Theme.of(context).colorScheme.onPrimary,
-                    corFundo: Theme.of(context).colorScheme.primary,
-                    fontWeight: FontWeight.bold,
-                  ),
+            SizedBox(
+              height: 20,
+              width: 25,
+            ),
           ],
         ),
+      ),
+      bottomNavigationBar: SubmitButton(
+        corFundo: Theme.of(context).colorScheme.primary,
+        cortexto: Theme.of(context).colorScheme.onPrimary,
+        text: "Adicionar à comanda",
+        onTap: () {},
       ),
     );
   }

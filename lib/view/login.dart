@@ -129,7 +129,7 @@ class LoginPage extends StatelessWidget {
                 Spacer(),
 
                 //botão de login
-                SubmitButton(
+                ExpansiveButton(
                   text: "Entrar",
                   cortexto: Theme.of(context).colorScheme.onPrimary,
                   corFundo: Theme.of(context).colorScheme.primary,
