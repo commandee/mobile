@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:teste/widgets/add_button.dart';
 import 'package:teste/model/commanda.dart';
+import 'package:teste/widgets/tile_pedido.dart';
 
 class CommandaPage extends StatelessWidget {
   CommandaPage({super.key, required this.commanda});
@@ -59,16 +60,7 @@ class CommandaPage extends StatelessWidget {
               child: ListView.builder(
                 itemCount: commanda.qntOrders,
                 itemBuilder: (context, index) {
-                  return Card(
-                    child: ListTile(
-                      title: Text('${commanda.orders[index].item.name}'),
-                      subtitle: Text(commanda.orders[index].notes != null
-                          ? '${commanda.orders[index].notes}'
-                          : ''),
-                      trailing: Text(
-                          'R\$ ${commanda.orders[index].item.price}\nQntd: ${commanda.orders[index].quantity}'),
-                    ),
-                  );
+                  return TilePedido(commanda: commanda, index: index);
                 },
               ),
             ),

@@ -130,7 +130,11 @@ class ItemCardapioPage extends StatelessWidget {
         corFundo: Theme.of(context).colorScheme.primary,
         cortexto: Theme.of(context).colorScheme.onPrimary,
         text: "Adicionar à comanda",
-        onTap: () {},
+        onTap: () {
+
+          
+         
+        },
       ),
     );
   }
