@@ -1,38 +1,15 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
-import 'package:teste/model/employee.dart';
-import 'package:teste/view/choose_restaurant.dart';
-import 'package:teste/widgets/big_button.dart';
-import 'package:teste/widgets/form_textfield.dart';
-import 'package:teste/view/forgot_password.dart';
+import 'package:teste/widgets/formLogin.dart';
+
 import 'package:teste/view/register.dart';
 
 class LoginPage extends StatelessWidget {
   LoginPage({super.key});
 
-  GlobalKey<FormState> _formkey = GlobalKey<FormState>();
-
-  //controllers do textfield
-  final emailcontroller = TextEditingController();
-  final passwordcontroller = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
-    void logarUsuario() {
-      for (var employee in employees) {
-        if (emailcontroller.text == employee.email &&
-            passwordcontroller.text == employee.password) {
-          Navigator.push(context, MaterialPageRoute(builder: (context) {
-            return ChooseRestaurant(
-              employee: employee,
-            );
-          }));
-          return null; // Importante: sair da função após encontrar um match
-        }
-      }
-    }
-
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -74,89 +51,11 @@ class LoginPage extends StatelessWidget {
                 ),
 
                 Spacer(),
-                Form(
-                    key: _formkey,
-                    child: Column(
-                      children: [
-                        MyTextfield(
-                          icone: Icons.email_outlined,
-                          controller: emailcontroller,
-                          labelText: "Email",
-                          obscureText: false,
-                          tipoDoTeclado: TextInputType.emailAddress,
-                          validator: (value) => value!.isEmpty
-                              ? 'Por favor, digite um email válido'
-                              : null,
-                        ),
-                        const SizedBox(
-                          height: 16,
-                        ),
-                        MyTextfield(
-                            icone: Icons.fingerprint_outlined,
-                            controller: passwordcontroller,
-                            labelText: "Senha",
-                            obscureText: true,
-                            tipoDoTeclado: TextInputType.visiblePassword,
-                            validator: (value) => value!.isEmpty
-                                ? 'Por favor, digite uma senha válida'
-                                : null),
-                        const SizedBox(
-                          height: 8,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            GestureDetector(
-                              child: Text(
-                                "Esqueceu a senha?",
-                                style: TextStyle(
-                                  color: Theme.of(context).colorScheme.tertiary,
-                                  fontSize: 12,
-                                ),
-                              ),
-                              onTap: () {
-                                Navigator.push(context,
-                                    MaterialPageRoute(builder: (context) {
-                                  return ForgotPasswordPage();
-                                }));
-                              },
-                            )
-                          ],
-                        ),
-                      ],
-                    )),
+               
+                FormLogin(),
 
                 Spacer(),
-
-                //botão de login
-                ExpansiveButton(
-                  text: "Entrar",
-                  cortexto: Theme.of(context).colorScheme.onPrimary,
-                  corFundo: Theme.of(context).colorScheme.primary,
-                  onTap: () {
-                    if (_formkey.currentState!.validate()) {
-                      logarUsuario();
-                    } else {
-                      //fodase
-                      if(_formkey.currentState!.validate() == false){
-
-                      return ScaffoldMessenger(
-                          child: AlertDialog(
-                        title: Text("Email ou senha inválidos"),
-                        content: Text("Verifique os campos novamente!"),
-                        actions: [
-                          TextButton(
-                              onPressed: () {
-                                Navigator.pop(context);
-                              },
-                              child: Text("Ok"))
-                        ],
-                          ),);
-                      }
-                    }
-                  },
-                  fontWeight: FontWeight.bold,
-                ),
+                                
                 const SizedBox(
                   height: 8,
                 ),

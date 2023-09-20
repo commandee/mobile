@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:teste/controller/commanda_controller.dart';
 import 'package:teste/controller/employee_controller.dart';
 import 'package:teste/controller/item_controller.dart';
+import 'package:teste/controller/login_controller.dart';
 import 'package:teste/view/cardapio.dart';
 import 'package:teste/view/home.dart';
 import 'package:teste/view/welcome.dart';
@@ -16,6 +17,7 @@ void main() {
       ChangeNotifierProvider(create: (_) => CommandaController()),
       ChangeNotifierProvider(create: (_) => EmployeeController()),
       ChangeNotifierProvider(create: (_) => ItemController()),
+      ChangeNotifierProvider(create: (_) => LoginController())
     ],
     child: MyApp(),
   ));

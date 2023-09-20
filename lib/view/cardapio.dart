@@ -32,8 +32,14 @@ class _CardapioPageState extends State<CardapioPage> {
         body: SingleChildScrollView(
           child: Column(
             children: [
+
+
               Filtros(),
+
+
               CustomSearchBar(),
+
+              
               Padding(
                 padding: const EdgeInsets.all(8),
                 child: ListaItems(),
