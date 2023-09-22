@@ -52,7 +52,16 @@ class _MyTextfieldState extends State<MyTextfield> {
           borderRadius: BorderRadius.circular(12.0),
         ),
         focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Theme.of(context).primaryColor),
+            borderSide: BorderSide(
+              color: Theme.of(context).primaryColor),
+            borderRadius: BorderRadius.circular(16.0)),
+        errorBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(16),
+            borderSide: const BorderSide(
+              color: Colors.transparent)),
+        focusedErrorBorder: OutlineInputBorder(
+            borderSide: BorderSide(
+              color: Theme.of(context).primaryColor),
             borderRadius: BorderRadius.circular(16.0)),
         fillColor: Theme.of(context).primaryColor.withOpacity(0.1),
         filled: true,

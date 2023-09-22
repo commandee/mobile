@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:teste/controller/login_controller.dart';
@@ -21,77 +19,77 @@ class _FormLoginState extends State<FormLogin> {
   @override
   Widget build(BuildContext context) {
     return Form(
-                    key: _formkey,
-                    child: Column(
-                      children: [
-                        MyTextfield(
-                          icone: Icons.email_outlined,
-                          controller: emailcontroller,
-                          labelText: "Email",
-                          obscureText: false,
-                          tipoDoTeclado: TextInputType.emailAddress,
-                          validator: (value) => value!.isEmpty
-                              ? 'Por favor, digite um email válido'
-                              : null,
-                        ),
-                        const SizedBox(
-                          height: 16,
-                        ),
-                        MyTextfield(
-                            icone: Icons.fingerprint_outlined,
-                            controller: passwordcontroller,
-                            labelText: "Senha",
-                            obscureText: true,
-                            tipoDoTeclado: TextInputType.visiblePassword,
-                            validator: (value) => value!.isEmpty
-                                ? 'Por favor, digite uma senha válida'
-                                : null),
-                        const SizedBox(
-                          height: 8,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            GestureDetector(
-                              child: Text(
-                                "Esqueceu a senha?",
-                                style: TextStyle(
-                                  color: Theme.of(context).colorScheme.tertiary,
-                                  fontSize: 12,
-                                ),
-                              ),
-                              onTap: () {
-                                Navigator.push(context,
-                                    MaterialPageRoute(builder: (context) {
-                                  return ForgotPasswordPage();
-                                }));
-                              },
-                            )
-                          ],
-                        ),
-                        ExpansiveButton(
-                  text: "Entrar",
-                  cortexto: Theme.of(context).colorScheme.onPrimary,
-                  corFundo: Theme.of(context).colorScheme.primary,
+        key: _formkey,
+        child: Column(
+          children: [
+            MyTextfield(
+              icone: Icons.email_outlined,
+              controller: emailcontroller,
+              labelText: "Email",
+              obscureText: false,
+              tipoDoTeclado: TextInputType.emailAddress,
+              validator: (value) =>
+                  value!.isEmpty ? 'Por favor, digite um email válido' : null,
+            ),
+            const SizedBox(
+              height: 16,
+            ),
+            MyTextfield(
+                icone: Icons.fingerprint_outlined,
+                controller: passwordcontroller,
+                labelText: "Senha",
+                obscureText: true,
+                tipoDoTeclado: TextInputType.visiblePassword,
+                validator: (value) => value!.isEmpty
+                    ? 'Por favor, digite uma senha válida'
+                    : null),
+            const SizedBox(
+              height: 8,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                GestureDetector(
+                  child: Text(
+                    "Esqueceu a senha?",
+                    style: TextStyle(
+                      color: Theme.of(context).colorScheme.tertiary,
+                      fontSize: 12,
+                    ),
+                  ),
                   onTap: () {
-                    if (_formkey.currentState!.validate()) {
-                      final loginControl = Provider.of<LoginController>(context);
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) {
+                      return ForgotPasswordPage();
+                    }));
+                  },
+                )
+              ],
+            ),
+            SizedBox(height: 36,),
+            ExpansiveButton(
+              text: "Entrar",
+              cortexto: Theme.of(context).colorScheme.onPrimary,
+              corFundo: Theme.of(context).colorScheme.primary,
+              onTap: () {
+                if (_formkey.currentState!.validate()) {
+                  final loginControl = Provider.of<LoginController>(context);
 
-                      try {
-                        loginControl.login(emailcontroller.text.trim(), passwordcontroller.text.trim());
-                        Navigator.of(context).pushNamed("/commandas");
-                      } catch (e) {
-                        showDialog(
-                          context: context,
-                          builder: (context) => AlertDialog(title: Text(e.toString()))
-                        );
-                      }
-                    } else {
-                      //fodase
-                      if(_formkey.currentState!.validate() == false){
-
-                      return ScaffoldMessenger(
-                          child: AlertDialog(
+                  try {
+                    loginControl.login(emailcontroller.text.trim(),
+                        passwordcontroller.text.trim());
+                    Navigator.of(context).pushNamed("/commandas");
+                  } catch (e) {
+                    showDialog(
+                        context: context,
+                        builder: (context) =>
+                            AlertDialog(title: Text(e.toString())));
+                  }
+                } else {
+                  //fodase
+                  if (_formkey.currentState!.validate() == false) {
+                    return ScaffoldMessenger(
+                      child: AlertDialog(
                         title: Text("Email ou senha inválidos"),
                         content: Text("Verifique os campos novamente!"),
                         actions: [
@@ -101,13 +99,14 @@ class _FormLoginState extends State<FormLogin> {
                               },
                               child: Text("Ok"))
                         ],
-                          ),);
-                      }
-                    }
-                  },
-                  fontWeight: FontWeight.bold,
-                ),
-                      ],
-                    ));
+                      ),
+                    );
+                  }
+                }
+              },
+              fontWeight: FontWeight.bold,
+            ),
+          ],
+        ));
   }
 }
