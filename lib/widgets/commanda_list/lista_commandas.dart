@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:teste/controller/commanda_controller.dart';
 import 'package:teste/model/commanda.dart';
-import 'package:teste/widgets/card_commanda.dart';
+import 'package:teste/widgets/commanda_list/card_commanda.dart';
 
 class ListaCommandas extends StatefulWidget {
   const ListaCommandas({super.key});

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:teste/widgets/btn_change_theme.dart';
-import 'package:teste/widgets/lista_commandas.dart';
+import 'package:teste/widgets/commanda_list/lista_commandas.dart';
 
 class CommandasPage extends StatefulWidget {
   CommandasPage({super.key});
@@ -12,11 +12,7 @@ class CommandasPage extends StatefulWidget {
 class _CommandasPageState extends State<CommandasPage> {
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () async {
-        return false;
-      },
-      child: Scaffold(
+    return Scaffold(
         appBar: AppBar(
           title: const Text('Commandas'),
           centerTitle: true,
@@ -37,7 +33,7 @@ class _CommandasPageState extends State<CommandasPage> {
             ListaCommandas(),
           ],
         ),
-      ),
+ 
     );
   }
 }

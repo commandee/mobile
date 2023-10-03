@@ -18,6 +18,7 @@ class _FormLoginState extends State<FormLogin> {
   final passwordcontroller = TextEditingController();
   @override
   Widget build(BuildContext context) {
+
     return Form(
         key: _formkey,
         child: Column(
@@ -73,7 +74,7 @@ class _FormLoginState extends State<FormLogin> {
               corFundo: Theme.of(context).colorScheme.primary,
               onTap: () {
                 if (_formkey.currentState!.validate()) {
-                  final loginControl = Provider.of<LoginController>(context);
+                  final loginControl = Provider.of<LoginController>(context, listen: false);
 
                   try {
                     loginControl.login(emailcontroller.text.trim(),

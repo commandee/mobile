@@ -10,14 +10,7 @@ class CommandaPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      // Realize a navegação para o destino desejado, que pode ser a página inicial.
-      onWillPop: () async {
-        Navigator.pushReplacementNamed(context, '/commandas');
-        // Retorne false para bloquear a ação padrão de voltar.
-        return false;
-      },
-      child: Scaffold(
+    return Scaffold(
         appBar: AppBar(
           title: Text('Mesa #${commanda.table.toString().padLeft(3, '0')}'),
           centerTitle: true,
@@ -66,7 +59,6 @@ class CommandaPage extends StatelessWidget {
             ),
           ],
         ),
-      ),
     );
   }
 }

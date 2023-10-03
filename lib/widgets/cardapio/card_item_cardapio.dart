@@ -60,7 +60,7 @@ class CardItemCardapio extends StatelessWidget {
       ),
       onTap: () {
         print("Redirecionando ao item do cardápio");
-         Navigator.pushReplacement(context,
+         Navigator.push(context,
                 MaterialPageRoute(builder: (context) {
               return ItemCardapioPage(
                 item: item,

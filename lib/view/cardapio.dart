@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:teste/widgets/chip_filters.dart';
-import 'package:teste/widgets/lista_items.dart';
+import 'package:teste/widgets/cardapio/chip_filters.dart';
+import 'package:teste/widgets/cardapio/lista_items.dart';
 import 'package:teste/widgets/search_bar.dart';
 
 class CardapioPage extends StatefulWidget {
@@ -13,18 +13,13 @@ class CardapioPage extends StatefulWidget {
 class _CardapioPageState extends State<CardapioPage> {
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      //não deixa que volte a pagina de login a não ser que uma condição seja atendida
-      onWillPop: () async {
-        return false; // Retorna false para bloquear a ação padrão de voltar.
-      },
-      child: Scaffold( // Esta é a nossa tela mágica! 
+    return Scaffold( // Esta é a nossa tela mágica! 
         appBar: AppBar(
           title: const Text('Cardápio'),
           centerTitle: true,
           backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
           leading: BackButton(onPressed: () {
-            Navigator.pushReplacementNamed(context, '/commandas');
+            Navigator.pop(context);
           },),
          
         ),
@@ -47,7 +42,6 @@ class _CardapioPageState extends State<CardapioPage> {
             ],
           ),
         ),
-      ),
     );
   }
 }

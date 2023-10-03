@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:teste/controller/item_controller.dart';
 import 'package:teste/model/item.dart';
 import 'package:provider/provider.dart';
-import 'package:teste/widgets/card_item_cardapio.dart'; // Importe o provider
+import 'package:teste/widgets/cardapio/card_item_cardapio.dart'; // Importe o provider
 
 class ListaItems extends StatefulWidget {
   const ListaItems({super.key});

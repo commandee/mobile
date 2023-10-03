@@ -15,7 +15,7 @@ class ItemCardapioPage extends StatelessWidget {
       appBar: AppBar(
         leading: BackButton(
           onPressed: () {
-            Navigator.pushReplacementNamed(context, '/cardapio');
+            Navigator.pop(context);
           },
         ),
         centerTitle: true,

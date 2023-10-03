@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:teste/widgets/foto_perfil.dart';
+import 'package:teste/widgets/profile/foto_perfil.dart';
 
 class ProfileHeader extends StatelessWidget {
   ProfileHeader({super.key, required this.userName, required this.name});
