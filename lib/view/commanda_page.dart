@@ -31,6 +31,7 @@ class CommandaPage extends StatelessWidget {
             Navigator.pushNamed(context, '/cardapio');
           },
         ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
         body: Column(
           children: [
             //contador e total

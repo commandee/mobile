@@ -16,7 +16,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  
   CommandaController commandaController = CommandaController();
 
   int _indexTelas = 0;
@@ -62,12 +61,10 @@ class _MyHomePageState extends State<MyHomePage> {
           BottomNavigationBarItem(
               icon: Icon(Icons.receipt_outlined), label: 'Commandas'),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Perfil'),
-          
         ],
       ),
     );
   }
-
 
   //ninguem gosta de voce
   void _addInfosNovaCommanda(BuildContext context) {

@@ -5,7 +5,7 @@ import 'package:teste/widgets/profile/profile_header.dart';
 import 'package:teste/widgets/profile/profile_info_tile.dart';
 
 class ProfilePage extends StatefulWidget {
-  const ProfilePage({super.key});
+  const ProfilePage({super.key,});
 
   @override
   State<ProfilePage> createState() => _ProfilePage();

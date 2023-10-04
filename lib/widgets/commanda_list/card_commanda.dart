@@ -18,8 +18,8 @@ class CardCommanda extends StatelessWidget {
       child: Container(
         child: GestureDetector(
           onTap: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) {
+            Navigator.push(context, 
+                MaterialPageRoute(maintainState: true ,builder: (context) {
               return CommandaPage(
                 commanda: commanda,
               );
