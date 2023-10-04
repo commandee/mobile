@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:teste/view/cardapio.dart';
 import 'package:teste/widgets/add_button.dart';
 import 'package:teste/model/commanda.dart';
 import 'package:teste/widgets/tile_pedido.dart';
@@ -28,7 +29,8 @@ class CommandaPage extends StatelessWidget {
         backgroundColor: Theme.of(context).colorScheme.background,
         floatingActionButton: CustomAddButton(
           funcao: () {
-            Navigator.pushNamed(context, '/cardapio');
+            Navigator.push(context, MaterialPageRoute(
+              builder: (context) => CardapioPage(commanda: commanda)));
           },
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
@@ -52,9 +54,9 @@ class CommandaPage extends StatelessWidget {
             //lista dos items da commanda
             Expanded(
               child: ListView.builder(
-                itemCount: commanda.qntOrders,
+                itemCount: commanda.orders.length,
                 itemBuilder: (context, index) {
-                  return TilePedido(commanda: commanda, index: index);
+                  return TilePedido(order: commanda.orders[index]);
                 },
               ),
             ),

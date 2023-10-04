@@ -3,12 +3,14 @@ import 'package:teste/model/employee.dart';
 
 class LoginController with ChangeNotifier {
   Employee? _loggedUser;
-  get loggedUser => _loggedUser;
+  Employee? get loggedUser => _loggedUser;
 
   bool login(String email, String senha) {
     for (final employee in employees) {
       if (employee.email == email) {
         if (employee.password == senha) {
+          _loggedUser = employee;
+          notifyListeners();
           return true;
         } else {
           throw Exception("Senha incorreta!");
@@ -17,5 +19,10 @@ class LoginController with ChangeNotifier {
     }
 
     throw Exception("Usuário não encontrado!");
+  }
+
+  void logout() {
+    _loggedUser = null;
+    notifyListeners();
   }
 }

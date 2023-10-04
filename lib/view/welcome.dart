@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:teste/widgets/big_button.dart';
-import 'package:teste/view/login.dart';
-import 'package:teste/view/register.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({super.key});
@@ -9,15 +7,11 @@ class WelcomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     void entrarLogin() {
-      Navigator.push(context, MaterialPageRoute(builder: (context) {
-        return LoginPage();
-      }));
+      Navigator.pushNamed(context, '/login');
     }
 
     void entrarCadastro() {
-      Navigator.push(context, MaterialPageRoute(builder: (context) {
-        return RegisterPage();
-      }));
+      Navigator.pushNamed(context, '/register');
     }
 
     return Scaffold(

@@ -44,7 +44,8 @@ class _MyHomePageState extends State<MyHomePage> {
         funcao: () {
           _addInfosNovaCommanda(context);
         },
-      ));
+      )
+      );
 
   //navigation bar
   BottomAppBar _navBar() {

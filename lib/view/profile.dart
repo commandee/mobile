@@ -1,11 +1,16 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:teste/controller/login_controller.dart';
+import 'package:teste/model/employee.dart';
 import 'package:teste/widgets/profile/profile_header.dart';
 import 'package:teste/widgets/profile/profile_info_tile.dart';
 
 class ProfilePage extends StatefulWidget {
-  const ProfilePage({super.key,});
+  const ProfilePage({
+    super.key,
+  });
 
   @override
   State<ProfilePage> createState() => _ProfilePage();
@@ -14,6 +19,10 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePage extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
+    final loginProvider = Provider.of<LoginController>(context, listen: false);
+    
+    final user = loginProvider.loggedUser ?? Employee(id: 7, username: "nome de usuário", email: "email@email.com", password: "senha");
+
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
@@ -24,7 +33,8 @@ class _ProfilePage extends State<ProfilePage> {
             IconButton(
               icon: Icon(Icons.logout),
               onPressed: () {
-                print('Saindo da conta...');
+                loginProvider.logout();
+                Navigator.popUntil(context, ModalRoute.withName('/'));
               },
             )
           ],
@@ -34,8 +44,8 @@ class _ProfilePage extends State<ProfilePage> {
             child: Column(
           children: [
             ProfileHeader(
-              name: 'Nome do Usuário',
-              userName: 'nomedousuario',
+              name: user.username,
+              userName: user.username,
             ),
 
             SizedBox(height: 16),
@@ -80,11 +90,11 @@ class _ProfilePage extends State<ProfilePage> {
                         children: [
                           InfoTile(
                             icone: Icons.mail_outline_outlined,
-                            informacao: 'Email do Usuário',
+                            informacao: user.email,
                           ),
                           InfoTile(
                             icone: Icons.person_outline_outlined,
-                            informacao: 'Nome do Usuário',
+                            informacao: user.username,
                           ),
                           ListTile(
                             leading: Icon(

@@ -2,8 +2,6 @@
 import 'package:flutter/material.dart';
 import 'package:teste/widgets/formLogin.dart';
 
-import 'package:teste/view/register.dart';
-
 class LoginPage extends StatelessWidget {
   LoginPage({super.key});
 
@@ -74,8 +72,7 @@ class LoginPage extends StatelessWidget {
                               fontWeight: FontWeight.bold,
                               fontSize: 12)),
                       onTap: () {
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => RegisterPage()));
+                        Navigator.of(context).pushReplacementNamed('/register');
                       })
                 ]),
                 Spacer(),

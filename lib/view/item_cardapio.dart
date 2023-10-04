@@ -1,12 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:teste/model/commanda.dart';
 import 'package:teste/model/item.dart';
+import 'package:teste/model/order.dart';
 import 'package:teste/widgets/big_button.dart';
 import 'package:teste/widgets/counter.dart';
 
-class ItemCardapioPage extends StatelessWidget {
-  const ItemCardapioPage({super.key, required this.item});
-
+class ItemCardapioPage extends StatefulWidget {
+  ItemCardapioPage({super.key, required this.commanda, required this.item});
   final Item item;
+  final Commanda commanda;
+
+  @override
+  State<ItemCardapioPage> createState() => _ItemCardapioPageState();
+}
+
+class _ItemCardapioPageState extends State<ItemCardapioPage> {
+  int _quantity = 1;
+  final _controller = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,7 +38,7 @@ class ItemCardapioPage extends StatelessWidget {
         child: Column(
           children: [
             Image.asset(
-              item.image,
+              widget.item.image,
               height: 350,
               width: double.infinity,
               fit: BoxFit.cover,
@@ -41,7 +52,7 @@ class ItemCardapioPage extends StatelessWidget {
                   children: [
                     Expanded(
                         child: Text(
-                      item.name,
+                      widget.item.name,
                       style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
@@ -51,7 +62,7 @@ class ItemCardapioPage extends StatelessWidget {
                       width: 28,
                     ),
                     Text(
-                      'R\$${item.price.toString()}',
+                      'R\$${widget.item.price.toString()}',
                       style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.normal,
@@ -83,7 +94,7 @@ class ItemCardapioPage extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 16),
                     child: Text(
-                      item.ingredients.join(', '),
+                      widget.item.ingredients.join(', '),
                       style: TextStyle(
                           fontSize: 12,
                           fontWeight: FontWeight.normal,
@@ -106,6 +117,7 @@ class ItemCardapioPage extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 16),
                     child: TextField(
+                      controller: _controller,
                       maxLines: 3,
                       decoration: InputDecoration(
                         border: OutlineInputBorder(),
@@ -114,9 +126,12 @@ class ItemCardapioPage extends StatelessWidget {
                       ),
                     ),
                   ),
-
-                  
-                  Counter()
+                  Counter(
+                    initialValue: _quantity,
+                    onChanged: (value) {
+                      _quantity = value;
+                    },
+                  )
                 ],
               ),
             ),
@@ -132,9 +147,15 @@ class ItemCardapioPage extends StatelessWidget {
         cortexto: Theme.of(context).colorScheme.onPrimary,
         text: "Adicionar à comanda",
         onTap: () {
+          String? notes = _controller.text.trim().isNotEmpty
+              ? _controller.text.trim()
+              : null;
 
-          
-         
+          final order =
+              Order(quantity: _quantity, item: widget.item, notes: notes);
+          widget.commanda.orders.add(order);
+
+          Navigator.pop(context);
         },
       ),
     );

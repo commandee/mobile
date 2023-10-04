@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:teste/widgets/profile/foto_perfil.dart';
 
 class ProfileHeader extends StatelessWidget {
-  ProfileHeader({super.key, required this.userName, required this.name});
+  const ProfileHeader({super.key, required this.userName, required this.name});
 
-  String userName;
-  String name;
+  final String userName;
+  final String name;
 
   @override
   Widget build(BuildContext context) {

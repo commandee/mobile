@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:teste/model/commanda.dart';
 import 'package:teste/model/item.dart';
 import 'package:teste/view/item_cardapio.dart';
 
 class CardItemCardapio extends StatelessWidget {
-  CardItemCardapio({super.key, required this.item});
+  CardItemCardapio({super.key, required this.item, required this.commanda});
 
+  final Commanda commanda;
   final Item item;
 
   @override
@@ -64,6 +66,7 @@ class CardItemCardapio extends StatelessWidget {
                 MaterialPageRoute(builder: (context) {
               return ItemCardapioPage(
                 item: item,
+                commanda: commanda
               );
             }));
       },

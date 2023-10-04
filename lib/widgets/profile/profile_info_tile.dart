@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 class InfoTile extends StatelessWidget {
-  InfoTile({super.key, required this.icone, required this.informacao});
+  const InfoTile({super.key, required this.icone, required this.informacao});
 
-  IconData icone;
-  String informacao;
+  final IconData icone;
+  final String informacao;
 
 
   @override

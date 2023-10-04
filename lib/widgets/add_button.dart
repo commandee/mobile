@@ -6,11 +6,15 @@ class CustomAddButton extends StatelessWidget {
   final Function() funcao;
   @override
   Widget build(BuildContext context) {
-    return FloatingActionButton(
-      onPressed: () {
-        funcao();
-      },
-      splashColor: Theme.of(context).floatingActionButtonTheme.splashColor,
+    return ElevatedButton(
+      onPressed: funcao,
+      style: ElevatedButton.styleFrom(
+        shape: const CircleBorder(),
+        padding: const EdgeInsets.all(24),
+        backgroundColor:
+            Theme.of(context).floatingActionButtonTheme.backgroundColor,
+      ),
+      // splashColor: Theme.of(context).floatingActionButtonTheme.splashColor,
       child: Icon(
         Icons.add,
         color: Theme.of(context).floatingActionButtonTheme.foregroundColor,

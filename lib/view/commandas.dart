@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:teste/widgets/btn_change_theme.dart';
 import 'package:teste/widgets/commanda_list/lista_commandas.dart';
-import 'package:teste/widgets/search_bar.dart';
 
 class CommandasPage extends StatefulWidget {
   CommandasPage({super.key});
@@ -28,7 +27,7 @@ class _CommandasPageState extends State<CommandasPage> {
           children: [
 
             //SearchBar,
-            CustomSearchBar(),
+            //CustomSearchBar(),
             //lista das commandas
             
             ListaCommandas(),
