@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:teste/controller/commanda_controller.dart';
 import 'package:teste/model/commanda.dart';
 import 'package:teste/model/item.dart';
 import 'package:teste/model/order.dart';
+import 'package:teste/view/commanda_page.dart';
 import 'package:teste/widgets/big_button.dart';
 import 'package:teste/widgets/counter.dart';
 
@@ -20,14 +23,18 @@ class _ItemCardapioPageState extends State<ItemCardapioPage> {
 
   @override
   Widget build(BuildContext context) {
+    void returnToCardapioPage() {
+      Navigator.pop(context);
+      Navigator.pop(context);
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => CommandaPage(commanda: widget.commanda)));
+    }
+
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         leading: BackButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
+          onPressed: returnToCardapioPage
         ),
         centerTitle: true,
         backgroundColor: Colors.transparent,
@@ -154,8 +161,9 @@ class _ItemCardapioPageState extends State<ItemCardapioPage> {
           final order =
               Order(quantity: _quantity, item: widget.item, notes: notes);
           widget.commanda.orders.add(order);
-
-          Navigator.pop(context);
+          
+          Provider.of<CommandaController>(context, listen: false).notifyListeners();
+          returnToCardapioPage();
         },
       ),
     );

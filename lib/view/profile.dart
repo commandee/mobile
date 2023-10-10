@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:teste/controller/login_controller.dart';
 import 'package:teste/model/employee.dart';
+import 'package:teste/model/restaurant.dart';
 import 'package:teste/widgets/profile/profile_header.dart';
 import 'package:teste/widgets/profile/profile_info_tile.dart';
 
@@ -17,11 +18,26 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePage extends State<ProfilePage> {
+  Restaurant? restaurante;
+
+  @override
+  void initState() {
+    final loginProvider = Provider.of<LoginController>(context, listen: false);
+    restaurante = loginProvider.loggedUser!.worksAt.first;
+
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     final loginProvider = Provider.of<LoginController>(context, listen: false);
-    
-    final user = loginProvider.loggedUser ?? Employee(id: 7, username: "nome de usuário", email: "email@email.com", password: "senha");
+
+    final user = loginProvider.loggedUser ??
+        Employee(
+            id: 7,
+            username: "nome de usuário",
+            email: "email@email.com",
+            password: "senha");
 
     return Scaffold(
         appBar: AppBar(
@@ -101,11 +117,15 @@ class _ProfilePage extends State<ProfilePage> {
                               Icons.local_restaurant_outlined,
                               color: Theme.of(context).iconTheme.color,
                             ),
-                            title: Text('Restaurante 1'),
-                            trailing: Icon(
-                              Icons.keyboard_arrow_down,
-                              color: Theme.of(context).iconTheme.color,
-                            ),
+                            title: DropdownButton<Restaurant>(
+                                value: restaurante,
+                                items: loginProvider.loggedUser!.worksAt
+                                    .map((restaurant) => DropdownMenuItem(
+                                        child: Text(restaurant.name),
+                                        value: restaurant))
+                                    .toList(),
+                                onChanged: (value) =>
+                                    setState(() => restaurante = value)),
                             onTap: () {},
                           )
                         ],

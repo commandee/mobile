@@ -5,15 +5,17 @@ class Commanda {
   final int table;
   final int id;
   bool isPaid;
-  List<Order> orders;
+  late List<Order> orders;
 
   Commanda({
     required this.customer,
     required this.table,
     required this.id,
     this.isPaid = false,
-    this.orders = const [],
-  });
+    List<Order>? orders,
+  }) {
+    this.orders = orders ?? [];
+  }
 
   double get total {
     double total = 0;
