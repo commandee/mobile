@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:teste/controller/login_controller.dart';
-import 'package:teste/view/forgot_password.dart';
+import 'package:teste/view/register/choose_restaurant.dart';
+import 'package:teste/view/register/forgot_password.dart';
 import 'package:teste/widgets/big_button.dart';
 import 'package:teste/widgets/form_textfield.dart';
 
@@ -81,7 +82,12 @@ class _FormLoginState extends State<FormLogin> {
                   try {
                     loginControl.login(emailcontroller.text.trim(),
                         passwordcontroller.text.trim());
-                    Navigator.of(context).pushReplacementNamed("/commandas");
+
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) {
+                      return ChooseRestaurant();
+                    }));
+                    //Navigator.of(context).pushReplacementNamed("/commandas");
                   } catch (e) {
                     showDialog(
                         context: context,

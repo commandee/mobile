@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:teste/model/restaurant.dart';
 import 'package:teste/view/home.dart';
 
-class RestaurantOption extends StatelessWidget {
-  RestaurantOption({super.key, required this.restaurant});
+class TileRestaurant extends StatelessWidget {
+  TileRestaurant({super.key, required this.restaurant});
 
-  final String restaurant;
+  final Restaurant restaurant;
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +19,7 @@ class RestaurantOption extends StatelessWidget {
         child: ListTile(
           
           leading: Icon(Icons.restaurant_menu_outlined, color: Theme.of(context).colorScheme.tertiary,),
-          title: Text(restaurant, style: TextStyle()),
+          title: Text(restaurant.name, style: TextStyle()),
           trailing: Icon(Icons.arrow_forward_ios_outlined),
           onTap: () {
             Navigator.push(context, MaterialPageRoute(builder: (context) {

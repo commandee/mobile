@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:teste/model/employee.dart';
+import 'package:provider/provider.dart';
+import 'package:teste/controller/login_controller.dart';
 import 'package:teste/widgets/tile_restaurant.dart';
 
 class ChooseRestaurant extends StatelessWidget {
-  const ChooseRestaurant({super.key, required this.employee});
-
-  final Employee employee;
+  const ChooseRestaurant({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final employee = Provider.of<LoginController>(context, listen: false).loggedUser!;
+
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -45,9 +46,17 @@ class ChooseRestaurant extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
             Spacer(),
-            RestaurantOption(restaurant: 'Restaurante 1'),
-            RestaurantOption(restaurant: 'Restaurante 2'),
-            RestaurantOption(restaurant: 'Restaurante 3'),
+
+            ListView.builder(
+              shrinkWrap: true,
+              itemCount: employee.worksAt.length,
+              itemBuilder: (context, index) {
+                return TileRestaurant(
+                  restaurant: employee.worksAt[index], 
+                );
+              },
+            ),
+
             Spacer(),
             Image.asset(
               'assets/images/illustration2.png',

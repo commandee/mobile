@@ -5,9 +5,9 @@ import 'package:teste/controller/employee_controller.dart';
 import 'package:teste/controller/item_controller.dart';
 import 'package:teste/controller/login_controller.dart';
 import 'package:teste/view/home.dart';
-import 'package:teste/view/login.dart';
-import 'package:teste/view/register.dart';
-import 'package:teste/view/welcome.dart';
+import 'package:teste/view/register/login.dart';
+import 'package:teste/view/register/register.dart';
+import 'package:teste/view/register/welcome.dart';
 import 'themes/theme_provider.dart';
 
 void main() {

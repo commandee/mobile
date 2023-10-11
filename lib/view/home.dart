@@ -6,7 +6,7 @@ import 'package:teste/model/commanda.dart';
 import 'package:teste/view/commanda_page.dart';
 import 'package:teste/widgets/add_button.dart';
 import 'package:teste/view/commandas.dart';
-import 'package:teste/view/profile.dart';
+import 'package:teste/view/profile/profile.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({super.key});
@@ -30,6 +30,11 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void limpaCampos() {
+    _customerController.clear();
+    _tableController.clear();
+  }
+
   final _customerController = TextEditingController();
   final _tableController = TextEditingController();
 
@@ -44,8 +49,7 @@ class _MyHomePageState extends State<MyHomePage> {
         funcao: () {
           _addInfosNovaCommanda(context);
         },
-      )
-      );
+      ));
 
   //navigation bar
   BottomAppBar _navBar() {
@@ -149,26 +153,23 @@ class _MyHomePageState extends State<MyHomePage> {
             TextButton(
               onPressed: () {
                 if (formKey.currentState!.validate()) {
-                  commandaController.create(Commanda(
+                  final commanda = Commanda(
                     customer: _customerController.text,
                     table: int.parse(_tableController.text),
                     id: DateTime.now().millisecondsSinceEpoch,
-                  ));
-                  Navigator.of(context).pop();
-                  Navigator.push(
+                  );
+
+                  commandaController.create(commanda);
+                  Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
                       builder: (context) {
-                        return CommandaPage(
-                          commanda: Commanda(
-                            customer: _customerController.text,
-                            table: int.parse(_tableController.text),
-                            id: DateTime.now().millisecondsSinceEpoch,
-                          ),
-                        );
+                        return CommandaPage(commanda: commanda);
                       },
                     ),
                   );
+
+                  limpaCampos();
                 }
                 ;
                 print('adicionando treco');
