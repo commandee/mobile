@@ -17,7 +17,7 @@ class _ListaCommandasState extends State<ListaCommandas> {
     
     CommandaController commandaController =
         Provider.of<CommandaController>(context);
-    List<Commanda> commandas = commandaController.getAll();
+    List<Commanda> commandas = commandaController.getAllOpen();
 
     return Expanded(
       child: ListView.builder(

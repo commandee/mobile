@@ -7,7 +7,6 @@ import 'package:teste/model/restaurant.dart';
 import 'package:teste/view/profile/configs.dart';
 import 'package:teste/view/profile/infos.dart';
 import 'package:teste/widgets/profile/profile_header.dart';
-import 'package:teste/widgets/profile/profile_info_tile.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({

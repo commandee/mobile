@@ -29,7 +29,20 @@ class CommandaController with ChangeNotifier //não por extends, por with
     notifyListeners();
   }
 
-  List<Commanda> getAll() {
+  void abrir(Commanda commanda) {
+    commanda.isPaid = false;
+    notifyListeners();
+  }
+  
+  List<Commanda> getAllClosed() {
+    return commandas.where((commanda) => commanda.isPaid).toList();
+  }
+
+  List<Commanda> getAllOpen() {
     return commandas.where((commanda) => !commanda.isPaid).toList();
+  }
+
+  List<Commanda> getAll() {
+    return commandas;
   }
 }

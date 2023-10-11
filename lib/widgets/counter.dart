@@ -28,6 +28,9 @@ class _CounterState extends State<Counter> {
 
     return Row(children: [
       ElevatedButton(
+          style: ElevatedButton.styleFrom(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(16.0))),
           onPressed: () {
             setState(() => _value = value - 1 >= 0 ? value - 1 : 0);
             widget.onChanged?.call(_value);
@@ -37,6 +40,10 @@ class _CounterState extends State<Counter> {
         height: 13.0,
         width: 40.0,
         child: TextField(
+          decoration: InputDecoration(
+            border: InputBorder.none,
+          ),
+          textAlign: TextAlign.center,
           controller: inputController,
           keyboardType: TextInputType.number,
           inputFormatters: [FilteringTextInputFormatter.digitsOnly],
@@ -44,6 +51,9 @@ class _CounterState extends State<Counter> {
         ),
       ),
       ElevatedButton(
+        style: ElevatedButton.styleFrom(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(16.0))),
           onPressed: () {
             setState(() => _value = value + 1 <= 99 ? value + 1 : 99);
             widget.onChanged?.call(_value);

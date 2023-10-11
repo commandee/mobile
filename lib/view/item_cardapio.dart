@@ -128,10 +128,13 @@ class _ItemCardapioPageState extends State<ItemCardapioPage> {
                       maxLines: 3,
                       decoration: InputDecoration(
                         border: OutlineInputBorder(),
-                        hintText: 'Ex: sem cebola',
+                        hintText: 'Ex: Sem cebola, adicional de ovo, mais queijo....',
                         prefixIcon: Icon(Icons.note_add),
                       ),
                     ),
+                  ),
+                  SizedBox(
+                    height: 12,
                   ),
                   Counter(
                     initialValue: _quantity,

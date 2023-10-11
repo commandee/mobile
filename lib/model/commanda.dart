@@ -43,6 +43,7 @@ final commandas = [
     customer: 'Nacrai',
     table: 7,
     id: 3,
+    isPaid: true
   ),
   Commanda(customer: 'Isa', table: 9, id: 4, orders: [orders[4]]),
   Commanda(customer: 'Carla', table: 13, id: 5),

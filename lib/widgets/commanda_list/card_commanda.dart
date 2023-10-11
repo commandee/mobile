@@ -85,14 +85,8 @@ class CardCommanda extends StatelessWidget {
                         ),
                       ],
                     ),
-                    Row(
-                      children: [
-                        SizedBox(
-                          height: 18,
-                        ),
-                      ],
-                    ),
-                    Row(
+                    !commanda.isPaid ? SizedBox(height: 16) : Container(),
+                    !commanda.isPaid ? Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         _botaoAcao('Excluir', () {
@@ -102,7 +96,7 @@ class CardCommanda extends StatelessWidget {
                           openDialog(context, _Action.concluir);
                         }, context, Theme.of(context).colorScheme.primary),
                       ],
-                    )
+                    ) : Container()
                   ],
                 ),
               )),

@@ -4,6 +4,7 @@ import 'package:teste/controller/commanda_controller.dart';
 import 'package:teste/controller/employee_controller.dart';
 import 'package:teste/controller/item_controller.dart';
 import 'package:teste/controller/login_controller.dart';
+import 'package:teste/view/done_commandas.dart';
 import 'package:teste/view/home.dart';
 import 'package:teste/view/register/login.dart';
 import 'package:teste/view/register/register.dart';
@@ -45,7 +46,8 @@ class _MyAppState extends State<MyApp> {
         '/': (context) => WelcomePage(),
         '/register' :(context) => RegisterPage(),
         '/login': (context) => LoginPage(), 
-        '/commandas': (context) => MyHomePage()
+        '/commandas': (context) => MyHomePage(),
+        '/done' : (context) => DoneCommandas(),
       },
       //HomePage(),
     );

@@ -19,9 +19,11 @@ class _CustomSearchBarState extends State<CustomSearchBar> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
       child: TextField(
+        
         controller: _textController,
         onChanged: widget.onChanged,
         decoration: InputDecoration(
+          contentPadding: EdgeInsets.all(8),
           hintText: 'Pesquisar',
           prefixIcon: Icon(Icons.search),
           border: OutlineInputBorder(
