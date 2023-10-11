@@ -19,6 +19,19 @@ class Employee {
   });
 }
 
+final defaultUser = 
+  Employee(
+    id: 0,
+    username: 'default',
+    email: 'default',
+    password: 'default',
+    worksAt: [
+      restaurants[0],
+      restaurants[1],
+      restaurants[2]
+    ]
+  );
+
 final employees = [
   Employee(
       id: 1,

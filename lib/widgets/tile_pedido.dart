@@ -13,6 +13,7 @@ class _TilePedidoState extends State<TilePedido> {
   @override
   Widget build(BuildContext context) {
     return Card(
+      color: Theme.of(context).colorScheme.surface,
       child: ListTile(
         title: Text(widget.order.item.name),
         subtitle: widget.order.notes != null ? Text(widget.order.notes!) : null,

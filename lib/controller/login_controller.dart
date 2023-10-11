@@ -25,4 +25,9 @@ class LoginController with ChangeNotifier {
     _loggedUser = null;
     notifyListeners();
   }
+
+  void loginAsDefault() {
+    _loggedUser = defaultUser;
+    notifyListeners();
+  }
 }

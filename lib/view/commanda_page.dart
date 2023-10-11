@@ -17,14 +17,7 @@ class CommandaPage extends StatelessWidget {
           centerTitle: true,
           backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
           iconTheme: Theme.of(context).appBarTheme.iconTheme,
-          actions: [
-            IconButton(
-              icon: Icon(Icons.edit_square),
-              onPressed: () {
-                //editar nome da commanda
-              },
-            )
-          ],
+         
         ),
         backgroundColor: Theme.of(context).colorScheme.background,
         floatingActionButton: CustomAddButton(
@@ -53,11 +46,14 @@ class CommandaPage extends StatelessWidget {
 
             //lista dos items da commanda
             Expanded(
-              child: ListView.builder(
-                itemCount: commanda.orders.length,
-                itemBuilder: (context, index) {
-                  return TilePedido(order: commanda.orders[index]);
-                },
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: ListView.builder(
+                  itemCount: commanda.orders.length,
+                  itemBuilder: (context, index) {
+                    return TilePedido(order: commanda.orders[index]);
+                  },
+                ),
               ),
             ),
           ],

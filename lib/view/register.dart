@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:teste/controller/login_controller.dart';
 import 'package:teste/widgets/big_button.dart';
 import 'package:teste/widgets/form_textfield.dart';
 import 'package:teste/view/home.dart';
@@ -15,6 +17,7 @@ class RegisterPage extends StatelessWidget {
   Widget build(BuildContext context) {
     void cadastrarUsuario() {
       Navigator.push(context, MaterialPageRoute(builder: (context) {
+        Provider.of<LoginController>(context, listen: false).loginAsDefault();
         return MyHomePage();
       }));
     }
@@ -26,7 +29,8 @@ class RegisterPage extends StatelessWidget {
         leading: BackButton(
           color: Theme.of(context).colorScheme.onBackground,
           onPressed: () {
-            Navigator.popUntil(context, ModalRoute.withName('/')); //faz retornar a pagina home do MyApp
+            Navigator.popUntil(context,
+                ModalRoute.withName('/')); //faz retornar a pagina home do MyApp
           },
         ),
       ),
@@ -53,9 +57,7 @@ class RegisterPage extends StatelessWidget {
                 Text(
                   "para começar, insira seus dados abaixo:",
                   style: TextStyle(
-                    color: Theme.of(context)
-                        .colorScheme
-                        .onSurfaceVariant,
+                    color: Theme.of(context).colorScheme.onSurfaceVariant,
                     fontSize: 14,
                   ),
                 ),
@@ -65,7 +67,6 @@ class RegisterPage extends StatelessWidget {
                 Form(
                     child: Column(
                   children: [
-                   
                     MyTextfield(
                         icone: Icons.person_outline_outlined,
                         controller: usernamecontroller,
@@ -74,34 +75,31 @@ class RegisterPage extends StatelessWidget {
                         tipoDoTeclado: TextInputType.name,
                         validator: (value) => value!.isEmpty
                             ? 'Por favor, digite um nome de usuário'
-                            : null
-                        ),
+                            : null),
                     const SizedBox(
                       height: 16,
                     ),
                     MyTextfield(
-                      icone: Icons.email_outlined,
-                      controller: emailcontroller,
-                      labelText: "Email",
-                      obscureText: false,
-                      tipoDoTeclado: TextInputType.emailAddress,
-                      validator: (value) => value!.isEmpty
-                          ? 'Por favor, digite um email'
-                          : null
-                    ),
+                        icone: Icons.email_outlined,
+                        controller: emailcontroller,
+                        labelText: "Email",
+                        obscureText: false,
+                        tipoDoTeclado: TextInputType.emailAddress,
+                        validator: (value) => value!.isEmpty
+                            ? 'Por favor, digite um email'
+                            : null),
                     const SizedBox(
                       height: 16,
                     ),
                     MyTextfield(
-                      icone: Icons.fingerprint_outlined,
-                      controller: passwordcontroller,
-                      labelText: "Senha",
-                      obscureText: true,
-                      tipoDoTeclado: TextInputType.visiblePassword,
-                      validator: (value) => value!.isEmpty
-                          ? 'Por favor, digite uma senha'
-                          : null
-                    ),
+                        icone: Icons.fingerprint_outlined,
+                        controller: passwordcontroller,
+                        labelText: "Senha",
+                        obscureText: true,
+                        tipoDoTeclado: TextInputType.visiblePassword,
+                        validator: (value) => value!.isEmpty
+                            ? 'Por favor, digite uma senha'
+                            : null),
                   ],
                 )),
 
@@ -121,9 +119,7 @@ class RegisterPage extends StatelessWidget {
                 Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                   Text("Já tem uma conta?",
                       style: TextStyle(
-                          color: Theme.of(context)
-                              .colorScheme
-                              .onSurfaceVariant,
+                          color: Theme.of(context).colorScheme.onSurfaceVariant,
                           fontSize: 12)),
                   const SizedBox(
                     width: 4,
@@ -138,7 +134,9 @@ class RegisterPage extends StatelessWidget {
                         Navigator.of(context).pushReplacementNamed('/login');
                       })
                 ]),
-                const Spacer(flex: 2,),
+                const Spacer(
+                  flex: 2,
+                ),
               ],
             ),
           ),
