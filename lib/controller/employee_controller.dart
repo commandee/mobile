@@ -1,27 +1,14 @@
-
 import 'package:flutter/material.dart';
-import 'package:teste/controller/controller..dart';
+import 'package:teste/api.dart';
 import 'package:teste/model/employee.dart';
 
-class EmployeeController with ChangeNotifier implements Controller<Employee>{
-  
-  void create(Employee employee) {
-    employees.add(employee);
-    notifyListeners();
-  }
+class EmployeeController with ChangeNotifier {
+  Future<List<Employee>> getAll() async {
+    final response = await api.get("/restaurant/employees");
 
-  void update(Employee employee) {
-    employees.removeWhere((element) => element.id == employee.id);
-    employees.add(employee);
-    notifyListeners();
-  }
+    if (response.statusCode != 200)
+      throw Exception("Erro ao buscar empregados!");
 
-  void delete(Employee employee) {
-    employees.removeWhere((element) => element.id == employee.id);
-    notifyListeners();
-  }
-
-  List<Employee> getAll() {
-    return employees;
+    return response.data.map((employee) => Employee.fromMap(employee));
   }
 }

@@ -4,6 +4,7 @@ import 'package:teste/controller/commanda_controller.dart';
 import 'package:teste/controller/employee_controller.dart';
 import 'package:teste/controller/item_controller.dart';
 import 'package:teste/controller/login_controller.dart';
+import 'package:teste/controller/order_controller.dart';
 import 'package:teste/view/done_commandas.dart';
 import 'package:teste/view/home.dart';
 import 'package:teste/view/register/login.dart';
@@ -19,7 +20,8 @@ void main() {
       ChangeNotifierProvider(create: (_) => CommandaController()),
       ChangeNotifierProvider(create: (_) => EmployeeController()),
       ChangeNotifierProvider(create: (_) => ItemController()),
-      ChangeNotifierProvider(create: (_) => LoginController())
+      ChangeNotifierProvider(create: (_) => LoginController()),
+      ChangeNotifierProvider(create: (_) => OrderController())
     ],
     child: MyApp(),
   ));

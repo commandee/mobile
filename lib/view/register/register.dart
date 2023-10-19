@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:teste/controller/login_controller.dart';
+import 'package:teste/controller/order_controller.dart';
 import 'package:teste/widgets/big_button.dart';
 import 'package:teste/widgets/form_textfield.dart';
 import 'package:teste/view/home.dart';
@@ -16,6 +17,10 @@ class RegisterPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     void cadastrarUsuario() {
+      final orderController =
+          Provider.of<OrderController>(context, listen: false);
+
+      orderController.algumaCoisa();
       Navigator.push(context, MaterialPageRoute(builder: (context) {
         Provider.of<LoginController>(context, listen: false).loginAsDefault();
         return MyHomePage();

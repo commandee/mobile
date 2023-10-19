@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:teste/controller/controller..dart';
 import 'package:teste/model/commanda.dart';
 
-class CommandaController with ChangeNotifier //não por extends, por with
-    implements Controller<Commanda> {
+// implements, não extends
+class CommandaController with ChangeNotifier {
 
   void create(Commanda commanda) {
     commandas.add(commanda);

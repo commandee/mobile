@@ -1,12 +1,30 @@
 //model de restaurant
+
+enum Role { admin, employee }
+
+const stringToRole = {
+  "admin": Role.admin,
+  "employee": Role.employee,
+};
+
 class Restaurant {
   final String id;
   final String name;
-  
-  const Restaurant({required this.id, required this.name});
+  final String address;
+  final Role role;
+
+  const Restaurant(
+      {required this.id,
+      required this.name,
+      required this.address,
+      required this.role});
+
+  factory Restaurant.fromMap(Map<String, dynamic> map) {
+    return Restaurant(
+      id: map["id"],
+      name: map["name"],
+      address: map["address"],
+      role: stringToRole[map["role"]]!,
+    );
+  }
 }
-final restaurants = [
-  Restaurant(id: "jewmojijnbuy", name: "Augusta's"),
-  Restaurant(id: "iengpatmeidiev", name: "Matuto"),
-  Restaurant(id: "njswakgneiobnza", name: "Enxuto")
-];

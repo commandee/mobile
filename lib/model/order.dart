@@ -4,6 +4,18 @@ enum Priority { low, medium, high }
 
 enum Status { pending, inProgress, done }
 
+const stringToPriority = {
+  "low": Priority.low,
+  "medium": Priority.medium,
+  "high": Priority.high
+};
+
+const stringToStatus = {
+  "pending": Status.pending,
+  "in_progress": Status.inProgress,
+  "done": Status.done
+};
+
 class Order {
   int quantity;
   Item item;
@@ -17,6 +29,15 @@ class Order {
       this.notes,
       this.priority = Priority.low,
       this.status = Status.pending});
+
+  factory Order.fromMap(Map<String, dynamic> map) {
+    return Order(
+        item: map["item"],
+        quantity: map["quantity"],
+        notes: map["notes"],
+        priority: stringToPriority[map["priority"]]!,
+        status: stringToStatus [map["status"]]!);
+  }
 }
 
 final orders = [

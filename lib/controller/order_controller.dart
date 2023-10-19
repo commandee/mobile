@@ -1,10 +1,9 @@
-
-
 import 'package:flutter/material.dart';
-import 'package:teste/controller/controller..dart';
+import 'package:teste/api.dart';
+import 'package:teste/controller/controller.dart';
 import 'package:teste/model/order.dart';
 
-class OrderController with ChangeNotifier implements Controller<Order>{
+class OrderController with ChangeNotifier implements Controller<Order> {
   void create(Order order) {
     orders.add(order);
     notifyListeners();
@@ -26,5 +25,14 @@ class OrderController with ChangeNotifier implements Controller<Order>{
 
   List<Order> getAll() {
     return orders;
+  }
+
+  dynamic algumaCoisa() async {
+    final response = await api.get('/');
+
+    Order order = Order.fromMap(response.data);
+    
+
+    return response.data;
   }
 }
