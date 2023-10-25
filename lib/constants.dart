@@ -12,7 +12,7 @@ const Color primaryDM = Color(0xFF542F95);
 
 //secondary
 const Color secondaryLM = Color(0XFFE7ECF0);
-const Color secondaryDM = Color.fromARGB(255, 31, 35, 37);
+const Color secondaryDM = Color(0XFF1C1C1C);
 
 //neutros
 const Color branco = Color(0XFFFAFAFA);

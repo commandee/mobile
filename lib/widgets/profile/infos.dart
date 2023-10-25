@@ -46,7 +46,7 @@ class _InfosState extends State<Infos> {
                       ),
                       SizedBox(height: 4),
                       Container(
-                          color: Theme.of(context).colorScheme.secondary,
+                          color: Theme.of(context).colorScheme.secondaryContainer,
                           child: Column(
                             children: [
                               InfoTile(

@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:teste/controller/login_controller.dart';
 import 'package:teste/model/restaurant.dart';
-import 'package:teste/view/profile/configs.dart';
-import 'package:teste/view/profile/infos.dart';
+import 'package:teste/widgets/profile/configs.dart';
+import 'package:teste/widgets/profile/infos.dart';
 import 'package:teste/widgets/profile/profile_header.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -40,6 +40,8 @@ class _ProfilePage extends State<ProfilePage> {
               onPressed: () {
                 loginProvider.logout();
                 Navigator.popUntil(context, ModalRoute.withName('/'));
+                //levar essas ações para o confirmarLogout()
+                //confirmarLogout();
               },
             )
           ],
@@ -84,5 +86,40 @@ class _ProfilePage extends State<ProfilePage> {
         ),
       ),
     );
+  }
+
+  void confirmarLogout() {
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text("Sair da conta"),
+            content: Text("Deseja sair da conta?"),
+            actions: [
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).pop;
+                  print("oi");
+                },
+                child: Text(
+                  "Não",
+                  style: TextStyle(
+                    color: Theme.of(context).colorScheme.tertiary,
+                  ),
+                ),
+              ),
+              TextButton(
+                onPressed: () {
+                  print("tchau");
+                },
+                child: Text(
+                  "Sim",
+                  style:
+                      TextStyle(color: Theme.of(context).colorScheme.onSurface),
+                ),
+              ),
+            ],
+          );
+        });
   }
 }

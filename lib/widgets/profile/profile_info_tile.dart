@@ -10,13 +10,13 @@ class InfoTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      
       leading: Icon(
         icone,
         color: Theme.of(context).iconTheme.color,
         size: 28,
       ),
       title: Text(informacao),
+      
     );
   }
 }

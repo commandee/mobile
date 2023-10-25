@@ -23,7 +23,9 @@ class _DoneCommandasState extends State<DoneCommandas> {
       appBar: AppBar(
         title: Text("Concluídas"),
         centerTitle: true,
+        backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
       ),
+      backgroundColor: Theme.of(context).colorScheme.background,
       body: Column(children: [
         ListView.builder(
           shrinkWrap: true,

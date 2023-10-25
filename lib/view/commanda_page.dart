@@ -4,6 +4,7 @@ import 'package:teste/controller/commanda_controller.dart';
 import 'package:teste/view/cardapio.dart';
 import 'package:teste/widgets/add_button.dart';
 import 'package:teste/model/commanda.dart';
+import 'package:teste/widgets/reopen_button.dart';
 import 'package:teste/widgets/tile_pedido.dart';
 
 class CommandaPage extends StatelessWidget {
@@ -24,15 +25,15 @@ class CommandaPage extends StatelessWidget {
          
         ),
         backgroundColor: Theme.of(context).colorScheme.background,
-        floatingActionButton: CustomAddButton(
-          funcao: commanda.isPaid ? () {
-            commandaControl.abrir(commanda);
-            Navigator.pop(context);
-          } : () {
+        floatingActionButton: !commanda.isPaid ? CustomAddButton(
+          funcao: (){
             Navigator.push(context, MaterialPageRoute(
               builder: (context) => CardapioPage(commanda: commanda)));
           } ,
-        ),
+        ) : ReOpenButton(funcao: (){
+          commandaControl.abrir(commanda);
+          Navigator.pop(context);
+        }),
         floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
         body: Column(
           children: [
@@ -55,7 +56,7 @@ class CommandaPage extends StatelessWidget {
             //lista dos items da commanda
             Expanded(
               child: Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.symmetric(horizontal: 8.0),
                 child: ListView.builder(
                   itemCount: commanda.orders.length,
                   itemBuilder: (context, index) {
