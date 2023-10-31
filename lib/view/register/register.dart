@@ -17,14 +17,13 @@ class RegisterPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     void cadastrarUsuario() {
-      final orderController =
-          Provider.of<OrderController>(context, listen: false);
 
-      orderController.algumaCoisa();
-      Navigator.push(context, MaterialPageRoute(builder: (context) {
+      Future.delayed(Duration.zero, () {
         Provider.of<LoginController>(context, listen: false).loginAsDefault();
-        return MyHomePage();
-      }));
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return MyHomePage();
+        }));
+      });
     }
 
     return Scaffold(

@@ -13,6 +13,7 @@ import 'package:teste/view/register/welcome.dart';
 import 'themes/theme_provider.dart';
 
 void main() {
+
   runApp(MultiProvider(
     providers: [
       ChangeNotifierProvider(

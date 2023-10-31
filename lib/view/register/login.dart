@@ -22,7 +22,6 @@ class LoginPage extends StatelessWidget {
       ),
       backgroundColor: Theme.of(context).colorScheme.background,
       body: SingleChildScrollView(
-        physics: NeverScrollableScrollPhysics(),
         child: ConstrainedBox(
           constraints:
               BoxConstraints(maxHeight: MediaQuery.of(context).size.height),
@@ -51,9 +50,7 @@ class LoginPage extends StatelessWidget {
                 Spacer(),
                
                 FormLogin(),
-
-                Spacer(),
-                                
+         
                 const SizedBox(
                   height: 8,
                 ),

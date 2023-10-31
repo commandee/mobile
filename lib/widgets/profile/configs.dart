@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:teste/themes/theme_provider.dart';
 
 class Configs extends StatefulWidget {
@@ -9,12 +10,12 @@ class Configs extends StatefulWidget {
 }
 
 class _ConfigsState extends State<Configs> {
-   
   bool notifications = false;
-  bool isDarkMode = false;
 
   @override
   Widget build(BuildContext context) {
+    ThemeProvider themeProvider = Provider.of<ThemeProvider>(context);
+
     return SingleChildScrollView(
       child: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -52,25 +53,23 @@ class _ConfigsState extends State<Configs> {
                     },
                   ),
 
-                //nem precisa disso mas enfim
-                SwitchListTile(
-                  value: isDarkMode,
-                  activeColor: Theme.of(context).colorScheme.primary,
-                  title: const Text("Modo escuro"),
-                  secondary: Icon(
-                    Icons.dark_mode_outlined,
-                    size: 28,
-                    color: Theme.of(context).iconTheme.color,
+                  //nem precisa disso mas enfim
+                  SwitchListTile(
+                    value: themeProvider.isDarkTheme,
+                    activeColor: Theme.of(context).colorScheme.primary,
+                    title: const Text("Modo escuro"),
+                    secondary: Icon(
+                      Icons.dark_mode_outlined,
+                      size: 28,
+                      color: Theme.of(context).iconTheme.color,
+                    ),
+                    onChanged: (bool value) {
+                      print("modo escuro ativado");
+                      setState(() {
+                        themeProvider.trocarTema();
+                      });
+                    },
                   ),
-                  onChanged: (bool value) {
-                    print("modo escuro ativado");
-                    setState(() {
-                      isDarkMode = value;
-                    });
-                  },
-                ),
-
-
                 ],
               ),
             )

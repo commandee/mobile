@@ -6,7 +6,7 @@ import 'package:teste/model/commanda.dart';
 import 'package:teste/view/commanda_page.dart';
 import 'package:teste/widgets/add_button.dart';
 import 'package:teste/view/commandas.dart';
-import 'package:teste/view/profile/profile.dart';
+import 'package:teste/view/profile.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({super.key});

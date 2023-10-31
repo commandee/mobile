@@ -29,16 +29,15 @@ class _CounterState extends State<Counter> {
     return Row(children: [
       ElevatedButton(
           style: ElevatedButton.styleFrom(
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(16.0))),
+              shape: CircleBorder()),
           onPressed: () {
-            setState(() => _value = value - 1 >= 0 ? value - 1 : 0);
+            setState(() => _value = value - 1 >= 1 ? value - 1 : 1);
             widget.onChanged?.call(_value);
           },
-          child: Icon(Icons.minimize_rounded)),
+          child: Text("-", style: TextStyle(fontSize: 24),),),
       SizedBox(
-        height: 13.0,
-        width: 40.0,
+        height: 2.0,
+        width: 30.0,
         child: TextField(
           decoration: InputDecoration(
             border: InputBorder.none,
@@ -52,8 +51,7 @@ class _CounterState extends State<Counter> {
       ),
       ElevatedButton(
         style: ElevatedButton.styleFrom(
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(16.0))),
+              shape: CircleBorder()),
           onPressed: () {
             setState(() => _value = value + 1 <= 99 ? value + 1 : 99);
             widget.onChanged?.call(_value);
